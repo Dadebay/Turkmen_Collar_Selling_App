@@ -1,21 +1,42 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bilermennesil.yaka">
-     <uses-permission android:name="android.permission.INTERNET" />
-     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- İnternet ve Ağ izinleri -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Harici depolama izinleri (Android 10 ve sonrası için kaldırılabilir) -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
+    <!-- Telefon ve SMS izinleri -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    
+    <!-- USB erişim izinleri -->
     <uses-permission android:name="android.permission.MANAGE_USB" /> 
-   <application
+    <uses-permission android:name="android.permission.ACCESS_USB"/>
+
+    <!-- Bildirim izni (Android 13 ve sonrası için gereklidir) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
         android:label="Ýaka"
         android:name="${applicationName}"
+        android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true"
-        android:icon="@mipmap/ic_launcher">
-               <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
-              android:exported="true">   
-    </receiver> 
+        android:icon="@mipmap/ic_launcher"
+        android:networkSecurityConfig="@xml/network_security_config">
+
+        <!-- Bildirim alıcı (local notifications için) -->
+        <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
+            android:exported="true" />
+
+        <!-- Ana Aktivite -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -24,24 +45,28 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
+
             <meta-data
-              android:name="io.flutter.embedding.android.NormalTheme"
-              android:resource="@style/NormalTheme"
-              />
+                android:name="io.flutter.embedding.android.NormalTheme"
+                android:resource="@style/NormalTheme" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-            <intent-filter>
-		<action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
-	</intent-filter>
 
-	<meta-data android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
-		android:resource="@xml/device_filter" />
+            <!-- USB Cihaz Erişimi -->
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+            <meta-data 
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/device_filter" />
         </activity>
-     
+
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+
 </manifest>

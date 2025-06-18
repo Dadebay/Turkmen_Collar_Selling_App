@@ -2,20 +2,17 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
-import 'package:yaka2/app/feature/home/models/clothes_model.dart';
-import 'package:yaka2/app/feature/home/models/collar_model.dart';
+import 'package:yaka2/app/feature/home/models/product_model.dart';
 
 import '../../auth/services/auth_service.dart';
 
 class FavService {
-  Future<List<DressesModelFavorites>> getProductFavList() async {
+  Future<List<ProductModel>> getProductFavList() async {
     final token = await Auth().getToken();
 
-    final List<DressesModelFavorites> favListProducts = [];
+    final List<ProductModel> favListProducts = [];
     final response = await http.get(
-      Uri.parse(
-        '${Auth.serverURL}/api/v1/users/me/favorite-products',
-      ),
+      Uri.parse('${Auth.serverURL}/api/v1/users/me/favorite-products'),
       headers: <String, String>{
         HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8',
         HttpHeaders.authorizationHeader: 'Bearer $token',
@@ -26,8 +23,8 @@ class FavService {
         return favListProducts;
       } else {
         final responseJson = json.decode(response.body);
-        for (final Map product in responseJson['data']) {
-          favListProducts.add(DressesModelFavorites.fromJson(product));
+        for (final Map<dynamic, dynamic> product in responseJson['data']) {
+          favListProducts.add(ProductModel.fromJson(product));
         }
         return favListProducts;
       }
@@ -36,25 +33,25 @@ class FavService {
     }
   }
 
-  Future<List<FavoritesModelCollar>> getCollarFavList() async {
+  Future<List<ProductModel>> getCollarFavList() async {
     final token = await Auth().getToken();
-    final List<FavoritesModelCollar> favListCollar = [];
+    final List<ProductModel> favListCollar = [];
     final response = await http.get(
-      Uri.parse(
-        '${Auth.serverURL}/api/v1/users/me/favorites',
-      ),
+      Uri.parse('${Auth.serverURL}/api/v1/users/me/favorites'),
       headers: <String, String>{
         HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8',
         HttpHeaders.authorizationHeader: 'Bearer $token',
       },
     );
+    print('__________________________________________________________________________________________________________');
+    print(response.body);
     if (response.statusCode == 200) {
       if (token == null) {
         return favListCollar;
       } else {
         final responseJson = json.decode(response.body);
         for (final Map product in responseJson['data']) {
-          favListCollar.add(FavoritesModelCollar.fromJson(product));
+          favListCollar.add(ProductModel.fromJson(product)..downloadable = true);
         }
         return favListCollar;
       }

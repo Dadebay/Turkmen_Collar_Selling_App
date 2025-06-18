@@ -60,11 +60,11 @@ class ProductsModelMini {
 
   factory ProductsModelMini.fromJson(Map<dynamic, dynamic> json) {
     return ProductsModelMini(
-      price: json['price'],
-      name: json['name'],
-      id: json['id'],
-      quantity: json['quantity'],
-      image: json['thumb'],
+      price: json['price'] ?? '',
+      name: json['name'] ?? '',
+      id: json['id'] ?? 0,
+      quantity: json['quantity'] ?? 0,
+      image: json['images'][0] ?? '',
     );
   }
 }

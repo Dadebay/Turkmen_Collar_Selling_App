@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yaka2/app/feature/home/models/product_model.dart';
 import 'package:yaka2/app/product/buttons/add_cart_button.dart';
@@ -14,112 +13,56 @@ class CardCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: Get.size.width,
-      height: Get.size.height / 5,
-      margin: const EdgeInsets.only(left: 15, right: 15, top: 15),
-      child: ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          elevation: 1,
-          // backgroundColor: Theme.of(context).colorScheme.background,
-          padding: EdgeInsets.zero,
-          shape: RoundedRectangleBorder(borderRadius: context.border.normalBorderRadius),
-        ),
-        child: Row(
-          children: [
-            Expanded(
-              flex: 2,
-              child: Container(
-                margin: const EdgeInsets.all(12),
-                width: Get.size.width,
-                height: Get.size.height,
-                decoration: BoxDecoration(
-                  borderRadius: context.border.lowBorderRadius,
-                  color: ColorConstants.whiteColor,
-                ),
-                child: ClipRRect(
-                  borderRadius: context.border.lowBorderRadius,
-                  child: CachedNetworkImage(
-                    fadeInCurve: Curves.ease,
-                    imageUrl: productModel.image,
-                    imageBuilder: (context, imageProvider) => Container(
-                      decoration: BoxDecoration(
-                        borderRadius: context.border.lowBorderRadius,
-                        image: DecorationImage(
-                          image: imageProvider,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    placeholder: (context, url) => Loading(),
-                    errorWidget: (context, url, error) => NoImage(),
-                  ),
-                ),
+      height: WidgetSizes.size180.value,
+      padding: context.padding.normal,
+      margin: context.padding.normal.copyWith(bottom: 0),
+      decoration: BoxDecoration(
+        borderRadius: context.border.normalBorderRadius,
+        color: ColorConstants.whiteColor,
+        boxShadow: [BoxShadow(color: ColorConstants.greyColor.withOpacity(.3), spreadRadius: 3, blurRadius: 3)],
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 2,
+            child: Container(
+              margin: context.padding.onlyRightNormal,
+              width: Get.size.width,
+              height: Get.size.height,
+              decoration: BoxDecoration(borderRadius: context.border.lowBorderRadius, color: ColorConstants.whiteColor, border: Border.all(color: ColorConstants.blackColor.withOpacity(.4))),
+              child: ClipRRect(
+                borderRadius: context.border.lowBorderRadius,
+                child: CustomWidgets.customImageView(image: productModel.image, cover: true, borderRadius: context.border.lowBorderRadius),
               ),
             ),
-            Expanded(
-              flex: 3,
-              child: Padding(
-                padding: const EdgeInsets.only(top: 14, bottom: 10, left: 14, right: 14),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      productModel.name,
-                      textAlign: TextAlign.start,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(color: ColorConstants.blackColor, fontSize: 19),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 5),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            productModel.price,
-                            style: const TextStyle(
-                              color: ColorConstants.redColor,
-                              fontSize: 21,
-                              //fontFamily: normProBold,
-                            ),
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.only(top: 6),
-                            child: Text(
-                              ' TMT',
-                              style: TextStyle(
-                                color: ColorConstants.redColor,
-                                fontSize: 12,
-                                //fontFamily: normsProMedium,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Text(
-                      productModel.createdAt,
-                      textAlign: TextAlign.start,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        color: ColorConstants.greyColor,
-                        fontSize: 16,
-                        //fontFamily: normProBold,
-                      ),
-                    ),
-                    AddCartButton(
-                      productModel: productModel,
-                      productProfilDesign: false,
-                    ),
-                  ],
+          ),
+          Expanded(
+            flex: 3,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  productModel.name,
+                  textAlign: TextAlign.start,
+                  overflow: TextOverflow.ellipsis,
+                  style: context.general.textTheme.bodyLarge!.copyWith(color: ColorConstants.blackColor, fontWeight: FontWeight.bold, fontSize: 20),
                 ),
-              ),
+                CustomWidgets.showProductsPrice(context: context, makeBigger: true, price: productModel.price.toString()),
+                Text(
+                  productModel.createdAt,
+                  textAlign: TextAlign.start,
+                  overflow: TextOverflow.ellipsis,
+                  style: context.general.textTheme.bodyLarge!.copyWith(color: ColorConstants.greyColor, fontSize: 18),
+                ),
+                AddCartButton(
+                  productModel: productModel,
+                  productProfilDesign: false,
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

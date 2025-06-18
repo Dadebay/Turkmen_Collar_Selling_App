@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:yaka2/app/feature/auth/services/auth_service.dart';
 import 'package:yaka2/app/feature/auth/views/user_login_view.dart';
 import 'package:yaka2/app/product/cards/cart_card.dart';
+import 'package:yaka2/app/product/custom_widgets/custom_functions.dart';
 import 'package:yaka2/app/product/empty_state/empty_cart.dart';
 
 import '../../../product/constants/index.dart';
@@ -40,68 +41,51 @@ class CartView extends GetView<CartController> {
   }
 
   Container orderDetail(BuildContext context) {
-    final double sum = 0;
-    // for (var element in cartController.cartList) {
-    // double a = double.parse(element['price']);
-    // a *= element['quantity'];
-    // sum += a;
-    // }
+    double sum = 0;
+    cartController.cartList.forEach((element) {
+      sum += double.parse(element.price.toString()) * (element.quantity ?? 1);
+    });
     return Container(
       color: ColorConstants.whiteColor,
-      padding: const EdgeInsets.all(15),
+      padding: context.padding.normal,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Divider(
-            color: ColorConstants.primaryColor,
-            thickness: 1,
-          ),
+          const Divider(color: ColorConstants.primaryColor, thickness: 1),
           Padding(
-            padding: const EdgeInsets.only(top: 10),
+            padding: context.padding.verticalLow,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   'countProducts'.tr,
-                  style: const TextStyle(
-                    //fontFamily: normProBold,
-                    fontSize: 18,
-                  ),
+                  style: context.general.textTheme.bodyLarge!.copyWith(color: ColorConstants.greyColor, fontWeight: FontWeight.bold, fontSize: 18),
                 ),
                 Text(
                   cartController.cartList.length.toString(),
-                  style: const TextStyle(
-                    //fontFamily: normProBold,
-                    fontSize: 20,
-                  ),
+                  style: context.general.textTheme.bodyLarge!.copyWith(color: ColorConstants.blackColor, fontWeight: FontWeight.bold, fontSize: 20),
                 ),
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 15, top: 15),
+            padding: context.padding.verticalNormal,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   'priceProduct'.tr,
-                  style: const TextStyle(
-                    //fontFamily: normProBold,
-                    fontSize: 18,
-                  ),
+                  style: context.general.textTheme.bodyLarge!.copyWith(color: ColorConstants.greyColor, fontWeight: FontWeight.bold, fontSize: 18),
                 ),
                 Text(
-                  '${sum.toStringAsFixed(2)} TMT',
-                  style: const TextStyle(
-                    //fontFamily: normProBold,
-                    fontSize: 20,
-                  ),
+                  CustomFunctions.findPrice(sum.toString()) + ' TMT',
+                  style: context.general.textTheme.bodyLarge!.copyWith(color: ColorConstants.blackColor, fontWeight: FontWeight.bold, fontSize: 20),
                 ),
               ],
             ),
           ),
-          ElevatedButton(
-            onPressed: () async {
+          AgreeButton(
+            onTap: () async {
               final token = await Auth().getToken();
               if (token == null || token == '') {
                 showSnackBar('loginError', 'loginErrorSubtitle', ColorConstants.redColor);
@@ -114,28 +98,7 @@ class CartView extends GetView<CartController> {
                 }
               }
             },
-            style: ElevatedButton.styleFrom(backgroundColor: ColorConstants.primaryColor, shape: RoundedRectangleBorder(borderRadius: context.border.normalBorderRadius), padding: const EdgeInsets.symmetric(vertical: 15)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'orderProducts'.tr,
-                  style: const TextStyle(
-                    color: ColorConstants.whiteColor,
-                  ),
-                  //fontFamily: normsProMedium, fontSize: 19),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(
-                    left: 10,
-                  ),
-                  child: Icon(
-                    IconlyBroken.arrowRightCircle,
-                    color: ColorConstants.whiteColor,
-                  ),
-                ),
-              ],
-            ),
+            text: 'orderProducts',
           ),
         ],
       ),

@@ -9,20 +9,17 @@ class EmptyCart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: context.padding.normal,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Lottie.asset('assets/lottie/emptyCART.json', width: 350, height: 350),
+            Lottie.asset(IconConstants.emptyCart, width: WidgetSizes.size350.value, height: WidgetSizes.size350.value),
             Text(
               'cartEmpty'.tr,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: ColorConstants.blackColor, //fontFamily: normProBold,
-                fontSize: 20,
-              ),
+              style: context.general.textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
             ),
             Text(
               'cartEmptySubtitle'.tr,

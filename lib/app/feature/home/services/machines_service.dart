@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
-import 'package:yaka2/app/feature/home/models/clothes_model.dart';
 import 'package:yaka2/app/feature/home/models/product_model.dart';
 
 import '../../auth/services/auth_service.dart';
@@ -31,7 +30,7 @@ class MachineService {
     }
   }
 
-  Future<DressesModelByID> getMachineByID(int id) async {
+  Future<ProductModel> getMachineByID(int id) async {
     final token = await Auth().getToken();
     final response = await http.get(
       Uri.parse(
@@ -45,9 +44,9 @@ class MachineService {
     log(response.body.toString());
     if (response.statusCode == 200) {
       final responseJson = json.decode(response.body);
-      return DressesModelByID.fromJson(responseJson);
+      return ProductModel.fromJson(responseJson);
     } else {
-      return DressesModelByID();
+      return ProductModel(id: 0, name: '', createdAt: '', image: '', price: '', categoryName: '', downloadable: false);
     }
   }
 }

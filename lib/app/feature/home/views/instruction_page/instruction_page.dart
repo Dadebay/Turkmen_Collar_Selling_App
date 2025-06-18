@@ -7,10 +7,10 @@ import 'package:yaka2/app/product/constants/index.dart';
 class InstructionPage extends StatelessWidget {
   const InstructionPage({Key? key}) : super(key: key);
   final List<Map<String, String>> videos = const [
-    {'title': 'videoTitle1', 'path': 'assets/videos/video1.mp4'},
-    {'title': 'videoTitle2', 'path': 'assets/videos/video1.mp4'},
-    {'title': 'videoTitle3', 'path': 'assets/videos/video1.mp4'},
-    {'title': 'videoTitle4', 'path': 'assets/videos/video1.mp4'},
+    {'title': 'videoTitle1', 'path': 'assets/videos/1.mp4'},
+    {'title': 'videoTitle2', 'path': 'assets/videos/2.mp4'},
+    {'title': 'videoTitle4', 'path': 'assets/videos/3.mp4'},
+    {'title': 'videoTitle3', 'path': 'assets/videos/4.mp4'},
   ];
 
   @override
@@ -32,16 +32,16 @@ class InstructionPage extends StatelessWidget {
                 unselectedLabelColor: ColorConstants.whiteColor.withOpacity(.8),
                 isScrollable: false,
                 tabs: [
-                  Tab(text: 'image_tabbar'.tr),
                   Tab(text: 'video_tabbar'.tr),
+                  Tab(text: 'image_tabbar'.tr),
                 ],
               ),
             ),
             Expanded(
               child: TabBarView(
                 children: [
-                  _tabbarPage1(),
                   _tabbarPage2(),
+                  _tabbarPage1(),
                 ],
               ),
             ),

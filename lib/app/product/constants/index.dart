@@ -23,6 +23,5 @@ export 'border_radius_constants.dart';
 export 'color_constants.dart';
 export 'icon_constants.dart';
 export 'list_constants.dart';
-export 'notification_service.dart';
 export 'string_constants.dart';
 export 'theme_contants.dart';

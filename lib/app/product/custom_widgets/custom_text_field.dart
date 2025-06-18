@@ -12,6 +12,8 @@ class CustomTextField extends StatelessWidget {
   final bool isNumber;
   final String labelName;
   final int? maxline;
+  final Widget? prefixIcon;
+  final Function(String value)? onChanged;
   final FocusNode requestfocusNode;
 
   const CustomTextField({
@@ -22,6 +24,8 @@ class CustomTextField extends StatelessWidget {
     required this.isNumber,
     this.isLabel = false,
     this.maxline,
+    this.onChanged,
+    this.prefixIcon,
     Key? key,
   }) : super(key: key);
 
@@ -42,6 +46,7 @@ class CustomTextField extends StatelessWidget {
         onEditingComplete: () {
           requestfocusNode.requestFocus();
         },
+        onChanged: onChanged,
         keyboardType: isNumber ? TextInputType.number : TextInputType.text,
         maxLines: maxline ?? 1,
         focusNode: focusNode,
@@ -59,6 +64,7 @@ class CustomTextField extends StatelessWidget {
                   maxLines: 5,
                   overflow: TextOverflow.ellipsis,
                 ),
+          prefixIcon: prefixIcon,
           labelStyle: context.general.textTheme.titleLarge!.copyWith(color: ColorConstants.greyColor.withOpacity(.5), fontWeight: FontWeight.w500),
           contentPadding: context.padding.normal,
           border: OutlineInputBorder(

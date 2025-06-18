@@ -5,7 +5,6 @@ import 'package:yaka2/app/feature/home/controllers/home_controller.dart';
 import 'package:yaka2/app/feature/home/views/components/banners_view.dart';
 import 'package:yaka2/app/feature/home/views/components/category_view.dart';
 import 'package:yaka2/app/feature/home/views/components/listviews/listview_clothes_view.dart';
-import 'package:yaka2/app/feature/home/views/components/listviews/listview_collars_view.dart';
 import 'package:yaka2/app/feature/home/views/components/listviews/listview_goods.dart';
 import 'package:yaka2/app/feature/home/views/components/listviews/listview_machines_view.dart';
 import 'package:yaka2/app/product/constants/index.dart';
@@ -36,13 +35,14 @@ class _HomeViewState extends State<HomeView> {
       onRefresh: _onRefresh,
       enablePullDown: true,
       enablePullUp: false,
-      physics: const BouncingScrollPhysics(),
+      onLoading: null,
+      // physics: const BouncingScrollPhysics(),
       header: const MaterialClassicHeader(color: ColorConstants.primaryColor),
       child: ListView(
         children: [
           BannersView(),
           CategoryView(),
-          ListviewCollarsView(),
+          // ListviewCollarsView(),
           ListviewClothesView(),
           ListViewGoods(),
           ListviewMachinesView(),

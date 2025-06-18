@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:yaka2/app/product/buttons/profile_button.dart';
+import 'package:yaka2/app/feature/user_profil/components/profile_button.dart';
 
 import '../../../product/constants/index.dart';
 import '../controllers/user_profil_controller.dart';

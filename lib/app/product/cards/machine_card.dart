@@ -1,9 +1,8 @@
 import 'package:get/get.dart';
 import 'package:yaka2/app/feature/home/models/product_model.dart';
+import 'package:yaka2/app/feature/product_profil/views/product_profil_view.dart';
 import 'package:yaka2/app/product/buttons/add_cart_button.dart';
-import 'package:yaka2/app/product/custom_widgets/custom_functions.dart';
 
-import '../../feature/product_profil/views/machines_product_profil.dart';
 import '../constants/index.dart';
 
 // ignore: must_be_immutable
@@ -17,7 +16,7 @@ class MachineCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Get.to(() => MachinesProductProfil(productModel: productModel)),
+      onTap: () => Get.to(() => ProductProfilView(product: productModel)),
       child: Container(
         width: Get.size.width / 1.2,
         margin: context.padding.normal.copyWith(top: 5, right: 0),
@@ -45,7 +44,7 @@ class MachineCard extends StatelessWidget {
                       maxLines: 1,
                       style: context.general.textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
-                    CustomWidgets.showProductsPrice(context: context, makeBigger: true, price: CustomFunctions.findPrice(productModel.price)),
+                    CustomWidgets.showProductsPrice(context: context, makeBigger: true, price: productModel.price),
                     Text(
                       productModel.createdAt,
                       textAlign: TextAlign.start,

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">670434597472-2ujc41eiuq5erm080kt4g9nk5a0gknch.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">670434597472</string>
+    <string name="google_api_key" translatable="false">AIzaSyAi8Zbah0KcKl9t3oBJQd4tATW30myze4A</string>
+    <string name="google_app_id" translatable="false">1:670434597472:android:e6802e0861a43be9c6c105</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAi8Zbah0KcKl9t3oBJQd4tATW30myze4A</string>
+    <string name="google_storage_bucket" translatable="false">yaka-42c8f.firebasestorage.app</string>
+    <string name="project_id" translatable="false">yaka-42c8f</string>
+</resources>

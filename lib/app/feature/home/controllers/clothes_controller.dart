@@ -28,7 +28,7 @@ class ClothesController extends GetxController {
       parametrs: {'page': '${clothesPage.value}', 'limit': StringConstants.limit, 'home': '1'},
     ).then((value) {
       if (value.isEmpty) {
-        clothesLoading.value = 1;
+        clothesLoading.value = 3;
       } else {
         clothesList.addAll(value);
       }

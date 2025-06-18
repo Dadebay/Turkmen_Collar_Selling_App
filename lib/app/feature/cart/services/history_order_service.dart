@@ -20,10 +20,13 @@ class HistoryOrderService {
         HttpHeaders.authorizationHeader: 'Bearer $token',
       },
     );
+    print(response.body);
+    print(response.statusCode);
     if (response.statusCode == 200) {
       final decoded = utf8.decode(response.bodyBytes);
       final responseJson = json.decode(decoded);
       for (final Map product in responseJson['data']) {
+        print(product);
         products.add(HistoryOrderModel.fromJson(product));
       }
       return products;

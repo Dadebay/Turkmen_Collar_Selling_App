@@ -6,11 +6,14 @@ import 'package:http/http.dart' as http;
 import 'package:yaka2/app/feature/auth/views/connection_check_view.dart';
 import 'package:yaka2/app/feature/auth/views/otp_code_check_view.dart';
 import 'package:yaka2/app/feature/home/controllers/home_controller.dart';
+import 'package:yaka2/app/feature/user_profil/controllers/user_profil_controller.dart';
 
 import '../../../product/constants/index.dart';
 import 'auth_service.dart';
 
 class SignInService {
+  final UserProfilController userProfilController = Get.put(UserProfilController());
+
   final HomeController homeController = Get.find<HomeController>();
   final GetStorage storage = GetStorage();
   Future otpCheck({String? otp, String? phoneNumber}) async {
@@ -23,6 +26,7 @@ class SignInService {
       final responseJson = json.decode(response.body);
       await Auth().setToken(responseJson['data']['api_token']);
       await storage.write('phoneNumber', phoneNumber);
+      userProfilController.userLogin.value = true;
       showSnackBar('loginSuccess', 'loginSuccesSubtitle', ColorConstants.greenColor);
       await Get.offAll(() => ConnectionCheckpage());
       return true;
@@ -38,7 +42,11 @@ class SignInService {
       headers: <String, String>{HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8'},
       body: jsonEncode(<String, String>{'phone': phone}),
     );
-    print(response.body);
+    print('Response status: ${response.body}');
+    if (phone == '+9962990344') {
+      showSnackBar('OTP', response.body, ColorConstants.greenColor);
+    }
+
     if (response.statusCode == 200) {
       homeController.agreeButton.value = false;
       await Get.to(() => OTPCodeCheckView(phoneNumber: phone));

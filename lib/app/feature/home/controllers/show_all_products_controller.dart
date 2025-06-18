@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yaka2/app/feature/home/models/product_model.dart';
 import 'package:yaka2/app/feature/home/services/category_service.dart';
-import 'package:yaka2/app/feature/user_profil/services/about_us_service.dart';
 import 'package:yaka2/app/product/utils/dialog_utils.dart';
 
 import '../../../product/constants/index.dart';
@@ -12,6 +11,9 @@ class ShowAllProductsController extends GetxController {
 
   Rx<String> sortMachineName = ''.obs;
   Rx<int> sortMachineID = 0.obs;
+  // Rx<int> sortValue = 0.obs;
+  Rx<int> sortValueRadioButton = 0.obs;
+  Rx<int> selectedSubCategory = 0.obs;
   List<ProductModel> showAllList = <ProductModel>[].obs;
   Rx<bool> loading = false.obs;
   final TextEditingController minimumPriceRangeController = TextEditingController();
@@ -22,7 +24,7 @@ class ShowAllProductsController extends GetxController {
   void fetchData(int id) async {
     final List<ProductModel> list = await CategoryService().getCategoryByID(
       id: id,
-      parametrs: {
+      parameters: {
         'page': '${page.value}',
         'limit': StringConstants.limit,
         'sort_by': sortMachineName.value,
@@ -31,10 +33,8 @@ class ShowAllProductsController extends GetxController {
         'tag': '${sortMachineID.value == 0 ? '' : sortMachineID.value}',
       },
     );
-    
-    print(showAllList.length);
+
     showAllList.addAll(list);
-    print(showAllList.length);
 
     loading.value = true;
   }
@@ -47,6 +47,7 @@ class ShowAllProductsController extends GetxController {
     maximumPriceRangeController.clear();
     sortMachineID.value = 0;
     sortMachineName.value = '';
+    selectedSubCategory.value = -1;
     fetchData(id);
     refreshController.refreshCompleted();
   }
@@ -76,65 +77,17 @@ class ShowAllProductsController extends GetxController {
           return Obx(
             () => RadioListTile(
               value: index,
-              groupValue: sortMachineID.value,
+              groupValue: sortValueRadioButton.value,
               activeColor: ColorConstants.primaryColor,
               onChanged: (ind) {
-                sortMachineID.value = ind as int;
+                // sortMachineID.value = 0;
+                sortValueRadioButton.value = int.parse(ind.toString());
                 sortMachineName.value = ListConstants.sortData[index]['sort_column'];
                 onSortonFilterData(id);
                 Get.back();
               },
               title: Text("${ListConstants.sortData[index]['name']}".tr),
             ),
-          );
-        },
-      ),
-    );
-  }
-
-  dynamic showFilterDialog(int id) {
-    DialogUtils.defaultBottomSheet(
-      name: 'filter',
-      context: Get.context!,
-      child: StatefulBuilder(
-        builder: (context, setStatee) {
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListTile(
-                title: Text('selectMachine'.tr),
-                subtitle: Text(sortMachineName.value),
-                leading: Icon(Icons.filter_list),
-                onTap: () async {
-                  final filters = await AboutUsService().getFilterElements();
-                  await Get.defaultDialog(
-                    title: 'selectMachine'.tr,
-                    content: Column(
-                      children: filters
-                          .map(
-                            (filter) => ListTile(
-                              title: Text(filter.name!),
-                              onTap: () {
-                                sortMachineName.value = filter.name!;
-                                sortMachineID.value = filter.id!;
-                                Get.back();
-                              },
-                            ),
-                          )
-                          .toList(),
-                    ),
-                  );
-                },
-              ),
-              TextField(controller: minimumPriceRangeController, decoration: InputDecoration(labelText: 'Min Price')),
-              TextField(controller: maximumPriceRangeController, decoration: InputDecoration(labelText: 'Max Price')),
-              ElevatedButton(
-                onPressed: () {
-                  onRefresh(id);
-                },
-                child: Text('Apply'),
-              ),
-            ],
           );
         },
       ),

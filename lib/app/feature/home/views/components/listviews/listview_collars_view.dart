@@ -3,9 +3,23 @@ import 'package:yaka2/app/feature/home/controllers/collars_controller.dart';
 import 'package:yaka2/app/product/cards/product_card.dart';
 import 'package:yaka2/app/product/utils/packages_index.dart';
 
-class ListviewCollarsView extends StatelessWidget {
-  final CollarController collarController = Get.put(CollarController());
+class ListviewCollarsView extends StatefulWidget {
   ListviewCollarsView({Key? key}) : super(key: key);
+
+  @override
+  State<ListviewCollarsView> createState() => _ListviewCollarsViewState();
+}
+
+class _ListviewCollarsViewState extends State<ListviewCollarsView> {
+  final CollarController collarController = Get.put(CollarController());
+
+  final RefreshController listviewRefreshController = RefreshController();
+
+  @override
+  void dispose() {
+    listviewRefreshController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +43,11 @@ class ListviewCollarsView extends StatelessWidget {
             Expanded(
               child: SmartRefresher(
                 footer: footer(),
-                controller: collarController.refreshController,
-                onLoading: collarController.collarOnLoading,
+                controller: listviewRefreshController,
+                onLoading: () async {
+                  await collarController.collarOnLoading();
+                  listviewRefreshController.loadComplete();
+                },
                 enablePullDown: false,
                 enablePullUp: true,
                 scrollDirection: Axis.horizontal,

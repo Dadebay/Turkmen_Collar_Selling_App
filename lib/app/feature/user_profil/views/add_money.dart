@@ -3,7 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-import 'package:yaka2/app/feature/cart/services/file_download_service.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+import 'package:yaka2/app/feature/cart/services/downloads_service.dart';
 import 'package:yaka2/app/feature/home/controllers/balance_controller.dart';
 import 'package:yaka2/app/feature/user_profil/controllers/user_profil_controller.dart';
 import 'package:yaka2/app/product/constants/index.dart';
@@ -21,7 +22,6 @@ class AddCash extends StatefulWidget {
 class _AddCashState extends State<AddCash> {
   int value = 0;
   String number = '';
-
   final BalanceController controller = Get.find();
   @override
   void initState() {
@@ -34,6 +34,7 @@ class _AddCashState extends State<AddCash> {
 
   List moneyList = [10, 20, 30, 40, 50];
   final UserProfilController userProfilController = Get.find();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,13 +105,14 @@ class _AddCashState extends State<AddCash> {
             ),
           ),
           AgreeButton(
+            text: 'payment'.tr,
             onTap: () async {
               final token = await Auth().getToken();
               if (token == null || token == '') {
                 showSnackBar('loginError', 'loginErrorSubtitle1', ColorConstants.redColor);
                 await Get.to(() => UserLoginView());
               } else {
-                await FileDownloadService().getAvailabePhoneNumber().then((element) async {
+                await DownloadsService().getAvailabePhoneNumber().then((element) async {
                   final String phoneNumber = element['data'][0];
                   if (Platform.isAndroid) {
                     final uri = 'sms:0804?body=$phoneNumber   ${moneyList[value]} ';
@@ -123,8 +125,70 @@ class _AddCashState extends State<AddCash> {
               }
             },
           ),
+          SizedBox(height: 10),
+          AgreeButton(
+            text: 'onlinePayment'.tr,
+            onTap: () async {
+              final token = await Auth().getToken();
+              if (token == null || token == '') {
+                showSnackBar('loginError', 'loginErrorSubtitle1', ColorConstants.redColor);
+                await Get.to(() => UserLoginView());
+              } else {
+                final formUrl = await userProfilController.sendTransactionSMS(
+                  sender: number,
+                  amount: moneyList[value].toString(),
+                );
+
+                if (formUrl != null) {
+                  await Get.to(
+                    () => OnlineAddMoneyToWallet(
+                      url: formUrl,
+                      amount: moneyList[value].toString(),
+                    ),
+                  );
+                } else {
+                  showSnackBar('Error', 'Unable to initiate payment', ColorConstants.redColor);
+                }
+              }
+            },
+          ),
         ],
       ),
+    );
+  }
+}
+
+class OnlineAddMoneyToWallet extends StatefulWidget {
+  const OnlineAddMoneyToWallet({
+    required this.url,
+    required this.amount,
+    super.key,
+  });
+
+  final String url;
+  final String amount;
+
+  @override
+  State<OnlineAddMoneyToWallet> createState() => _OnlineAddMoneyToWalletState();
+}
+
+class _OnlineAddMoneyToWalletState extends State<OnlineAddMoneyToWallet> {
+  late WebViewController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..loadRequest(Uri.parse(widget.url));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: CustomAppBar(title: 'onlinePayment', showBackButton: true),
+      body: WebViewWidget(controller: _controller),
     );
   }
 }

@@ -77,7 +77,8 @@ class AboutUsService {
         HttpHeaders.authorizationHeader: 'Bearer $token',
       },
     );
-    log('user money ----------------${response.body}');
+    log('user money ----------------${response.statusCode}');
+    print('user money ----------------${response.body}');
     if (response.statusCode == 200) {
       final decoded = utf8.decode(response.bodyBytes);
       final responseJson = json.decode(decoded);
@@ -98,6 +99,11 @@ class AboutUsService {
         HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8',
       },
     );
+    print(response.body);
+    print(response.body);
+    print(response.body);
+    print(response.body);
+    print(response.body);
     if (response.statusCode == 200) {
       final decoded = utf8.decode(response.bodyBytes);
       final responseJson = json.decode(decoded);

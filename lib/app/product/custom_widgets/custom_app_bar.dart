@@ -11,8 +11,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool showBackButton;
   final bool? showWallet;
   final Widget? actionButton;
+  final Widget? leadingButton;
 
-  CustomAppBar({required this.title, required this.showBackButton, this.showWallet, this.actionButton});
+  CustomAppBar({required this.title, required this.showBackButton, this.showWallet, this.leadingButton, this.actionButton});
   final BalanceController balanceController = Get.find();
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 color: ColorConstants.whiteColor,
               ),
             )
-          : null,
+          : leadingButton ?? const SizedBox.shrink(),
       title: Text(
         title.tr,
         style: context.general.textTheme.headlineMedium!.copyWith(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),

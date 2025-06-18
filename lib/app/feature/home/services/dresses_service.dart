@@ -6,7 +6,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:yaka2/app/feature/home/controllers/clothes_controller.dart';
-import 'package:yaka2/app/feature/home/models/clothes_model.dart';
 import 'package:yaka2/app/feature/home/models/product_model.dart';
 
 import '../../auth/services/auth_service.dart';
@@ -60,7 +59,7 @@ class DressesService {
     }
   }
 
-  Future<DressesModelByID> getDressesByID(int id) async {
+  Future<ProductModel> getDressesByID(int id) async {
     final token = await Auth().getToken();
     final fcmToken = await FirebaseMessaging.instance.getToken(); // FCM token'ını almak için
 
@@ -74,9 +73,9 @@ class DressesService {
     log('Get Dresses By ID Response: ${response.body}');
     if (response.statusCode == 200) {
       final responseJson = json.decode(response.body);
-      return DressesModelByID.fromJson(responseJson);
+      return ProductModel.fromJson(responseJson);
     } else {
-      return DressesModelByID();
+      return ProductModel(id: 0, name: '', createdAt: '', image: '', price: '', categoryName: '', downloadable: false);
     }
   }
 }

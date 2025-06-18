@@ -1,27 +1,17 @@
+// ignore_for_file: always_declare_return_types
+
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:yaka2/app/feature/auth/models/auth_model.dart';
 import 'package:yaka2/app/feature/auth/views/user_login_view.dart';
 import 'package:yaka2/app/feature/home/views/bottom_nav_bar_view.dart';
+import 'package:yaka2/app/feature/product_profil/controllers/product_profil_controller.dart';
 import 'package:yaka2/app/feature/user_profil/controllers/user_profil_controller.dart';
 import 'package:yaka2/app/product/constants/index.dart';
 
 class DialogUtils {
-  dynamic showNotificationPermissionDialog(BuildContext context) {
-    return DialogUtils.showLoginDialog(
-      context: context,
-      title: 'notificationTitle',
-      agreeButton: 'giveAccess',
-      subtitle: 'notificationSubtitle',
-      image: IconConstants.loginLottie,
-      onCancel: () => Get.back(),
-      onRetry: () => Permission.notification.request(),
-    );
-  }
-
   static void defaultBottomSheet({required String name, required Widget child, required BuildContext context}) {
     Get.bottomSheet(
       Container(
@@ -368,6 +358,108 @@ class DialogUtils {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  static downloadDialog(BuildContext context) {
+    final ProductProfilController productProfilController = Get.find();
+
+    Get.dialog(
+      Center(
+        child: Container(
+          width: WidgetSizes.size220.value,
+          height: WidgetSizes.size220.value,
+          padding: context.padding.normal,
+          decoration: BoxDecoration(color: ColorConstants.whiteColor, borderRadius: context.border.normalBorderRadius, boxShadow: [BoxShadow(color: ColorConstants.greyColor, spreadRadius: 3, blurRadius: 4)]),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const CircularProgressIndicator(color: ColorConstants.primaryColor),
+                const SizedBox(height: 25),
+                Obx(
+                  () => Text(
+                    'downloadedYakalar'.tr + '${productProfilController.sany.value}/${productProfilController.totalSum.value}',
+                    textAlign: TextAlign.center,
+                    maxLines: 4,
+                    style: context.general.textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  static Future<dynamic> askToDownloadYaka({required int index, required BuildContext context, required Function() downloadYaka}) {
+    return Get.defaultDialog(
+      title: 'Üns ber',
+      contentPadding: context.padding.normal,
+      titlePadding: context.padding.onlyTopNormal,
+      titleStyle: context.general.textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold, fontSize: 24),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: context.padding.normal.copyWith(top: 0),
+            child: Text(
+              'wantToBuyCollar'.tr,
+              textAlign: TextAlign.center,
+              style: context.general.textTheme.bodyLarge!.copyWith(fontSize: 20),
+            ),
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: context.padding.low,
+                  child: ElevatedButton(
+                    onPressed: downloadYaka,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: ColorConstants.primaryColor,
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(borderRadius: context.border.lowBorderRadius),
+                      padding: context.padding.low,
+                    ),
+                    child: Text(
+                      'agree'.tr,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      style: context.general.textTheme.bodyLarge!.copyWith(fontSize: 20, color: ColorConstants.whiteColor, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: context.padding.low,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: ColorConstants.greyColor.withOpacity(0.6),
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(borderRadius: context.border.lowBorderRadius),
+                      padding: context.padding.low,
+                    ),
+                    child: Text(
+                      'no'.tr,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      style: context.general.textTheme.bodyLarge!.copyWith(fontSize: 18, color: ColorConstants.blackColor),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

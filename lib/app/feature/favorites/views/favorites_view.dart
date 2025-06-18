@@ -2,128 +2,136 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:kartal/kartal.dart';
-import 'package:yaka2/app/feature/favorites/services/fav_service.dart';
-import 'package:yaka2/app/feature/home/models/collar_model.dart';
-import 'package:yaka2/app/feature/home/models/product_model.dart';
 import 'package:yaka2/app/product/cards/product_card.dart';
 import 'package:yaka2/app/product/constants/color_constants.dart';
 import 'package:yaka2/app/product/empty_state/empty_state.dart';
 import 'package:yaka2/app/product/error_state/error_state.dart';
 import 'package:yaka2/app/product/loadings/loading.dart';
 
-import '../../home/models/clothes_model.dart';
 import '../controllers/favorites_controller.dart';
 
-class FavoritesView extends GetView<FavoritesController> {
-  @override
-  final FavoritesController controller = Get.put(FavoritesController());
-
+class FavoritesView extends StatefulWidget {
   FavoritesView({Key? key}) : super(key: key);
+
+  @override
+  State<FavoritesView> createState() => _FavoritesViewState();
+}
+
+class _FavoritesViewState extends State<FavoritesView> {
+  final FavoritesController controller = Get.find<FavoritesController>();
+  @override
+  void initState() {
+    super.initState();
+    controller.fetchFavoriteCollars();
+    controller.fetchFavoriteProducts();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        appBar: appBar(context),
+        appBar: _appBar(context),
         body: TabBarView(
           children: [
-            firstpage(),
-            secondPage(),
+            _buildCollarPage(),
+            _buildProductPage(),
           ],
         ),
       ),
     );
   }
 
-  FutureBuilder<List<DressesModelFavorites>> secondPage() {
-    return FutureBuilder<List<DressesModelFavorites>>(
-      future: FavService().getProductFavList(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Loading();
-        } else if (snapshot.hasError) {
-          return ErrorState(
-            onTap: () {
-              FavService().getProductFavList();
-            },
-          );
-        } else if (snapshot.data!.isEmpty) {
-          return EmptyState(name: 'emptyFavoriteSubtitle', type: EmptyStateType.lottie);
-        }
-        return GridView.builder(
-          itemCount: snapshot.data!.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: 9 / 14),
-          itemBuilder: (BuildContext context, int index) {
-            return ProductCard(product: ProductModel.fromJson(snapshot.data![index] as Map));
-          },
+  Widget _buildCollarPage() {
+    return Obx(() {
+      if (controller.isLoadingCollars.value) {
+        return Loading();
+      } else if (controller.collarError.value.isNotEmpty) {
+        return ErrorState(
+          onTap: () => controller.fetchFavoriteCollars(),
         );
-      },
-    );
-  }
-
-  FutureBuilder<List<FavoritesModelCollar>> firstpage() {
-    return FutureBuilder<List<FavoritesModelCollar>>(
-      future: FavService().getCollarFavList(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Loading();
-        } else if (snapshot.hasError) {
-          return ErrorState(
-            onTap: () {
-              FavService().getProductFavList();
-            },
-          );
-        } else if (snapshot.data!.isEmpty) {
-          return EmptyState(name: 'emptyFavoriteSubtitle', type: EmptyStateType.lottie);
-        }
+      } else if (controller.favoriteCollars.isEmpty) {
+        return EmptyState(
+          name: 'emptyFavoriteSubtitle'.tr,
+          type: EmptyStateType.lottie,
+        );
+      } else {
         return GridView.builder(
-          itemCount: snapshot.data!.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: 9 / 14),
+          key: const PageStorageKey('collarFavoritesGrid'),
+          physics: const BouncingScrollPhysics(),
+          itemCount: controller.favoriteCollars.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 9 / 14,
+          ),
           itemBuilder: (BuildContext context, int index) {
-            final double a = double.parse(snapshot.data![index].price.toString());
-            final double b = a / 100.0;
-            final product = ProductModel(id: snapshot.data![index].id!, name: snapshot.data![index].name!, createdAt: snapshot.data![index].createdAt!, image: snapshot.data![index].image!, price: b.toString(), categoryName: '', downloadable: true);
+            final product = controller.favoriteCollars[index];
+            print('Collar favorites: ${controller.favoriteCollars[index].id}');
+            print('Collar favorites: ${controller.favoriteCollars[index].name}');
+            print(product.downloadable);
             return ProductCard(product: product);
-            // return ProductCard(
-            //   categoryName: '',
-            //   image: snapshot.data![index].image!,
-            //   name: '${snapshot.data![index].name}',
-            //   price: b.toString(),
-            //   id: snapshot.data![index].id!,
-            //   downloadable: true,
-            //   createdAt: snapshot.data![index].createdAt!,
-            // );
           },
         );
-      },
-    );
+      }
+    });
   }
 
-  AppBar appBar(BuildContext context) {
+  Widget _buildProductPage() {
+    return Obx(() {
+      if (controller.isLoadingProducts.value) {
+        return Loading();
+      } else if (controller.productError.value.isNotEmpty) {
+        return ErrorState(
+          onTap: () => controller.fetchFavoriteProducts(),
+        );
+      } else if (controller.favoriteProducts.isEmpty) {
+        return EmptyState(
+          name: 'emptyFavoriteSubtitle'.tr,
+          type: EmptyStateType.lottie,
+        );
+      } else {
+        return GridView.builder(
+          key: const PageStorageKey('productFavoritesGrid'),
+          physics: const BouncingScrollPhysics(),
+          itemCount: controller.favoriteProducts.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 9 / 14,
+          ),
+          itemBuilder: (BuildContext context, int index) {
+            final product = controller.favoriteProducts[index];
+
+            return ProductCard(product: product);
+          },
+        );
+      }
+    });
+  }
+
+  AppBar _appBar(BuildContext context) {
     return AppBar(
       title: Text(
         'favorites'.tr,
         style: context.general.textTheme.headlineMedium!.copyWith(color: Colors.white, fontWeight: FontWeight.w500),
       ),
       backgroundColor: ColorConstants.primaryColor,
-      systemOverlayStyle: const SystemUiOverlayStyle(statusBarColor: ColorConstants.primaryColor, statusBarIconBrightness: Brightness.dark),
+      systemOverlayStyle: const SystemUiOverlayStyle(
+        statusBarColor: ColorConstants.primaryColor,
+        statusBarIconBrightness: Brightness.light,
+      ),
       centerTitle: true,
       bottom: TabBar(
         labelStyle: context.general.textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
         unselectedLabelStyle: context.general.textTheme.titleLarge,
         labelColor: ColorConstants.whiteColor,
-        unselectedLabelColor: ColorConstants.blackColor,
-        labelPadding: const EdgeInsets.only(top: 8, bottom: 4),
+        unselectedLabelColor: ColorConstants.whiteColor.withOpacity(0.7),
+        labelPadding: const EdgeInsets.symmetric(vertical: 12),
         indicatorSize: TabBarIndicatorSize.tab,
         indicatorColor: ColorConstants.whiteColor,
         indicatorWeight: 3,
         tabs: [
-          Tab(
-            text: 'collar'.tr,
-          ),
-          Tab(
-            text: 'products'.tr,
-          ),
+          Tab(text: 'collar'.tr),
+          Tab(text: 'products'.tr),
         ],
       ),
     );

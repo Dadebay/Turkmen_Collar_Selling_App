@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -5,6 +6,7 @@ import 'package:yaka2/app/feature/auth/views/connection_check_view.dart';
 import 'package:yaka2/app/product/constants/string_constants.dart';
 import 'package:yaka2/app/product/constants/theme_contants.dart';
 import 'package:yaka2/app/product/initialize/app_start_init.dart';
+import 'package:yaka2/app/product/initialize/notification_service.dart';
 
 import 'app/product/utils/translations.dart';
 
@@ -22,6 +24,18 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final storage = GetStorage();
+  @override
+  void initState() {
+    super.initState();
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      print('onMessage: ${message.notification}');
+      print('onMessage: ${message.data}');
+      print('onMessage: ${message.notification!.title}');
+      print('onMessage: ${message.notification!.body}');
+      FCMConfig().sendNotification(body: message.notification!.body!, title: message.notification!.title!);
+    });
+    AppStartInit.getNotification();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +43,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: StringConstants.appName,
       builder: (context, child) => MediaQuery(
-        data: MediaQuery.of(context).copyWith(
-          textScaler: TextScaler.noScaling,
-        ),
+        data: MediaQuery.of(context).copyWith(textScaler: TextScaler.noScaling),
         child: child!,
       ),
       useInheritedMediaQuery: true,

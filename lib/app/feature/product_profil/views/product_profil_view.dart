@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:yaka2/app/feature/home/models/clothes_model.dart';
 import 'package:yaka2/app/feature/home/models/collar_model.dart';
 import 'package:yaka2/app/feature/home/models/product_model.dart';
 import 'package:yaka2/app/feature/home/services/collars_service.dart';
@@ -18,7 +17,7 @@ class ProductProfilView extends StatefulWidget {
 }
 
 class _ProductProfilViewState extends State<ProductProfilView> {
-  late Future<DressesModelByID> future;
+  late Future<ProductModel> future;
   late Future<CollarByIDModel> collar;
   @override
   void initState() {
@@ -66,7 +65,6 @@ class _ProductProfilViewState extends State<ProductProfilView> {
   GestureDetector _videoPreview(List<dynamic> images, BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print(widget.product.videoURL!);
         Get.to(() => VideoPlayerPage(videoPath: widget.product.videoURL!, appBarTitle: widget.product.name));
       },
       child: Stack(
@@ -92,8 +90,8 @@ class _ProductProfilViewState extends State<ProductProfilView> {
     );
   }
 
-  FutureBuilder<DressesModelByID> orderPage() {
-    return FutureBuilder<DressesModelByID>(
+  FutureBuilder<ProductModel> orderPage() {
+    return FutureBuilder<ProductModel>(
       future: future,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -105,12 +103,12 @@ class _ProductProfilViewState extends State<ProductProfilView> {
           children: [
             _carouselImages(snapshot.data!.images!),
             textPart(
-              name: snapshot.data!.name!,
+              name: snapshot.data!.name,
               price: CustomFunctions.findPrice(snapshot.data!.price.toString()),
               machineName: '',
               barcode: snapshot.data!.barcode!,
               category: widget.product.categoryName,
-              downloads: snapshot.data!.createdAt!,
+              downloads: snapshot.data!.createdAt,
               views: '${snapshot.data!.views!}',
               desc: snapshot.data!.description!,
               context: context,

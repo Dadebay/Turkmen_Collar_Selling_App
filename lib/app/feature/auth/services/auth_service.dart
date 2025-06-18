@@ -4,7 +4,8 @@ import 'package:get_storage/get_storage.dart';
 
 class Auth {
   final storage = GetStorage();
-  static String serverURL = 'http://216.250.14.111';
+  // static String serverURL = 'http://216.250.14.111';
+  static String serverURL = 'https://yashelektrik.com';
 
   void login(String? data) async {
     await storage.write('data', data);

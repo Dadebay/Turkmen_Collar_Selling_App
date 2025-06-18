@@ -3,17 +3,18 @@
 import 'dart:io';
 import 'dart:math';
 
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_file_downloader/flutter_file_downloader.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:yaka2/app/feature/cart/services/file_download_service.dart';
+import 'package:yaka2/app/feature/cart/services/downloads_service.dart';
 import 'package:yaka2/app/feature/home/controllers/balance_controller.dart';
 import 'package:yaka2/app/feature/home/models/collar_model.dart';
 import 'package:yaka2/app/feature/home/services/collars_service.dart';
 import 'package:yaka2/app/feature/product_profil/controllers/product_profil_controller.dart';
 import 'package:yaka2/app/feature/product_profil/views/photo_view.dart';
 import 'package:yaka2/app/product/constants/index.dart';
+import 'package:yaka2/app/product/utils/dialog_utils.dart';
 
 class DownloadYakaPage extends StatefulWidget {
   final int id;
@@ -33,360 +34,163 @@ class DownloadYakaPage extends StatefulWidget {
 class _DownloadYakaPageState extends State<DownloadYakaPage> {
   final BalanceController homeController = Get.find();
   final ProductProfilController productProfilController = Get.put(ProductProfilController());
-  bool wait = false;
-
-  List<FilesModel> list = [];
+  List<FilesModel> machineNameList = [];
 
   @override
   void initState() {
     super.initState();
-    CollarService().getCollarsByID(widget.id).then(
-      (value) {
-        list = value.files!;
-        setState(() {});
-      },
-    );
-    createDownloadFile();
+    _fetchCollarsData();
+    _initializeDownloadDirectory();
+    homeController.userMoney();
   }
 
-  dynamic createDownloadFile() async {
+  void _fetchCollarsData() async {
+    machineNameList = (await CollarService().getCollarsByID(widget.id)).files ?? [];
+    setState(() {});
+  }
+
+  Future<int> _getAndroidVersion() async {
+    final release = await File('/system/build.prop').readAsLines().then((lines) => lines.firstWhere((line) => line.startsWith('ro.build.version.sdk='), orElse: () => 'ro.build.version.sdk=0'));
+    return int.tryParse(release.split('=').last) ?? 0;
+  }
+
+  dynamic _initializeDownloadDirectory() async {
     final path1 = Directory('storage/emulated/0/Download');
     final status = await Permission.storage.status;
+
     if (!status.isGranted) {
       await Permission.storage.request();
     } else if (status.isDenied) {
       await Permission.storage.request();
     }
+
     if (await path1.exists()) {
-      await createFolder();
+      await _createFolder();
       return path1.path;
     } else {
-      await createFolder();
+      await _createFolder();
       await path1.create();
       return path1.path;
     }
   }
 
-  Future<String> createFolder() async {
+  Future<String> _createFolder() async {
     final path = Directory('storage/emulated/0/Download/YAKA');
-    if (await path.exists()) {
-      return path.path;
-    } else {
+    if (!await path.exists()) {
       await path.create();
-      return path.path;
     }
+    return path.path;
   }
 
-  dynamic createFolderMachineNames(String name) async {
-    if (name == 'JANOME MB4-MB4S') {
-      final path1 = Directory('storage/emulated/0/Download/YAKA/JANOME MB4-MB4S');
-      if (path1.existsSync()) {
-        return path1.path;
-      } else {
-        await path1.create(recursive: true);
-        final path2 = Directory('storage/emulated/0/Download/YAKA/JANOME MB4-MB4S/Emb');
-        await path2.create();
-        return path1.path;
-      }
-    } else if (name == 'JANOME 450E-500E') {
-      final path3 = Directory('storage/emulated/0/Download/YAKA/JANOME 450E-500E');
-      if (path3.existsSync()) {
-        return path3.path;
-      } else {
-        await path3.create(recursive: true);
-        final path4 = Directory('storage/emulated/0/Download/YAKA/JANOME 450E-500E/Emb');
-        await path4.create();
-        return path3.path;
-      }
-    } else if (name == 'JANOME 350E-370E') {
-      final path3 = Directory('storage/emulated/0/Download/YAKA/JANOME 350E-370E');
-      if (path3.existsSync()) {
-        return path3.path;
-      } else {
-        await path3.create(recursive: true);
-        final path4 = Directory('storage/emulated/0/Download/YAKA/JANOME 350E-370E/EmbF5');
-        await path4.create();
-        return path3.path;
-      }
-    } else if (name == 'JANOME 200E-230E') {
-      final path3 = Directory('storage/emulated/0/Download/YAKA/JANOME 200E-230E');
-      if (path3.existsSync()) {
-        return path3.path;
-      } else {
-        await path3.create(recursive: true);
-        final path4 = Directory('storage/emulated/0/Download/YAKA/JANOME 200E-230E/Emb');
-        await path4.create();
-        return path3.path;
-      }
-    } else if (name == 'BERNETTE 340') {
-      final path3 = Directory('storage/emulated/0/Download/YAKA/BERNETTE 340');
-      if (path3.existsSync()) {
-        return path3.path;
-      } else {
-        await path3.create(recursive: true);
-        final path4 = Directory('storage/emulated/0/Download/YAKA/BERNETTE 340/EmbF5');
-        await path4.create();
-        return path3.path;
-      }
-    } else if (name == 'BROTHER V3') {
-      final path3 = Directory('storage/emulated/0/Download/YAKA/BROTHER V3');
-      if (path3.existsSync()) {
-        return path3.path;
-      } else {
-        await path3.create(recursive: true);
-        final path4 = Directory('storage/emulated/0/Download/YAKA/BROTHER V3/Emb');
-        await path4.create();
-        return path3.path;
-      }
+  Future<String> _createFolderForProduct(String machineName) async {
+    final path = Directory('storage/emulated/0/Download/YAKA/$machineName/${widget.pageName}');
+    if (!path.existsSync()) {
+      await path.create(recursive: true);
     }
+    return path.path;
   }
 
-  Future<String> createFolderProductName(String name) async {
-    final path1 = Directory('storage/emulated/0/Download/YAKA/$name/${widget.pageName}');
-    final status = await Permission.storage.status;
-    if (!status.isGranted) {
-      await Permission.storage.request();
-    }
-    if (path1.existsSync()) {
-      return path1.path;
-    } else {
-      await path1.create(recursive: true);
-      return path1.path;
-    }
+  String _extractFileExtension(String filePath) {
+    return filePath.split('.').last;
   }
 
-  dynamic findName(int index) {
-    String name = '';
-    if (list[index].machineName!.toUpperCase() == 'BROTHER V3') {
-      name = 'Emb';
-    } else if (list[index].machineName!.toUpperCase() == 'JANOME 450E-500E' || list[index].machineName!.toUpperCase() == 'JANOME MB4-MB4S' || list[index].machineName!.toUpperCase() == 'JANOME 200E-230E') {
-      name = 'Emb';
-    } else {
-      name = 'EmbF5';
-    }
-    return '${list[index].machineName!.toUpperCase()}/$name';
+  String _extractFileName(String filePath) {
+    return filePath.split('/').last.split('.').first;
   }
 
-  dynamic findFileFormat(String text) {
-    String aa = '';
-    for (int i = text.length - 1; i > 0; i--) {
-      aa += text[i];
-      if (text[i] == '.') {
-        break;
-      }
-    }
-    return aa.split('').reversed.join();
-  }
-
-  dynamic findFileName(String text) {
-    String bb = '';
-    String cc = '';
-    for (int i = text.length - 1; i > 0; i--) {
-      if (text[i] == '/') {
-        break;
-      }
-      bb += text[i];
-    }
-    for (int i = bb.length - 1; i > 0; i--) {
-      if (bb[i] == '.') {
-        break;
-      }
-      cc += bb[i];
-    }
-    return cc;
-  }
-
-  dynamic downloadYaka(int index) async {
+  Future<void> _downloadFile(int index) async {
     productProfilController.sany.value = 0;
     productProfilController.totalSum.value = 0;
-    final double balance = double.parse(homeController.balance.toString().substring(0, homeController.balance.toString().length - 2));
-    final Dio dio = Dio();
+
+    final double balance = double.parse(homeController.balance.toString().split('.')[0]);
     final Random rand = Random();
-    final String name = findName(index);
-    List<dynamic> downloadFileList = [];
-    if (list[index].purchased == false) {
-      if (balance >= list[index].price! / 100) {
-        wait = true;
-        setState(() {});
-        await FileDownloadService().downloadFile(id: list[index].id!).then(
-          (value) async {
-            downloadFileList = value;
-            productProfilController.totalSum.value = downloadFileList.length;
-            //Create Yaka folder
-            await createFolderMachineNames(list[index].machineName!.toUpperCase());
-            await createFolderProductName(name);
-            for (int i = 0; i < downloadFileList.length; i++) {
-              final int a = rand.nextInt(100);
-              final String fileFormat = findFileFormat(downloadFileList[i]);
-              final String fileName = findFileName(downloadFileList[i]);
-              try {
-                await dio.download(
-                  downloadFileList[i],
-                  'storage/emulated/0/Download/YAKA/$name/${widget.pageName}/$fileName($a)$fileFormat',
-                  onReceiveProgress: (int count, int total) {
-                    if (count == total) {
-                      productProfilController.sany.value++;
-                    }
-                  },
-                ).then((value) async {
-                  if (i == downloadFileList.length - 1) {
-                    wait = false;
-                    await CollarService().getCollarsByID(widget.id).then((value) {
-                      list = value.files!;
-                    });
-                    setState(() {
-                      showSnackBar('downloadTitle', 'downloadSubtitle', ColorConstants.primaryColor);
-                    });
-                  }
-                });
-              } catch (e) {
-                if (wait) {
-                  Future.delayed(const Duration(minutes: 1), () {
-                    wait = false;
-                    showSnackBar('noConnection3', 'error', ColorConstants.primaryColor);
-                    setState(() {});
-                  });
-                }
-              }
-            }
-          },
-        );
-        homeController.userMoney();
-      } else {
-        showSnackBar('noMoney', 'noMoneySubtitle', ColorConstants.redColor);
-      }
-    } else {
-      wait = true;
-      setState(() {});
-      await FileDownloadService().downloadFile(id: list[index].id!).then(
-        (value) async {
-          downloadFileList = value;
-          productProfilController.totalSum.value = downloadFileList.length;
-          await createFolder();
-          await createFolderMachineNames(list[index].machineName!.toUpperCase());
-          await createFolderProductName(name);
-          for (int i = 0; i < downloadFileList.length; i++) {
-            final int a = rand.nextInt(100);
-            final String fileFormat = findFileFormat(downloadFileList[i]);
-            final String fileName = findFileName(downloadFileList[i]);
-            try {
-              await dio.download(
-                downloadFileList[i],
-                'storage/emulated/0/Download/YAKA/$name/${widget.pageName}/$fileName  -$a-$fileFormat',
-                onReceiveProgress: (int count, int total) {
-                  if (count == total) {
-                    productProfilController.sany.value++;
-                  }
-                },
-              ).then((value) {
-                if (i == downloadFileList.length - 1) {
-                  wait = false;
-                  setState(() {
-                    showSnackBar('downloadTitle', 'downloadSubtitle', ColorConstants.primaryColor);
-                  });
-                }
-              });
-            } catch (e) {
-              if (wait) {
-                Future.delayed(const Duration(minutes: 1), () {
-                  wait = false;
-                  showSnackBar('noConnection3', 'error', ColorConstants.primaryColor);
-                  setState(() {});
-                });
-              }
-            }
+
+    final String machineName = machineNameList[index].machineName!.toUpperCase();
+    final String subPath = 'YAKA/$machineName/${widget.pageName}';
+
+    Get.back();
+    DialogUtils.downloadDialog(context);
+
+    if (!machineNameList[index].purchased! && balance < machineNameList[index].price! / 100) {
+      Get.back();
+      showSnackBar('noMoney', 'noMoneySubtitle', ColorConstants.redColor);
+      return;
+    }
+
+    final downloadUrls = await DownloadsService().downloadFile(id: machineNameList[index].id!);
+    productProfilController.totalSum.value = downloadUrls.length;
+
+    for (int i = 0; i < downloadUrls.length; i++) {
+      final String url = downloadUrls[i];
+      final String fileName = url.split('/').last;
+      await FileDownloader.downloadFile(
+        url: url,
+        name: fileName,
+        subPath: subPath,
+        onProgress: (name, progress) {},
+        onDownloadCompleted: (path) {
+          productProfilController.sany.value++;
+
+          if (i == downloadUrls.length - 1) {
+            _fetchCollarsData();
+            Get.back();
+            showSnackBar('downloadTitle', 'downloadSubtitle', ColorConstants.primaryColor);
           }
         },
+        onDownloadError: (error) {
+          Get.back();
+          showSnackBar('errorTitle'.tr, 'Download error: $error', ColorConstants.redColor);
+        },
       );
-      homeController.userMoney();
     }
+
+    homeController.userMoney();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(title: widget.pageName, showBackButton: true, showWallet: true),
-      body: Stack(
+      body: ListView(
+        padding: context.padding.onlyBottomHigh,
         children: [
-          page(),
-          wait
-              ? Container(
-                  width: Get.size.width,
-                  height: Get.size.height,
-                  color: ColorConstants.greyColor.withOpacity(0.6),
-                )
-              : const SizedBox.shrink(),
-          wait
-              ? Center(
-                  child: Container(
-                    width: 200,
-                    height: 200,
-                    padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
-                    decoration: BoxDecoration(
-                      color: ColorConstants.whiteColor,
-                      borderRadius: context.border.normalBorderRadius,
-                    ),
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const CircularProgressIndicator(
-                            color: ColorConstants.primaryColor,
-                          ),
-                          const SizedBox(
-                            height: 25,
-                          ),
-                          Obx(
-                            () => Text(
-                              'downloadedYakalar'.tr + '${productProfilController.sany.value}/${productProfilController.totalSum.value}',
-                              textAlign: TextAlign.center,
-                              maxLines: 4,
-                              style: const TextStyle(
-                                color: ColorConstants.blackColor, //fontFamily: normsProMedium,
-                                fontSize: 18,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
-              : const SizedBox.shrink(),
+          Container(
+            height: Get.size.height / 3,
+            margin: context.padding.normal,
+            child: GestureDetector(
+              onTap: () => Get.to(() => PhotoViewPage(image: widget.image, networkImage: true)),
+              child: CustomWidgets.customImageView(image: widget.image, cover: true, borderRadius: CustomBorderRadius.normalBorderRadius),
+            ),
+          ),
+          _collarsListView(context),
         ],
       ),
     );
   }
 
-  Column page() {
-    return Column(
-      children: [
-        Container(
-          height: Get.size.height / 2.5,
-          margin: const EdgeInsets.all(15),
-          child: GestureDetector(
-            onTap: () async {
-              await Get.to(
-                () => PhotoViewPage(
-                  image: widget.image,
-                  networkImage: true,
-                ),
-              );
-            },
-            child: ClipRRect(
-              borderRadius: context.border.lowBorderRadius,
+  Widget _collarsListView(BuildContext context) {
+    return ListView.separated(
+      itemCount: machineNameList.length,
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      padding: context.padding.normal,
+      itemBuilder: (BuildContext context, int index) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              height: 40,
+              width: 70,
               child: CachedNetworkImage(
                 fadeInCurve: Curves.ease,
-                imageUrl: widget.image,
+                imageUrl: machineNameList[index].machineLogo!,
                 imageBuilder: (context, imageProvider) => Container(
-                  padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: ColorConstants.blackColor,
-                    borderRadius: context.border.lowBorderRadius,
+                    borderRadius: CustomBorderRadius.lowBorderRadius,
                     image: DecorationImage(
                       image: imageProvider,
-                      fit: BoxFit.contain,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
@@ -394,202 +198,78 @@ class _DownloadYakaPageState extends State<DownloadYakaPage> {
                 errorWidget: (context, url, error) => NoImage(),
               ),
             ),
-          ),
-        ),
-        Yakalar(),
-      ],
-    );
-  }
-
-  Expanded Yakalar() {
-    return Expanded(
-      child: ListView.separated(
-        itemCount: list.length,
-        shrinkWrap: true,
-        itemBuilder: (BuildContext context, int index) {
-          return Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Expanded(
-                flex: 2,
-                child: Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: context.border.lowBorderRadius,
-                    color: ColorConstants.greyColor.withOpacity(
-                      0.2,
-                    ),
-                  ),
-                  child: CachedNetworkImage(
-                    fadeInCurve: Curves.ease,
-                    imageUrl: list[index].machineLogo!,
-                    imageBuilder: (context, imageProvider) => Container(
-                      margin: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        borderRadius: context.border.lowBorderRadius,
-                        image: DecorationImage(
-                          image: imageProvider,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    placeholder: (context, url) => Loading(),
-                    errorWidget: (context, url, error) => NoImage(),
+            Expanded(
+              flex: 4,
+              child: Padding(
+                padding: context.padding.horizontalLow,
+                child: Text(
+                  machineNameList[index].machineName ?? 'Yaka',
+                  style: context.general.textTheme.bodyLarge!.copyWith(
+                    color: machineNameList[index].purchased! ? ColorConstants.greenColor : ColorConstants.blackColor,
+                    fontWeight: machineNameList[index].purchased! ? FontWeight.bold : FontWeight.w400,
                   ),
                 ),
               ),
-              Expanded(
-                flex: 5,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 10, left: 6),
-                  child: Text(
-                    list[index].machineName ?? 'Yaka',
-                    style: TextStyle(
-                      color: list[index].purchased! ? ColorConstants.greenColor.withOpacity(0.6) : ColorConstants.blackColor,
-                      //fontFamily: normsProMedium,
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '${list[index].price! / 100}',
-                      style: TextStyle(
-                        color: list[index].purchased! ? ColorConstants.greenColor.withOpacity(0.6) : ColorConstants.redColor,
-                        fontSize: 20,
-                        //fontFamily: normProBold,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 6),
-                      child: Text(
-                        ' TMT',
-                        style: TextStyle(
-                          color: list[index].purchased! ? ColorConstants.greenColor.withOpacity(0.6) : ColorConstants.redColor,
-                          fontSize: 11,
-                          //fontFamily: normsProMedium,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: GestureDetector(
-                  onTap: () {
-                    list[index].purchased! == false ? askToDownloadYaka(index) : downloadYaka(index);
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.only(right: 8, left: 8),
-                    padding: const EdgeInsets.all(8),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(color: list[index].purchased! ? ColorConstants.greenColor.withOpacity(0.4) : ColorConstants.primaryColor, borderRadius: context.border.lowBorderRadius),
-                    child: list[index].purchased!
-                        ? Text(
-                            'downloadedYAKA'.tr,
-                            overflow: TextOverflow.ellipsis,
-                          )
-                        : Text(
-                            'download'.tr,
-                            textAlign: TextAlign.center,
-                          ),
-                  ),
-                ),
-              ),
-            ],
-          );
-        },
-        separatorBuilder: (BuildContext context, int index) {
-          return const Divider(
-            thickness: 1,
-            color: ColorConstants.blackColor,
-          );
-        },
-      ),
-    );
-  }
-
-  Future<dynamic> askToDownloadYaka(int index) {
-    return Get.defaultDialog(
-      title: 'Üns ber',
-      contentPadding: const EdgeInsets.symmetric(horizontal: 8),
-      titlePadding: const EdgeInsets.only(top: 15),
-      titleStyle: const TextStyle(
-        color: ColorConstants.blackColor, //fontFamily: normProBold,
-        fontSize: 22,
-      ),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-            child: Text(
-              'wantToBuyCollar'.tr,
-              textAlign: TextAlign.center,
-              style: const TextStyle(color: ColorConstants.blackColor, fontSize: 20),
             ),
-          ),
-          Row(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Get.back();
-                      downloadYaka(index);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: ColorConstants.primaryColor,
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(borderRadius: context.border.lowBorderRadius),
-                      padding: const EdgeInsets.all(10),
-                    ),
-                    child: Text(
-                      'agree'.tr,
-                      style: const TextStyle(
-                        color: ColorConstants.whiteColor,
-                        fontSize: 18,
-                      ),
+            machineNameList[index].purchased!
+                ? SizedBox.shrink()
+                : Expanded(
+                    flex: 3,
+                    child: CustomWidgets.showProductsPrice(
+                      context: context,
+                      color: machineNameList[index].purchased! ? ColorConstants.greenColor : ColorConstants.blackColor,
+                      makeBigger: false,
+                      price: machineNameList[index].price.toString(),
                     ),
                   ),
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Get.back();
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: ColorConstants.greyColor.withOpacity(0.6),
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(borderRadius: context.border.lowBorderRadius),
-                      padding: const EdgeInsets.all(10),
-                    ),
-                    child: Text(
-                      'no'.tr,
-                      style: const TextStyle(
-                        color: ColorConstants.blackColor,
-                        fontSize: 18,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
+            _downloadButton(index, context),
+          ],
+        );
+      },
+      separatorBuilder: (BuildContext context, int index) {
+        return Padding(
+          padding: context.padding.low,
+          child: Divider(
+            thickness: 1,
+            color: ColorConstants.blackColor.withOpacity(.3),
           ),
-        ],
+        );
+      },
+    );
+  }
+
+  Expanded _downloadButton(int index, BuildContext context) {
+    return Expanded(
+      flex: 2,
+      child: GestureDetector(
+        onTap: () {
+          if (machineNameList[index].purchased!) {
+            _downloadFile(index);
+          } else {
+            DialogUtils.askToDownloadYaka(
+              index: index,
+              context: context,
+              downloadYaka: () {
+                _downloadFile(index);
+              },
+            );
+          }
+        },
+        child: Container(
+          margin: context.padding.verticalLow,
+          padding: context.padding.low,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(color: machineNameList[index].purchased! ? ColorConstants.greenColor : ColorConstants.primaryColor, borderRadius: context.border.lowBorderRadius),
+          child: machineNameList[index].purchased!
+              ? Text(
+                  'downloadedYAKA'.tr,
+                  overflow: TextOverflow.ellipsis,
+                )
+              : Text(
+                  'download'.tr,
+                  textAlign: TextAlign.center,
+                ),
+        ),
       ),
     );
   }

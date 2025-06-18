@@ -52,7 +52,7 @@ class HistoryOrders extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      '${'order'.tr} ${snapshot.data!.length - index}',
+                      '${'order'.tr} ${index + 1}',
                       style: const TextStyle(
                         color: ColorConstants.blackColor,
                         fontSize: 18,
@@ -138,7 +138,11 @@ class HistoryOrderProductID extends StatelessWidget {
             return EmptyState(name: 'emptyData', type: EmptyStateType.text);
           }
           return GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 2 / 3,
+            ),
+            itemCount: snapshot.data!.length,
             itemBuilder: (BuildContext context, int index) {
               final product = ProductModel(
                 categoryName: '',
@@ -147,18 +151,13 @@ class HistoryOrderProductID extends StatelessWidget {
                 price: '${snapshot.data![index].price}',
                 id: snapshot.data![index].id!,
                 downloadable: false,
+                quantity: snapshot.data![index].quantity,
                 createdAt: '',
               );
-              return ProductCard(product: product);
-              // return ProductCard(
-              //   categoryName: '',
-              //   image: snapshot.data![index].image!,
-              //   name: '${snapshot.data![index].name}',
-              //   price: '${snapshot.data![index].price}',
-              //   id: snapshot.data![index].id!,
-              //   downloadable: false,
-              //   createdAt: '',
-              // );
+              return ProductCard(
+                product: product,
+                hideCartButton: true,
+              );
             },
           );
         },

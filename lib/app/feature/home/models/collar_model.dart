@@ -1,30 +1,5 @@
 // ignore_for_file: unnecessary_null_comparison
 
-class FavoritesModelCollar {
-  final int? id;
-  final String? name;
-  final int? price;
-  final String? createdAt;
-  final String? image;
-  FavoritesModelCollar({
-    this.name,
-    this.price,
-    this.image,
-    this.id,
-    this.createdAt,
-  });
-
-  factory FavoritesModelCollar.fromJson(Map<dynamic, dynamic> json) {
-    return FavoritesModelCollar(
-      id: json['id'] ?? 0,
-      name: json['name'] ?? '',
-      createdAt: json['created_at'] ?? DateTime.now(),
-      price: json['price'] ?? 0,
-      image: json['images'][0] ?? '',
-    );
-  }
-}
-
 class CollarByIDModel {
   final String? createdAt;
   final String? desc;

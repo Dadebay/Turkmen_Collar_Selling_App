@@ -8,33 +8,32 @@ class CollarController extends GetxController {
   RxList<ProductModel> collarList = <ProductModel>[].obs;
   RxInt collarLoading = 0.obs;
   RxInt collarPage = 1.obs;
-  final RefreshController refreshController = RefreshController();
 
-  dynamic collarOnLoading() async {
+  Future<void> collarOnLoading() async {
     await Future.delayed(const Duration(seconds: 1));
-    refreshController.loadComplete();
-
     collarPage.value += 1;
-    getData();
-    refreshController.refreshCompleted();
+    await getData();
   }
 
-  dynamic collarOnRefresh() async {
+  Future<void> collarOnRefresh() async {
     collarPage.value = 1;
     collarList.clear();
-    getData();
     collarLoading.value = 2;
+    await getData();
   }
 
-  dynamic getData() async {
-    await CollarService().getCollars(
-      parametrs: {'page': '${collarPage.value}', 'limit': StringConstants.limit},
-    ).then((value) {
-      if (value.isEmpty) {
-        collarLoading.value = 1;
-      } else {
-        collarList.addAll(value);
-      }
-    });
+  Future<void> getData() async {
+    final result = await CollarService().getCollars(
+      parametrs: {
+        'page': '${collarPage.value}',
+        'limit': StringConstants.limit,
+      },
+    );
+    if (result.isEmpty && collarList.isEmpty) {
+      collarLoading.value = 1;
+    } else {
+      collarList.addAll(result);
+      collarLoading.value = 2;
+    }
   }
 }

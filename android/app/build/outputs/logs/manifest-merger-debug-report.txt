@@ -1,0 +1,755 @@
+-- Merging decision tree log ---
+application
+INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:27:5-72:19
+MERGED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:15:5-48:19
+MERGED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:15:5-48:19
+MERGED from [:firebase_core] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-15:19
+MERGED from [:firebase_core] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-15:19
+MERGED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-35:19
+MERGED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-35:19
+MERGED from [:url_launcher_android] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-14:19
+MERGED from [:url_launcher_android] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-14:19
+MERGED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:28:5-64:19
+MERGED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:28:5-64:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b64d318876a2586401a5de1fa6668e42/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b64d318876a2586401a5de1fa6668e42/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b9dc5ece6a4c298f6f10b3d80a20661b/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b9dc5ece6a4c298f6f10b3d80a20661b/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/501e586dcccd723bd21e458c8081401a/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:22:5-39:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/501e586dcccd723bd21e458c8081401a/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:22:5-39:19
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/a871a7bff36c9e750c7062de34be1422/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/a871a7bff36c9e750c7062de34be1422/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:19:5-23:19
+MERGED from [androidx.window:window:1.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c97fbf7fdf14d62996026b684c6d8f7b/transformed/jetified-window-1.2.0/AndroidManifest.xml:22:5-29:19
+MERGED from [androidx.window:window:1.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c97fbf7fdf14d62996026b684c6d8f7b/transformed/jetified-window-1.2.0/AndroidManifest.xml:22:5-29:19
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e111b8246c55e0fd39401b585f1a745d/transformed/jetified-firebase-iid-interop-17.1.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e111b8246c55e0fd39401b585f1a745d/transformed/jetified-firebase-iid-interop-17.1.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e98be858707abb7c4e2683e6032d4b3d/transformed/jetified-firebase-measurement-connector-19.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e98be858707abb7c4e2683e6032d4b3d/transformed/jetified-firebase-measurement-connector-19.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c03a8ac646219cd6fd97031d9e2f4201/transformed/jetified-play-services-stats-17.0.2/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c03a8ac646219cd6fd97031d9e2f4201/transformed/jetified-play-services-stats-17.0.2/AndroidManifest.xml:7:5-20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d59821accab01be356d4dcf13c9048fc/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d59821accab01be356d4dcf13c9048fc/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:23:5-33:19
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/f29544be0ed1bf12652ff36aafdc78bf/transformed/jetified-play-services-tasks-18.1.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/f29544be0ed1bf12652ff36aafdc78bf/transformed/jetified-play-services-tasks-18.1.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c9311871f742ae7e7affea30bc496be3/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c9311871f742ae7e7affea30bc496be3/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:20:5-24:19
+MERGED from [androidx.core:core:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3315c42970b6c03c40d750a53dc5a92f/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3315c42970b6c03c40d750a53dc5a92f/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
+MERGED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d7fb821696ecfab118488026f8530890/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:21:5-29:19
+MERGED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d7fb821696ecfab118488026f8530890/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:21:5-29:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/cbc80538a2495444a3e1a4051cbcc29c/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:27:5-35:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/cbc80538a2495444a3e1a4051cbcc29c/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:27:5-35:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4161ed1636422f0e24249f2652ab7435/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4161ed1636422f0e24249f2652ab7435/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:25:5-39:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/fe9c6fc66520f7652eba347f8d71d446/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/fe9c6fc66520f7652eba347f8d71d446/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c26eddc730295dcae5a2fce45c4dd82d/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c26eddc730295dcae5a2fce45c4dd82d/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3315c42970b6c03c40d750a53dc5a92f/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+	android:name
+		INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml
+manifest
+ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:1:1-73:12
+INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:1:1-73:12
+INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:1:1-73:12
+INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:1:1-73:12
+MERGED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:1:1-73:12
+MERGED from [:android_x_storage] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/android_x_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:device_info_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/device_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-50:12
+MERGED from [:firebase_core] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-17:12
+MERGED from [:flutter_local_notifications] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-12:12
+MERGED from [:flutter_sms_inbox] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/flutter_sms_inbox/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:open_file_manager] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/open_file_manager/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:wakelock_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/wakelock_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:package_info_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/package_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:path_provider_android] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:permission_handler] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/permission_handler/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:restart_app] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/restart_app/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-37:12
+MERGED from [:sqflite_android] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/sqflite_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:storage_info] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/storage_info/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:url_launcher_android] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-16:12
+MERGED from [:vibration] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/vibration/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:video_player_android] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/video_player_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:17:1-66:12
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b64d318876a2586401a5de1fa6668e42/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:2:1-24:12
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b9dc5ece6a4c298f6f10b3d80a20661b/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/501e586dcccd723bd21e458c8081401a/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:15:1-41:12
+MERGED from [androidx.media:media:1.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/055f5206ceba20fcfd0b527090df9560/transformed/media-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.browser:browser:1.8.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/fa4349bc6896eb48fc7d329c24b929e6/transformed/browser-1.8.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.media3:media3-extractor:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d2745bc6d94f2cb2bbffb3f1f3d1abfe/transformed/jetified-media3-extractor-1.4.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-container:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bac8a672377ceef92d587cf8febfc55e/transformed/jetified-media3-container-1.4.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-datasource:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4862bd195568f8269c4548d0ed844eee/transformed/jetified-media3-datasource-1.4.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-decoder:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e5f1b1a81aab46e52de3297587b0d2b1/transformed/jetified-media3-decoder-1.4.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-database:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/936b7a1e1fc2e251ba5831772161bde2/transformed/jetified-media3-database-1.4.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-common:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c74833c33f3ff0fb505a7b036b54d18f/transformed/jetified-media3-common-1.4.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media3:media3-exoplayer-hls:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c6d188ff63b4b14c32c4a8216bab9cd7/transformed/jetified-media3-exoplayer-hls-1.4.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-exoplayer-dash:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/508771d24b34949e20be154a739c5977/transformed/jetified-media3-exoplayer-dash-1.4.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-exoplayer-rtsp:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/498346497f9f0d91170b095f8d1ad217/transformed/jetified-media3-exoplayer-rtsp-1.4.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-exoplayer-smoothstreaming:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/356c1ccc3d0ae17d079dfe68dde437eb/transformed/jetified-media3-exoplayer-smoothstreaming-1.4.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-exoplayer:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/ca73ff02bb06279f506703dcd2dd73ed/transformed/jetified-media3-exoplayer-1.4.1/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/a871a7bff36c9e750c7062de34be1422/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:16:1-24:12
+MERGED from [androidx.window:window:1.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c97fbf7fdf14d62996026b684c6d8f7b/transformed/jetified-window-1.2.0/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.window:window-java:1.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/6e303bda35c9fd0dd1d3e7c9898aa1ec/transformed/jetified-window-java-1.2.0/AndroidManifest.xml:17:1-21:12
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e111b8246c55e0fd39401b585f1a745d/transformed/jetified-firebase-iid-interop-17.1.0/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e98be858707abb7c4e2683e6032d4b3d/transformed/jetified-firebase-measurement-connector-19.0.0/AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/afb4e6f445975050f35d8049e047a75f/transformed/jetified-play-services-cloud-messaging-17.2.0/AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c03a8ac646219cd6fd97031d9e2f4201/transformed/jetified-play-services-stats-17.0.2/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b20da51f3859e17190752b95ded943c7/transformed/jetified-firebase-installations-interop-17.1.1/AndroidManifest.xml:15:1-19:12
+MERGED from [androidx.fragment:fragment:1.7.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/24300a40bc3606f9864a386750ceb93d/transformed/fragment-1.7.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.8.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/db3e41a14f15f3476c5257bf46c7a62d/transformed/jetified-activity-1.8.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/58628f2fd5f527f4dd7332d163ed4850/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/fff8a002941c7da167980187d2b7fa19/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3ed881588eb6291b2b226bd34bec9caf/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d25c3a1bc48cceab168fd4921557ac37/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/7117bc5f1c73804d0f396cf6a4832ffb/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4edcd002e9a11b193e44bfaaea030bd3/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e8f511f9ca1d2a23b92cf66505e71099/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/78ee9283b718b6d051fa045de98de6c8/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d59821accab01be356d4dcf13c9048fc/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/f57add685fc49b26c80dd1d021c383ec/transformed/jetified-savedstate-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/f29544be0ed1bf12652ff36aafdc78bf/transformed/jetified-play-services-tasks-18.1.0/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c9311871f742ae7e7affea30bc496be3/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/95df65e2ad6098dbed2962a0267e8e7a/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/8e7fafe5e267b37f03b27801d98e1487/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3315c42970b6c03c40d750a53dc5a92f/transformed/core-1.13.1/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.core:core-ktx:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/ce23c7f9611704bb7d6b7ae563452509/transformed/jetified-core-ktx-1.13.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/f5aaadaad9e22dcc1a6c9d8eb25c9081/transformed/localbroadcastmanager-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-components:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/540766583ee0ce0a1d5431855d7e6e40/transformed/jetified-firebase-components-18.0.0/AndroidManifest.xml:15:1-20:12
+MERGED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d7fb821696ecfab118488026f8530890/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:15:1-31:12
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/cbc80538a2495444a3e1a4051cbcc29c/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:15:1-37:12
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c3623ddc296003fd134e78548eb40025/transformed/jetified-firebase-encoders-json-18.0.0/AndroidManifest.xml:15:1-23:12
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4161ed1636422f0e24249f2652ab7435/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:15:1-41:12
+MERGED from [com.google.android.datatransport:transport-api:3.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/012583c98997ae0369b3c075649fd2cf/transformed/jetified-transport-api-3.1.0/AndroidManifest.xml:15:1-20:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/fe9c6fc66520f7652eba347f8d71d446/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d4a38f29b278314ca9f6e142c22d8e4b/transformed/jetified-tracing-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d9719997ac32a26b6cbcba2526c5f89f/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c26eddc730295dcae5a2fce45c4dd82d/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/gurbanowdadebay/.gradle/caches/transforms-3/27ebc59954060ecab23def129987ad0c/transformed/exifinterface-1.3.6/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/caa59109a019f596a90d1148b395e80d/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/a43dc424808ad04483795a2723aa6dc5/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c93b2b1d2ca0a7df49c1413489f0b890/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.window.extensions.core:core:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e3ad73ff138998a1738d0319d1746fcb/transformed/jetified-core-1.0.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c08ba979e0109629c1451db36af59ba1/transformed/jetified-annotation-experimental-1.4.0/AndroidManifest.xml:2:1-7:12
+INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/debug/AndroidManifest.xml:1:1-8:12
+INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/debug/AndroidManifest.xml:1:1-8:12
+INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/debug/AndroidManifest.xml:1:1-8:12
+	package
+		ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:2:5-37
+		INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/debug/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:1:1-73:12
+		INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/debug/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:1:1-73:12
+		INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/debug/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:5:5-67
+MERGED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:5:5-67
+MERGED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:5:5-67
+MERGED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-67
+MERGED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-67
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b64d318876a2586401a5de1fa6668e42/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:8:5-67
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b64d318876a2586401a5de1fa6668e42/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:8:5-67
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/afb4e6f445975050f35d8049e047a75f/transformed/jetified-play-services-cloud-messaging-17.2.0/AndroidManifest.xml:8:5-67
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/afb4e6f445975050f35d8049e047a75f/transformed/jetified-play-services-cloud-messaging-17.2.0/AndroidManifest.xml:8:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/cbc80538a2495444a3e1a4051cbcc29c/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:25:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/cbc80538a2495444a3e1a4051cbcc29c/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:25:5-67
+	android:name
+		ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:6:5-76
+	android:name
+		ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:6:22-73
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:7:5-79
+MERGED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-79
+MERGED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-79
+MERGED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b64d318876a2586401a5de1fa6668e42/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:7:5-79
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b64d318876a2586401a5de1fa6668e42/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:7:5-79
+MERGED from [androidx.media3:media3-common:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c74833c33f3ff0fb505a7b036b54d18f/transformed/jetified-media3-common-1.4.1/AndroidManifest.xml:22:5-79
+MERGED from [androidx.media3:media3-common:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c74833c33f3ff0fb505a7b036b54d18f/transformed/jetified-media3-common-1.4.1/AndroidManifest.xml:22:5-79
+MERGED from [androidx.media3:media3-exoplayer:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/ca73ff02bb06279f506703dcd2dd73ed/transformed/jetified-media3-exoplayer-1.4.1/AndroidManifest.xml:22:5-79
+MERGED from [androidx.media3:media3-exoplayer:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/ca73ff02bb06279f506703dcd2dd73ed/transformed/jetified-media3-exoplayer-1.4.1/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/afb4e6f445975050f35d8049e047a75f/transformed/jetified-play-services-cloud-messaging-17.2.0/AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/afb4e6f445975050f35d8049e047a75f/transformed/jetified-play-services-cloud-messaging-17.2.0/AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/cbc80538a2495444a3e1a4051cbcc29c/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/cbc80538a2495444a3e1a4051cbcc29c/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4161ed1636422f0e24249f2652ab7435/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4161ed1636422f0e24249f2652ab7435/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:7:22-76
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:10:5-80
+	android:name
+		ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:10:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:11:5-81
+	android:name
+		ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:11:22-78
+uses-permission#android.permission.MANAGE_EXTERNAL_STORAGE
+ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:12:5-82
+	android:name
+		ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:12:22-79
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:15:5-75
+	android:name
+		ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:15:22-72
+uses-permission#android.permission.READ_PHONE_NUMBERS
+ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:16:5-77
+	android:name
+		ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:16:22-74
+uses-permission#android.permission.READ_SMS
+ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:17:5-66
+	android:name
+		ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:17:22-64
+uses-permission#android.permission.RECEIVE_SMS
+ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:18:5-69
+	android:name
+		ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:18:22-67
+uses-permission#android.permission.MANAGE_USB
+ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:21:5-69
+	android:name
+		ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:21:22-66
+uses-permission#android.permission.ACCESS_USB
+ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:22:5-68
+	android:name
+		ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:22:22-66
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:25:5-77
+MERGED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:13:5-77
+MERGED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:13:5-77
+MERGED from [:flutter_local_notifications] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-77
+MERGED from [:flutter_local_notifications] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-77
+MERGED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:23:5-77
+MERGED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:23:5-77
+	android:name
+		ADDED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml:25:22-74
+uses-sdk
+INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml
+MERGED from [:android_x_storage] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/android_x_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:android_x_storage] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/android_x_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:device_info_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/device_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:device_info_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/device_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:firebase_core] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:firebase_core] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_local_notifications] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_local_notifications] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_sms_inbox] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/flutter_sms_inbox/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_sms_inbox] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/flutter_sms_inbox/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:open_file_manager] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/open_file_manager/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:open_file_manager] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/open_file_manager/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:wakelock_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/wakelock_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:wakelock_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/wakelock_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:package_info_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/package_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:package_info_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/package_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:path_provider_android] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:path_provider_android] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:permission_handler] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/permission_handler/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:permission_handler] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/permission_handler/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:restart_app] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/restart_app/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:restart_app] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/restart_app/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:sqflite_android] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/sqflite_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:sqflite_android] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/sqflite_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:storage_info] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/storage_info/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:storage_info] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/storage_info/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:url_launcher_android] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:url_launcher_android] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:vibration] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/vibration/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:vibration] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/vibration/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:video_player_android] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/video_player_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:video_player_android] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/video_player_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b64d318876a2586401a5de1fa6668e42/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b64d318876a2586401a5de1fa6668e42/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b9dc5ece6a4c298f6f10b3d80a20661b/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b9dc5ece6a4c298f6f10b3d80a20661b/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/501e586dcccd723bd21e458c8081401a/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:19:5-44
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/501e586dcccd723bd21e458c8081401a/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:19:5-44
+MERGED from [androidx.media:media:1.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/055f5206ceba20fcfd0b527090df9560/transformed/media-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/055f5206ceba20fcfd0b527090df9560/transformed/media-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.browser:browser:1.8.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/fa4349bc6896eb48fc7d329c24b929e6/transformed/browser-1.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.browser:browser:1.8.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/fa4349bc6896eb48fc7d329c24b929e6/transformed/browser-1.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.media3:media3-extractor:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d2745bc6d94f2cb2bbffb3f1f3d1abfe/transformed/jetified-media3-extractor-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-extractor:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d2745bc6d94f2cb2bbffb3f1f3d1abfe/transformed/jetified-media3-extractor-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-container:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bac8a672377ceef92d587cf8febfc55e/transformed/jetified-media3-container-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-container:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bac8a672377ceef92d587cf8febfc55e/transformed/jetified-media3-container-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-datasource:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4862bd195568f8269c4548d0ed844eee/transformed/jetified-media3-datasource-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-datasource:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4862bd195568f8269c4548d0ed844eee/transformed/jetified-media3-datasource-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-decoder:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e5f1b1a81aab46e52de3297587b0d2b1/transformed/jetified-media3-decoder-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-decoder:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e5f1b1a81aab46e52de3297587b0d2b1/transformed/jetified-media3-decoder-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-database:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/936b7a1e1fc2e251ba5831772161bde2/transformed/jetified-media3-database-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-database:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/936b7a1e1fc2e251ba5831772161bde2/transformed/jetified-media3-database-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-common:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c74833c33f3ff0fb505a7b036b54d18f/transformed/jetified-media3-common-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-common:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c74833c33f3ff0fb505a7b036b54d18f/transformed/jetified-media3-common-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer-hls:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c6d188ff63b4b14c32c4a8216bab9cd7/transformed/jetified-media3-exoplayer-hls-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer-hls:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c6d188ff63b4b14c32c4a8216bab9cd7/transformed/jetified-media3-exoplayer-hls-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer-dash:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/508771d24b34949e20be154a739c5977/transformed/jetified-media3-exoplayer-dash-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer-dash:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/508771d24b34949e20be154a739c5977/transformed/jetified-media3-exoplayer-dash-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer-rtsp:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/498346497f9f0d91170b095f8d1ad217/transformed/jetified-media3-exoplayer-rtsp-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer-rtsp:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/498346497f9f0d91170b095f8d1ad217/transformed/jetified-media3-exoplayer-rtsp-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer-smoothstreaming:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/356c1ccc3d0ae17d079dfe68dde437eb/transformed/jetified-media3-exoplayer-smoothstreaming-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer-smoothstreaming:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/356c1ccc3d0ae17d079dfe68dde437eb/transformed/jetified-media3-exoplayer-smoothstreaming-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/ca73ff02bb06279f506703dcd2dd73ed/transformed/jetified-media3-exoplayer-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer:1.4.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/ca73ff02bb06279f506703dcd2dd73ed/transformed/jetified-media3-exoplayer-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/a871a7bff36c9e750c7062de34be1422/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/a871a7bff36c9e750c7062de34be1422/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:18:5-43
+MERGED from [androidx.window:window:1.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c97fbf7fdf14d62996026b684c6d8f7b/transformed/jetified-window-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.window:window:1.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c97fbf7fdf14d62996026b684c6d8f7b/transformed/jetified-window-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.window:window-java:1.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/6e303bda35c9fd0dd1d3e7c9898aa1ec/transformed/jetified-window-java-1.2.0/AndroidManifest.xml:19:5-44
+MERGED from [androidx.window:window-java:1.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/6e303bda35c9fd0dd1d3e7c9898aa1ec/transformed/jetified-window-java-1.2.0/AndroidManifest.xml:19:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e111b8246c55e0fd39401b585f1a745d/transformed/jetified-firebase-iid-interop-17.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e111b8246c55e0fd39401b585f1a745d/transformed/jetified-firebase-iid-interop-17.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e98be858707abb7c4e2683e6032d4b3d/transformed/jetified-firebase-measurement-connector-19.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e98be858707abb7c4e2683e6032d4b3d/transformed/jetified-firebase-measurement-connector-19.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/afb4e6f445975050f35d8049e047a75f/transformed/jetified-play-services-cloud-messaging-17.2.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/afb4e6f445975050f35d8049e047a75f/transformed/jetified-play-services-cloud-messaging-17.2.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c03a8ac646219cd6fd97031d9e2f4201/transformed/jetified-play-services-stats-17.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c03a8ac646219cd6fd97031d9e2f4201/transformed/jetified-play-services-stats-17.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b20da51f3859e17190752b95ded943c7/transformed/jetified-firebase-installations-interop-17.1.1/AndroidManifest.xml:17:5-44
+MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b20da51f3859e17190752b95ded943c7/transformed/jetified-firebase-installations-interop-17.1.1/AndroidManifest.xml:17:5-44
+MERGED from [androidx.fragment:fragment:1.7.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/24300a40bc3606f9864a386750ceb93d/transformed/fragment-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.7.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/24300a40bc3606f9864a386750ceb93d/transformed/fragment-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.8.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/db3e41a14f15f3476c5257bf46c7a62d/transformed/jetified-activity-1.8.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/db3e41a14f15f3476c5257bf46c7a62d/transformed/jetified-activity-1.8.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/58628f2fd5f527f4dd7332d163ed4850/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/58628f2fd5f527f4dd7332d163ed4850/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/fff8a002941c7da167980187d2b7fa19/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/fff8a002941c7da167980187d2b7fa19/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3ed881588eb6291b2b226bd34bec9caf/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3ed881588eb6291b2b226bd34bec9caf/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d25c3a1bc48cceab168fd4921557ac37/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d25c3a1bc48cceab168fd4921557ac37/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/7117bc5f1c73804d0f396cf6a4832ffb/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/7117bc5f1c73804d0f396cf6a4832ffb/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4edcd002e9a11b193e44bfaaea030bd3/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4edcd002e9a11b193e44bfaaea030bd3/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e8f511f9ca1d2a23b92cf66505e71099/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e8f511f9ca1d2a23b92cf66505e71099/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/78ee9283b718b6d051fa045de98de6c8/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/78ee9283b718b6d051fa045de98de6c8/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d59821accab01be356d4dcf13c9048fc/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d59821accab01be356d4dcf13c9048fc/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/f57add685fc49b26c80dd1d021c383ec/transformed/jetified-savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/f57add685fc49b26c80dd1d021c383ec/transformed/jetified-savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/f29544be0ed1bf12652ff36aafdc78bf/transformed/jetified-play-services-tasks-18.1.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/f29544be0ed1bf12652ff36aafdc78bf/transformed/jetified-play-services-tasks-18.1.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c9311871f742ae7e7affea30bc496be3/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c9311871f742ae7e7affea30bc496be3/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:18:5-43
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/95df65e2ad6098dbed2962a0267e8e7a/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/95df65e2ad6098dbed2962a0267e8e7a/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/8e7fafe5e267b37f03b27801d98e1487/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/8e7fafe5e267b37f03b27801d98e1487/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3315c42970b6c03c40d750a53dc5a92f/transformed/core-1.13.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3315c42970b6c03c40d750a53dc5a92f/transformed/core-1.13.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/ce23c7f9611704bb7d6b7ae563452509/transformed/jetified-core-ktx-1.13.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/ce23c7f9611704bb7d6b7ae563452509/transformed/jetified-core-ktx-1.13.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/f5aaadaad9e22dcc1a6c9d8eb25c9081/transformed/localbroadcastmanager-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/f5aaadaad9e22dcc1a6c9d8eb25c9081/transformed/localbroadcastmanager-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-components:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/540766583ee0ce0a1d5431855d7e6e40/transformed/jetified-firebase-components-18.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-components:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/540766583ee0ce0a1d5431855d7e6e40/transformed/jetified-firebase-components-18.0.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d7fb821696ecfab118488026f8530890/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d7fb821696ecfab118488026f8530890/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/cbc80538a2495444a3e1a4051cbcc29c/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/cbc80538a2495444a3e1a4051cbcc29c/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c3623ddc296003fd134e78548eb40025/transformed/jetified-firebase-encoders-json-18.0.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c3623ddc296003fd134e78548eb40025/transformed/jetified-firebase-encoders-json-18.0.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4161ed1636422f0e24249f2652ab7435/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4161ed1636422f0e24249f2652ab7435/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:3.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/012583c98997ae0369b3c075649fd2cf/transformed/jetified-transport-api-3.1.0/AndroidManifest.xml:18:5-44
+MERGED from [com.google.android.datatransport:transport-api:3.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/012583c98997ae0369b3c075649fd2cf/transformed/jetified-transport-api-3.1.0/AndroidManifest.xml:18:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/fe9c6fc66520f7652eba347f8d71d446/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/fe9c6fc66520f7652eba347f8d71d446/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d4a38f29b278314ca9f6e142c22d8e4b/transformed/jetified-tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d4a38f29b278314ca9f6e142c22d8e4b/transformed/jetified-tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d9719997ac32a26b6cbcba2526c5f89f/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d9719997ac32a26b6cbcba2526c5f89f/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c26eddc730295dcae5a2fce45c4dd82d/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c26eddc730295dcae5a2fce45c4dd82d/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/gurbanowdadebay/.gradle/caches/transforms-3/27ebc59954060ecab23def129987ad0c/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/gurbanowdadebay/.gradle/caches/transforms-3/27ebc59954060ecab23def129987ad0c/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/caa59109a019f596a90d1148b395e80d/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/caa59109a019f596a90d1148b395e80d/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/a43dc424808ad04483795a2723aa6dc5/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/a43dc424808ad04483795a2723aa6dc5/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c93b2b1d2ca0a7df49c1413489f0b890/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c93b2b1d2ca0a7df49c1413489f0b890/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.window.extensions.core:core:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e3ad73ff138998a1738d0319d1746fcb/transformed/jetified-core-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.window.extensions.core:core:1.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/e3ad73ff138998a1738d0319d1746fcb/transformed/jetified-core-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c08ba979e0109629c1451db36af59ba1/transformed/jetified-annotation-experimental-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c08ba979e0109629c1451db36af59ba1/transformed/jetified-annotation-experimental-1.4.0/AndroidManifest.xml:5:5-44
+INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/debug/AndroidManifest.xml
+INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/debug/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/debug/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/android/app/src/debug/AndroidManifest.xml
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-68
+MERGED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:24:5-68
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/afb4e6f445975050f35d8049e047a75f/transformed/jetified-play-services-cloud-messaging-17.2.0/AndroidManifest.xml:9:5-68
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/afb4e6f445975050f35d8049e047a75f/transformed/jetified-play-services-cloud-messaging-17.2.0/AndroidManifest.xml:9:5-68
+	android:name
+		ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:10:22-65
+service#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService
+ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:16:9-19:72
+	android:exported
+		ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-37
+	android:permission
+		ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-69
+	android:name
+		ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-107
+service#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService
+ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:20:9-26:19
+	android:exported
+		ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-37
+	android:name
+		ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-97
+intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
+ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-25:29
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-78
+	android:name
+		ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:25-75
+receiver#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver
+ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:28:9-35:20
+	android:exported
+		ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-36
+	android:permission
+		ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:31:13-73
+	android:name
+		ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:29:13-98
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE
+ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:32:13-34:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:17-81
+	android:name
+		ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:25-78
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:37:9-41:19
+MERGED from [:firebase_core] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
+MERGED from [:firebase_core] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
+MERGED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:54:9-63:19
+MERGED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:54:9-63:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b64d318876a2586401a5de1fa6668e42/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b64d318876a2586401a5de1fa6668e42/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b9dc5ece6a4c298f6f10b3d80a20661b/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b9dc5ece6a4c298f6f10b3d80a20661b/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/501e586dcccd723bd21e458c8081401a/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:30:9-38:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/501e586dcccd723bd21e458c8081401a/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:30:9-38:19
+MERGED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d7fb821696ecfab118488026f8530890/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:22:9-28:19
+MERGED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d7fb821696ecfab118488026f8530890/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:22:9-28:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:56:13-37
+	tools:targetApi
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/501e586dcccd723bd21e458c8081401a/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:34:13-32
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/501e586dcccd723bd21e458c8081401a/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:32:13-43
+	android:name
+		ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:37:18-89
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar
+ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:38:13-40:85
+	android:value
+		ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:40:17-82
+	android:name
+		ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:39:17-128
+provider#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider
+ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:43:9-47:38
+	android:authorities
+		ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:45:13-88
+	android:exported
+		ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:46:13-37
+	android:initOrder
+		ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:47:13-35
+	android:name
+		ADDED from [:firebase_messaging] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:44:13-102
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar
+ADDED from [:firebase_core] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+	android:value
+		ADDED from [:firebase_core] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+	android:name
+		ADDED from [:firebase_core] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
+uses-permission#android.permission.VIBRATE
+ADDED from [:flutter_local_notifications] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-66
+MERGED from [:vibration] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/vibration/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-66
+MERGED from [:vibration] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/vibration/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-66
+	android:name
+		ADDED from [:flutter_local_notifications] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-63
+provider#dev.fluttercommunity.plus.share.ShareFileProvider
+ADDED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:15:9-23:20
+	android:grantUriPermissions
+		ADDED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-47
+	android:authorities
+		ADDED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-74
+	android:exported
+		ADDED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-37
+	android:name
+		ADDED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-77
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-22:68
+	android:resource
+		ADDED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:22:17-65
+	android:name
+		ADDED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:21:17-67
+receiver#dev.fluttercommunity.plus.share.SharePlusPendingIntent
+ADDED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:28:9-34:20
+	android:exported
+		ADDED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:29:13-82
+intent-filter#action:name:EXTRA_CHOSEN_COMPONENT
+ADDED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:31:13-33:29
+action#EXTRA_CHOSEN_COMPONENT
+ADDED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:32:17-65
+	android:name
+		ADDED from [:share_plus] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:32:25-62
+activity#io.flutter.plugins.urllauncher.WebViewActivity
+ADDED from [:url_launcher_android] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
+	android:exported
+		ADDED from [:url_launcher_android] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
+	android:theme
+		ADDED from [:url_launcher_android] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
+	android:name
+		ADDED from [:url_launcher_android] /Users/gurbanowdadebay/Developer/apps/Yaka /untitled folder/Turkmen_Collar_Selling_App/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:26:5-82
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/afb4e6f445975050f35d8049e047a75f/transformed/jetified-play-services-cloud-messaging-17.2.0/AndroidManifest.xml:11:5-82
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/afb4e6f445975050f35d8049e047a75f/transformed/jetified-play-services-cloud-messaging-17.2.0/AndroidManifest.xml:11:5-82
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:26:22-79
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:29:9-40:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:31:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:32:13-73
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:30:13-78
+meta-data#com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED
+ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:37:13-39:40
+	android:value
+		ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:39:17-37
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:38:17-92
+service#com.google.firebase.messaging.FirebaseMessagingService
+ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:46:9-53:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:49:13-37
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:48:13-43
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:47:13-82
+meta-data#com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar
+ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:57:13-59:85
+	android:value
+		ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:59:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:58:17-122
+meta-data#com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar
+ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:60:13-62:85
+	android:value
+		ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:62:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:24.1.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b6178f4baa2c3e90b6a35d75c8effe88/transformed/jetified-firebase-messaging-24.1.0/AndroidManifest.xml:61:17-119
+meta-data#com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar
+ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b64d318876a2586401a5de1fa6668e42/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:15:13-17:85
+	android:value
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b64d318876a2586401a5de1fa6668e42/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:17:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b64d318876a2586401a5de1fa6668e42/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:16:17-130
+meta-data#com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar
+ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b64d318876a2586401a5de1fa6668e42/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:18:13-20:85
+	android:value
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b64d318876a2586401a5de1fa6668e42/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:20:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-installations:18.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b64d318876a2586401a5de1fa6668e42/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:19:17-127
+meta-data#com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar
+ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b9dc5ece6a4c298f6f10b3d80a20661b/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b9dc5ece6a4c298f6f10b3d80a20661b/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/b9dc5ece6a4c298f6f10b3d80a20661b/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:13:17-116
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/501e586dcccd723bd21e458c8081401a/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:23:9-28:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/501e586dcccd723bd21e458c8081401a/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:25:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/501e586dcccd723bd21e458c8081401a/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:27:13-37
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/501e586dcccd723bd21e458c8081401a/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:26:13-43
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/501e586dcccd723bd21e458c8081401a/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:28:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/501e586dcccd723bd21e458c8081401a/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:24:13-77
+meta-data#com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar
+ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/501e586dcccd723bd21e458c8081401a/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:35:13-37:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/501e586dcccd723bd21e458c8081401a/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:37:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/501e586dcccd723bd21e458c8081401a/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:36:17-109
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/a871a7bff36c9e750c7062de34be1422/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/a871a7bff36c9e750c7062de34be1422/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/a871a7bff36c9e750c7062de34be1422/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/a871a7bff36c9e750c7062de34be1422/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c97fbf7fdf14d62996026b684c6d8f7b/transformed/jetified-window-1.2.0/AndroidManifest.xml:23:9-25:40
+	android:required
+		ADDED from [androidx.window:window:1.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c97fbf7fdf14d62996026b684c6d8f7b/transformed/jetified-window-1.2.0/AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from [androidx.window:window:1.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c97fbf7fdf14d62996026b684c6d8f7b/transformed/jetified-window-1.2.0/AndroidManifest.xml:24:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c97fbf7fdf14d62996026b684c6d8f7b/transformed/jetified-window-1.2.0/AndroidManifest.xml:26:9-28:40
+	android:required
+		ADDED from [androidx.window:window:1.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c97fbf7fdf14d62996026b684c6d8f7b/transformed/jetified-window-1.2.0/AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from [androidx.window:window:1.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c97fbf7fdf14d62996026b684c6d8f7b/transformed/jetified-window-1.2.0/AndroidManifest.xml:27:13-51
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d59821accab01be356d4dcf13c9048fc/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/fe9c6fc66520f7652eba347f8d71d446/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/fe9c6fc66520f7652eba347f8d71d446/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d59821accab01be356d4dcf13c9048fc/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d59821accab01be356d4dcf13c9048fc/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d59821accab01be356d4dcf13c9048fc/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d59821accab01be356d4dcf13c9048fc/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d59821accab01be356d4dcf13c9048fc/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d59821accab01be356d4dcf13c9048fc/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d59821accab01be356d4dcf13c9048fc/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.3.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c9311871f742ae7e7affea30bc496be3/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.3.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c9311871f742ae7e7affea30bc496be3/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.3.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/c9311871f742ae7e7affea30bc496be3/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:22:13-58
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3315c42970b6c03c40d750a53dc5a92f/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3315c42970b6c03c40d750a53dc5a92f/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3315c42970b6c03c40d750a53dc5a92f/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+permission#com.bilermennesil.yaka.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3315c42970b6c03c40d750a53dc5a92f/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3315c42970b6c03c40d750a53dc5a92f/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3315c42970b6c03c40d750a53dc5a92f/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3315c42970b6c03c40d750a53dc5a92f/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3315c42970b6c03c40d750a53dc5a92f/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+uses-permission#com.bilermennesil.yaka.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3315c42970b6c03c40d750a53dc5a92f/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/3315c42970b6c03c40d750a53dc5a92f/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+meta-data#com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar
+ADDED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d7fb821696ecfab118488026f8530890/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:25:13-27:85
+	android:value
+		ADDED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d7fb821696ecfab118488026f8530890/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:27:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-datatransport:18.2.0] /Users/gurbanowdadebay/.gradle/caches/transforms-3/d7fb821696ecfab118488026f8530890/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:26:17-115
+service#com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/cbc80538a2495444a3e1a4051cbcc29c/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:28:9-34:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4161ed1636422f0e24249f2652ab7435/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:36:9-38:40
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4161ed1636422f0e24249f2652ab7435/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:36:9-38:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/cbc80538a2495444a3e1a4051cbcc29c/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/cbc80538a2495444a3e1a4051cbcc29c/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:29:13-103
+meta-data#backend:com.google.android.datatransport.cct.CctBackendFactory
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/cbc80538a2495444a3e1a4051cbcc29c/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:31:13-33:39
+	android:value
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/cbc80538a2495444a3e1a4051cbcc29c/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:33:17-36
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/cbc80538a2495444a3e1a4051cbcc29c/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:32:17-94
+service#com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+ADDED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4161ed1636422f0e24249f2652ab7435/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:26:9-30:19
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4161ed1636422f0e24249f2652ab7435/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:28:13-37
+	android:permission
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4161ed1636422f0e24249f2652ab7435/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:29:13-69
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4161ed1636422f0e24249f2652ab7435/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:27:13-117
+receiver#com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+ADDED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4161ed1636422f0e24249f2652ab7435/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4161ed1636422f0e24249f2652ab7435/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.9] /Users/gurbanowdadebay/.gradle/caches/transforms-3/4161ed1636422f0e24249f2652ab7435/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:33:13-132
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/gurbanowdadebay/.gradle/caches/transforms-3/bf256a2f3e6e2525418aeb54cd06799a/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92

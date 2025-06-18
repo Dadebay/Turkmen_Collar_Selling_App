@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:yaka2/app/feature/cart/controllers/cart_controller.dart';
 import 'package:yaka2/app/feature/cart/services/order_service.dart';
 import 'package:yaka2/app/feature/home/controllers/home_controller.dart';
+import 'package:yaka2/app/feature/home/views/bottom_nav_bar_view.dart';
 import 'package:yaka2/app/product/constants/index.dart';
 
 class OrderPage extends StatefulWidget {
@@ -33,7 +34,7 @@ class _OrderPageState extends State<OrderPage> {
       body: Form(
         key: orderPage,
         child: ListView(
-          padding: const EdgeInsets.all(15.0),
+          padding: context.padding.normal,
           children: [
             textpart('userName', true),
             CustomTextField(
@@ -76,31 +77,30 @@ class _OrderPageState extends State<OrderPage> {
             const SizedBox(
               height: 40,
             ),
-            AgreeButton(
-              onTap: () {
-                final List list = [];
-                if (orderPage.currentState!.validate()) {
-                  // for (var element in cartController.cartList) {
-                  //   list.add({'id': element['id'], 'quantity': element['quantity']});
-                  // }
-                  signInPageController.agreeButton.value = !signInPageController.agreeButton.value;
-
-                  OrderService().createOrder(products: list, note: noteController.text, customerName: userNameController.text, address: addressController.text, province: name, phone: phoneController.text).then((value) {
-                    if (value == true) {
-                      showSnackBar('copySucces', 'orderSubtitle', ColorConstants.greenColor);
-
-                      cartController.clearCart();
-                    } else {
-                      showSnackBar('noConnection3', 'error', ColorConstants.redColor);
+            Center(
+              child: AgreeButton(
+                onTap: () {
+                  final List list = [];
+                  if (orderPage.currentState!.validate()) {
+                    for (var element in cartController.cartList) {
+                      list.add({'id': element.id, 'quantity': element.quantity});
                     }
                     signInPageController.agreeButton.value = !signInPageController.agreeButton.value;
-                  });
-                  Get.back();
-                  Get.back();
-                } else {
-                  showSnackBar('noConnection3', 'errorEmpty', ColorConstants.redColor);
-                }
-              },
+                    OrderService().createOrder(products: list, note: noteController.text, customerName: userNameController.text, address: addressController.text, province: name, phone: phoneController.text).then((value) {
+                      if (value == true) {
+                        showSnackBar('copySucces', 'orderSubtitle', ColorConstants.greenColor);
+                        cartController.clearCart();
+                        Get.to(() => BottomNavBar());
+                      } else {
+                        showSnackBar('noConnection3', 'error', ColorConstants.redColor);
+                      }
+                      signInPageController.agreeButton.value = !signInPageController.agreeButton.value;
+                    });
+                  } else {
+                    showSnackBar('noConnection3', 'errorEmpty', ColorConstants.redColor);
+                  }
+                },
+              ),
             ),
           ],
         ),
@@ -123,8 +123,8 @@ class _OrderPageState extends State<OrderPage> {
             fontSize: 18,
           ),
         ),
-        shape: RoundedRectangleBorder(borderRadius: context.border.normalBorderRadius),
-        tileColor: ColorConstants.greyColor.withOpacity(0.4),
+        shape: RoundedRectangleBorder(borderRadius: context.border.normalBorderRadius, side: BorderSide(color: ColorConstants.greyColor)),
+        tileColor: ColorConstants.whiteColor,
         trailing: const Icon(IconlyLight.arrowRightCircle),
         onTap: () {
           Get.defaultDialog(

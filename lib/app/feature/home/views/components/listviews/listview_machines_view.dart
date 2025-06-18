@@ -18,7 +18,7 @@ class ListviewMachinesView extends GetView {
         } else if (snapshot.hasError) {
           return SizedBox.shrink();
         } else if (snapshot.data!.isEmpty) {
-          return EmptyState(name: 'emptyMachinesSubtitle', type: EmptyStateType.text);
+          return SizedBox.shrink();
         }
         return SizedBox(
           height: WidgetSizes.size256.value,

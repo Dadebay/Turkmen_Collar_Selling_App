@@ -5,6 +5,7 @@ class IconConstants {
   const IconConstants._();
   static const String noConnection = 'assets/icons/noconnection.gif';
   static const String loginLottie = 'assets/lottie/login_lottie.gif';
+  static const String emptyCart = 'assets/lottie/emptyCART.json';
   static const String notificationLottie = 'assets/lottie/notifcation_lottie.gif';
   static const String loader = 'assets/lottie/loader.json';
   static const String tmIcon = 'assets/image/tm.png';

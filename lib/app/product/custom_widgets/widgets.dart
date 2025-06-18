@@ -14,6 +14,7 @@ class CustomWidgets {
           // lowBorderRadius ? CustomBorderRadius.lowBorderRadius : CustomBorderRadius.normalBorderRadius,
           image: DecorationImage(
             image: imageProvider,
+            alignment: Alignment.topCenter,
             fit: cover ? BoxFit.cover : null,
           ),
         ),
@@ -50,7 +51,7 @@ class CustomWidgets {
     );
   }
 
-  static Widget showProductsPrice({required BuildContext context, required bool makeBigger, required String price}) {
+  static Widget showProductsPrice({required BuildContext context, required bool makeBigger, required String price, Color? color}) {
     return RichText(
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
@@ -58,11 +59,11 @@ class CustomWidgets {
         children: <TextSpan>[
           TextSpan(
             text: CustomFunctions.findPrice(price),
-            style: context.general.textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold, color: ColorConstants.primaryColor, fontSize: makeBigger ? 22 : 18),
+            style: context.general.textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold, color: color ?? ColorConstants.primaryColor, fontSize: makeBigger ? 22 : 18),
           ),
           TextSpan(
             text: ' TMT',
-            style: context.general.textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold, color: ColorConstants.primaryColor, fontSize: makeBigger ? 14 : 11),
+            style: context.general.textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold, color: color ?? ColorConstants.primaryColor, fontSize: makeBigger ? 14 : 11),
           ),
         ],
       ),
@@ -129,18 +130,19 @@ CustomFooter footer() {
     builder: (BuildContext context, LoadStatus? mode) {
       Widget body;
       if (mode == LoadStatus.idle) {
-        body = const Text('Garasyn...');
+        body = const Text('Garaşyň...');
       } else if (mode == LoadStatus.loading) {
         body = const CircularProgressIndicator(
           color: ColorConstants.primaryColor,
         );
       } else if (mode == LoadStatus.failed) {
-        body = const Text('Load Failed!Click retry!');
+        body = const Text('Magluamt ýüklenmedi. Gaýtadan synanyşyň');
       } else if (mode == LoadStatus.canLoading) {
-        body = const Text('');
+        body = const Text('Garaşyň...');
       } else {
-        body = const Text('No more Data');
+        body = const Text('Maglumat ýok');
       }
+
       return SizedBox(
         height: 55.0,
         child: Center(child: body),

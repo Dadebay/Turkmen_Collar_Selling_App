@@ -22,8 +22,34 @@ class CategoryView extends GetView {
         } else if (snapshot.data?.isEmpty ?? true) {
           return SizedBox.shrink();
         }
+        print(snapshot.data!);
+        print(snapshot.data!.length);
+        String image = '';
+        CategoryModel? categoryModel;
+        snapshot.data!.asMap().forEach((i, cat) {
+          if (cat.name == 'Ýakalar') {
+            image = cat.image;
+            categoryModel = cat;
+          }
+        });
 
-        return buildCarousel(snapshot.data!);
+        return Column(
+          children: [
+            buildCarousel(snapshot.data!),
+            GestureDetector(
+              onTap: () {
+                final CategoryModel categories = categoryModel!;
+                Get.to(() => ShowAllProductsView(categoryModel: categories));
+              },
+              child: Container(
+                width: Get.size.width,
+                height: 220,
+                margin: EdgeInsets.symmetric(horizontal: 10),
+                child: CustomWidgets.customImageView(image: image, cover: true, borderRadius: BorderRadius.circular(20)),
+              ),
+            ),
+          ],
+        );
       },
     );
   }
@@ -59,10 +85,10 @@ class CategoryView extends GetView {
               return Expanded(
                 child: categoryIndex < endIndex
                     ? GestureDetector(
-                        onTap: () => Get.to(() => ShowAllProductsView(name: categories[categoryIndex].name!, id: categories[categoryIndex].id!)),
+                        onTap: () => Get.to(() => ShowAllProductsView(categoryModel: categories[categoryIndex])),
                         child: Padding(
                           padding: context.padding.low,
-                          child: CustomWidgets.customImageView(image: categories[categoryIndex].image!, cover: true, borderRadius: CustomBorderRadius.lowBorderRadius),
+                          child: CustomWidgets.customImageView(image: categories[categoryIndex].image, cover: true, borderRadius: CustomBorderRadius.lowBorderRadius),
                         ),
                       )
                     : Container(),

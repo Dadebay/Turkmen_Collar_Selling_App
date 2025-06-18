@@ -22,23 +22,23 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 
     if (widget.videoPath.startsWith('http')) {
       _videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(widget.videoPath));
-      // _videoPlayerController = VideoPlayerController.networkUrl(Uri.parse('https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4'));
     } else {
       _videoPlayerController = VideoPlayerController.asset(widget.videoPath);
     }
 
     _videoPlayerController.initialize().then((_) {
       setState(() {
+        print(_videoPlayerController.value.aspectRatio);
+        print(_videoPlayerController.value.aspectRatio);
+        print(_videoPlayerController.value.aspectRatio);
         _chewieController = ChewieController(
           videoPlayerController: _videoPlayerController,
           autoPlay: true,
           looping: false,
-          aspectRatio: _videoPlayerController.value.aspectRatio,
+          aspectRatio: _videoPlayerController.value.aspectRatio + 0.05,
           allowPlaybackSpeedChanging: true,
           allowFullScreen: true,
           allowMuting: true,
-
-          // useExoPlayer: true, // Ensure ExoPlayer is used
         );
       });
     });

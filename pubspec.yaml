@@ -9,24 +9,23 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # firebase
-  firebase_core: ^3.13.1
-  firebase_core_platform_interface: ^5.4.0
+  # firebase - UPDATED
+  firebase_core: ^3.5.2  # This is the line causing the issue. Let's update it.
   firebase_messaging: ^15.2.6
-  awesome_notifications: ^0.10.1
-  firebase_analytics: ^11.4.6
+  firebase_analytics: ^11.6.0
+  awesome_notifications: ^0.10.1 # This package might also have constraints, let's keep it for now.
   flutter_local_notifications: ^19.2.1
 
   # Core
   get: ^4.7.2
   flutter_file_downloader: ^2.1.0
   get_storage: ^2.1.1
-  path_provider:
+  path_provider: ^2.1.5
   permission_handler: ^12.0.0+1
   tutorial_coach_mark: ^1.3.0
   restart_app:
   url_launcher:
-  downloadsfolder: ^1.2.0
+  downloadsfolder: ^1.1.0
   vibration:
   flutter_sms_inbox: ^1.0.3
   webview_flutter: ^4.0.0

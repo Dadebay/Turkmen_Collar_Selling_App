@@ -19,3 +19,4 @@ void registerPlugins(Registrar registrar) {
   UrlLauncherPlugin.registerWith(registrar);
   registrar.registerMessageHandler();
 }
+  

@@ -111,7 +111,7 @@ class _DownloadYakaPageState extends State<DownloadYakaPage> {
     Get.back();
     DialogUtils.downloadDialog(context);
 
-    if (!machineNameList[index].purchased! && balance < machineNameList[index].price! / 100) {
+    if (!machineNameList[index].purchased! && balance <= machineNameList[index].price! / 100) {
       Get.back();
       showSnackBar('noMoney', 'noMoneySubtitle', ColorConstants.redColor);
       return;
@@ -134,7 +134,7 @@ class _DownloadYakaPageState extends State<DownloadYakaPage> {
           if (i == downloadUrls.length - 1) {
             _fetchCollarsData();
             Get.back();
-            showSnackBar('downloadTitle', 'downloadSubtitle', ColorConstants.primaryColor);
+            DialogUtils.showDownloadSuccessDialog(context: context);
           }
         },
         onDownloadError: (error) {

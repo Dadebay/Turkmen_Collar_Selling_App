@@ -74,7 +74,6 @@ class _ProfilSettingsState extends State<ProfilSettings> {
         backgroundColor: ColorConstants.primaryColor,
         elevation: 0,
         centerTitle: true,
-        systemOverlayStyle: const SystemUiOverlayStyle(statusBarColor: ColorConstants.primaryColor, statusBarIconBrightness: Brightness.dark),
         leading: IconButton(
           onPressed: () {
             Get.back();

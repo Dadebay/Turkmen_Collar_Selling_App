@@ -34,21 +34,26 @@ class _ProductProfilViewState extends State<ProductProfilView> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: widget.product.downloadable ? DownloadButton(productModel: widget.product, makeBigger: true) : AddCartButton(productModel: widget.product, productProfilDesign: true),
-      appBar: CustomAppBar(title: widget.product.name, showBackButton: true, actionButton: FavButton(changeBackColor: true, name: widget.product.name, id: widget.product.id, isCollar: widget.product.downloadable)),
+      appBar: CustomAppBar(
+          title: widget.product.name, showBackButton: true, actionButton: FavButton(changeBackColor: true, name: widget.product.name, id: widget.product.id, isCollar: widget.product.downloadable)),
       body: widget.product.downloadable ? downloadablePage() : orderPage(),
     );
   }
 
   Widget _carouselImages(List images) {
+    print(images);
+    final bool hasVideo = widget.product.videoURL != null && widget.product.videoURL!.isNotEmpty;
+
     return CarouselSlider.builder(
-      itemCount: images.length + 1,
+      itemCount: hasVideo ? images.length + 1 : images.length,
       itemBuilder: (context, index, count) {
-        return index == images.length
-            ? _videoPreview(images, context)
-            : GestureDetector(
-                onTap: () => Get.to(() => PhotoViewPage(image: images[index], networkImage: true)),
-                child: CustomWidgets.customImageView(image: images[index], cover: true, borderRadius: BorderRadius.zero),
-              );
+        if (hasVideo && index == images.length) {
+          return _videoPreview(images, context);
+        }
+        return GestureDetector(
+          onTap: () => Get.to(() => PhotoViewPage(image: images[index], networkImage: true)),
+          child: CustomWidgets.customImageView(image: images[index], cover: true, borderRadius: BorderRadius.zero),
+        );
       },
       options: CarouselOptions(
         onPageChanged: (index, CarouselPageChangedReason a) {},
@@ -148,7 +153,16 @@ class _ProductProfilViewState extends State<ProductProfilView> {
     );
   }
 
-  Widget textPart({required String name, required String price, required String machineName, required String barcode, required String category, required String views, required String downloads, required String desc, required BuildContext context}) {
+  Widget textPart(
+      {required String name,
+      required String price,
+      required String machineName,
+      required String barcode,
+      required String category,
+      required String views,
+      required String downloads,
+      required String desc,
+      required BuildContext context}) {
     return Padding(
       padding: context.padding.normal,
       child: Column(
@@ -189,9 +203,9 @@ class _ProductProfilViewState extends State<ProductProfilView> {
           ),
           twoText(name1: 'data1', name2: machineName, context: context),
           twoText(name1: 'data2', name2: category, context: context),
-          twoText(name1: 'data3', name2: views, context: context),
+          // twoText(name1: 'data3', name2: views, context: context),
           twoText(name1: 'data6', name2: barcode, context: context),
-          twoText(name1: 'createdAt', name2: downloads, context: context),
+          // twoText(name1: 'createdAt', name2: downloads, context: context),
           Padding(
             padding: context.padding.verticalNormal,
             child: Text(

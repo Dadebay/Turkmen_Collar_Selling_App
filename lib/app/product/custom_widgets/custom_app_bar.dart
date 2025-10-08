@@ -21,8 +21,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       backgroundColor: ColorConstants.primaryColor,
       scrolledUnderElevation: 0.0,
+      leadingWidth: 80,
       elevation: 0.0,
-      systemOverlayStyle: const SystemUiOverlayStyle(statusBarColor: ColorConstants.primaryColor, statusBarIconBrightness: Brightness.dark),
       leading: showBackButton
           ? IconButton(
               onPressed: () {
@@ -33,7 +33,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 color: ColorConstants.whiteColor,
               ),
             )
-          : leadingButton ?? const SizedBox.shrink(),
+          : Center(child: leadingButton ?? const SizedBox.shrink()),
       title: Text(
         title.tr,
         style: context.general.textTheme.headlineMedium!.copyWith(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),

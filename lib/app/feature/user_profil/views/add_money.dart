@@ -107,22 +107,35 @@ class _AddCashState extends State<AddCash> {
           AgreeButton(
             text: 'payment'.tr,
             onTap: () async {
-              final token = await Auth().getToken();
-              if (token == null || token == '') {
-                showSnackBar('loginError', 'loginErrorSubtitle1', ColorConstants.redColor);
-                await Get.to(() => UserLoginView());
-              } else {
-                await DownloadsService().getAvailabePhoneNumber().then((element) async {
-                  final String phoneNumber = element['data'][0];
-                  if (Platform.isAndroid) {
-                    final uri = 'sms:0804?body=$phoneNumber   ${moneyList[value]} ';
-                    await launchUrlString(uri);
-                  } else if (Platform.isIOS) {
-                    final uri = 'sms:0804&body=$phoneNumber   ${moneyList[value]} ';
-                    await launchUrlString(uri);
+              Get.defaultDialog(
+                title: 'attention'.tr,
+                middleText: 'paymentWarning'.tr,
+                textCancel: 'no'.tr,
+                textConfirm: 'ok'.tr,
+              
+                confirmTextColor: ColorConstants.whiteColor,
+                buttonColor: ColorConstants.primaryColor,
+                
+                onConfirm: () async {
+                  Get.back();
+                  final token = await Auth().getToken();
+                  if (token == null || token == '') {
+                    showSnackBar('loginError', 'loginErrorSubtitle1', ColorConstants.redColor);
+                    await Get.to(() => UserLoginView());
+                  } else {
+                    await DownloadsService().getAvailabePhoneNumber().then((element) async {
+                      final String phoneNumber = element['data'][0];
+                      if (Platform.isAndroid) {
+                        final uri = 'sms:0804?body=$phoneNumber   ${moneyList[value]} ';
+                        await launchUrlString(uri);
+                      } else if (Platform.isIOS) {
+                        final uri = 'sms:0804&body=$phoneNumber   ${moneyList[value]} ';
+                        await launchUrlString(uri);
+                      }
+                    });
                   }
-                });
-              }
+                },
+              );
             },
           ),
           SizedBox(height: 10),

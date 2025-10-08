@@ -115,10 +115,6 @@ class _FavoritesViewState extends State<FavoritesView> {
         style: context.general.textTheme.headlineMedium!.copyWith(color: Colors.white, fontWeight: FontWeight.w500),
       ),
       backgroundColor: ColorConstants.primaryColor,
-      systemOverlayStyle: const SystemUiOverlayStyle(
-        statusBarColor: ColorConstants.primaryColor,
-        statusBarIconBrightness: Brightness.light,
-      ),
       centerTitle: true,
       bottom: TabBar(
         labelStyle: context.general.textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),

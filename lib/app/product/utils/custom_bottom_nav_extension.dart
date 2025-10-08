@@ -8,6 +8,7 @@ class CustomBottomNavBar extends StatelessWidget {
   final int currentIndex;
   final List<IconData> unselectedIcons;
   final List<IconData> selectedIcons;
+  final List<String> labels;
   final Function(int) onTap;
 
   CustomBottomNavBar({
@@ -15,6 +16,7 @@ class CustomBottomNavBar extends StatelessWidget {
     required this.onTap,
     required this.unselectedIcons,
     required this.selectedIcons,
+    required this.labels,
     Key? key,
   }) : super(key: key);
 
@@ -52,7 +54,14 @@ class CustomBottomNavBar extends StatelessWidget {
                       children: [
                         if (index == 2) cartController.cartList.isEmpty ? _buildIcon(isSelected, index, value) : _buildBadgedIcon(isSelected, index, value) else _buildIcon(isSelected, index, value),
                         const SizedBox(height: 5),
-                        _buildIndicator(isSelected, context),
+                        Text(
+                          labels[index].tr,
+                          style: TextStyle(
+                            color: Color.lerp(ColorConstants.greyColor, ColorConstants.primaryColor, value),
+                            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                            fontSize: 12,
+                          ),
+                        )
                       ],
                     );
                   },
@@ -68,7 +77,7 @@ class CustomBottomNavBar extends StatelessWidget {
   Widget _buildIcon(bool isSelected, int index, double value) {
     return Icon(
       isSelected ? selectedIcons[index] : unselectedIcons[index],
-      size: 28,
+      size: 25,
       color: Color.lerp(ColorConstants.greyColor, ColorConstants.primaryColor, value),
     );
   }
@@ -82,19 +91,6 @@ class CustomBottomNavBar extends StatelessWidget {
         ),
       ),
       child: _buildIcon(isSelected, index, value),
-    );
-  }
-
-  Widget _buildIndicator(bool isSelected, BuildContext context) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-      height: isSelected ? 4 : 0,
-      width: 16,
-      decoration: BoxDecoration(
-        color: ColorConstants.primaryColor,
-        borderRadius: context.border.normalBorderRadius,
-      ),
     );
   }
 }

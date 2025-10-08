@@ -6,7 +6,6 @@ export 'package:get_storage/get_storage.dart';
 export 'package:kartal/kartal.dart';
 export 'package:lottie/lottie.dart';
 export 'package:pull_to_refresh/pull_to_refresh.dart';
-export 'package:restart_app/restart_app.dart';
 export 'package:yaka2/app/product/buttons/agree_button.dart';
 export 'package:yaka2/app/product/custom_widgets/custom_app_bar.dart';
 export 'package:yaka2/app/product/empty_state/empty_state.dart';

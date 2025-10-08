@@ -53,7 +53,7 @@ class PhoneNumberTextField extends StatelessWidget {
           ),
           contentPadding: context.padding.normal,
           prefixIconConstraints: const BoxConstraints(minWidth: 80),
-          hintText: '65 656565 ',
+          hintText: ' ',
           fillColor: ColorConstants.primaryColor,
           alignLabelWithHint: true,
           hintStyle: context.general.textTheme.titleLarge!.copyWith(color: ColorConstants.greyColor.withOpacity(.5), fontWeight: FontWeight.w500),

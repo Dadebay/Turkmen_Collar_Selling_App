@@ -17,6 +17,8 @@ import 'package:yaka2/app/product/constants/index.dart';
 import 'package:yaka2/app/product/utils/custom_bottom_nav_extension.dart';
 import 'package:yaka2/app/product/utils/dialog_utils.dart';
 
+import 'package:yaka2/app/product/utils/upgrader_localization.dart';
+
 class BottomNavBar extends StatefulWidget {
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
@@ -67,12 +69,24 @@ class _BottomNavBarState extends State<BottomNavBar> with WidgetsBindingObserver
   }
 
   Future<void> _maybeShowUpgradeDialog() async {
-    if (UpgradeAlert().upgrader.shouldDisplayUpgrade()) {
+    if (Upgrader().shouldDisplayUpgrade()) {
+      final languageCode = Get.locale?.languageCode;
+      UpgraderMessages? messages;
+      if (languageCode == 'tr') {
+        messages = UpgraderMessagesTR();
+      } else if (languageCode == 'ru') {
+        messages = UpgraderMessagesRU();
+      }
+
       await showDialog(
         context: context,
         barrierDismissible: false,
         builder: (ctx) => UpgradeAlert(
-          upgrader: Upgrader(languageCode: 'ru'),
+          upgrader: Upgrader(
+            messages: messages,
+            debugDisplayAlways: true,
+          ),
+          showIgnore: false,
           dialogStyle: Platform.isAndroid ? UpgradeDialogStyle.material : UpgradeDialogStyle.cupertino,
         ),
       );
@@ -115,10 +129,17 @@ class _BottomNavBarState extends State<BottomNavBar> with WidgetsBindingObserver
   }
 
   Future<void> _maybeAskNotificationPermission() async {
+    final box = GetStorage();
+    final bool permissionRequested = box.read('notification_permission_requested') ?? false;
+
+    if (permissionRequested) {
+      return;
+    }
+
     final status = await Permission.notification.status;
 
     if (!status.isGranted) {
-      await Future.delayed(Duration(seconds: 15));
+      await Future.delayed(const Duration(seconds: 15));
 
       if (mounted) {
         DialogUtils.showLoginDialog(
@@ -127,21 +148,25 @@ class _BottomNavBarState extends State<BottomNavBar> with WidgetsBindingObserver
           agreeButton: 'giveAccess',
           subtitle: 'notificationSubtitle',
           image: IconConstants.loginLottie,
-          onCancel: () => Get.back(),
-          onRetry: () async {
+          onCancel: () {
+            box.write('notification_permission_requested', true);
             Get.back();
-            await Future.delayed(Duration(milliseconds: 300));
+          },
+          onRetry: () async {
+            box.write('notification_permission_requested', true);
+            Get.back();
+            await Future.delayed(const Duration(milliseconds: 300));
 
             final newStatus = await Permission.notification.request();
 
-            if (newStatus.isGranted) {
-              // izin verildi
-            } else if (newStatus.isPermanentlyDenied || newStatus.isDenied) {
-              await openAppSettings(); // kullanıcıyı ayarlara yönlendir
+            if (newStatus.isPermanentlyDenied || newStatus.isDenied) {
+              await openAppSettings();
             }
           },
         );
       }
+    } else {
+      box.write('notification_permission_requested', true);
     }
   }
 
@@ -210,6 +235,7 @@ class _BottomNavBarState extends State<BottomNavBar> with WidgetsBindingObserver
       selectedIcons: ListConstants.selectedIcons,
       unselectedIcons: ListConstants.mainIcons,
       currentIndex: selectedIndex,
+      labels: ListConstants.pageNames.cast<String>(),
       onTap: (index) {
         setState(() => selectedIndex = index);
         balanceController.userMoney(); // anında tetikle
@@ -219,28 +245,50 @@ class _BottomNavBarState extends State<BottomNavBar> with WidgetsBindingObserver
 
   @override
   Widget build(BuildContext context) {
+    final languageCode = Get.locale?.languageCode;
+    UpgraderMessages? messages;
+    if (languageCode == 'tr') {
+      messages = UpgraderMessagesTR();
+    } else if (languageCode == 'ru') {
+      messages = UpgraderMessagesRU();
+    }
     return UpgradeAlert(
       upgrader: Upgrader(
-        languageCode: 'ru',
+        messages: messages,
       ),
       dialogStyle: Platform.isAndroid ? UpgradeDialogStyle.material : UpgradeDialogStyle.cupertino,
-      child: Scaffold(
-        appBar: selectedIndex == 1
-            ? null
-            : CustomAppBar(
-                title: ListConstants.pageNames[selectedIndex],
-                showBackButton: false,
-                showWallet: true,
-                leadingButton: IconButton(
-                  onPressed: () async {
-                    await launchUrlString('tel://${userProfilController.phoneNumber.value}');
-                  },
-                  icon: Icon(IconlyBold.call, color: ColorConstants.whiteColor),
+      child: SafeArea(
+        top: false,
+        child: Scaffold(
+          appBar: selectedIndex == 1
+              ? null
+              : CustomAppBar(
+                  title: "${ListConstants.pageNames[selectedIndex]}".tr,
+                  showBackButton: false,
+                  showWallet: true,
+                  leadingButton: GestureDetector(
+                    onTap: () async {
+                      await launchUrlString('tel://${userProfilController.phoneNumber.value}');
+                    },
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        //
+
+                        Icon(IconlyBold.call, color: ColorConstants.whiteColor),
+                        Text(
+                          'contact'.tr,
+                          style: TextStyle(color: ColorConstants.whiteColor, fontSize: 10),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-        body: ListConstants.pages[selectedIndex],
-        floatingActionButton: _buildFloatingActionButton(),
-        bottomNavigationBar: _buildBottomNavigationBar(),
+          body: ListConstants.pages[selectedIndex],
+          floatingActionButton: _buildFloatingActionButton(),
+          bottomNavigationBar: _buildBottomNavigationBar(),
+        ),
       ),
     );
   }

@@ -1,6 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kartal/kartal.dart';
+import 'package:shimmer/shimmer.dart';
+import 'package:yaka2/app/product/constants/color_constants.dart';
+import 'package:yaka2/app/product/constants/string_constants.dart';
 
-import '../constants/index.dart';
+import '../sizes/widget_sizes.dart';
 
 class Loading extends StatelessWidget {
   const Loading({super.key});
@@ -8,7 +13,14 @@ class Loading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Lottie.asset(IconConstants.loader),
+      child: Shimmer.fromColors(
+        baseColor: ColorConstants.greyColor,
+        highlightColor: Colors.white,
+        child: Text(
+          StringConstants.appName.toUpperCase(),
+          style: Theme.of(context).textTheme.headlineLarge?.copyWith(fontWeight: FontWeight.w400),
+        ),
+      ),
     );
   }
 }

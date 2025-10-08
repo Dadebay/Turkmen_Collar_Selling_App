@@ -175,7 +175,7 @@ class ListConstants {
     'Balkan',
   ];
   static List pageNames = [
-    'YAKA',
+    'home',
     'favorites',
     'cart',
     'settings',

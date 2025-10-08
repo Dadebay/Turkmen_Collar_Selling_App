@@ -463,4 +463,61 @@ class DialogUtils {
       ),
     );
   }
+
+  static void showDownloadSuccessDialog({required BuildContext context}) {
+    Get.dialog(
+      Stack(
+        children: [
+          BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+            child: Container(color: Colors.black.withOpacity(0.2)),
+          ),
+          Center(
+            child: Container(
+              padding: context.padding.normal,
+              margin: context.padding.normal,
+              decoration: BoxDecoration(
+                color: ColorConstants.whiteColor,
+                borderRadius: context.border.normalBorderRadius,
+                border: Border.all(color: ColorConstants.primaryColor, width: 2),
+              ),
+              child: Material(
+                color: ColorConstants.whiteColor,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'downloadSuccessTitle'.tr,
+                      textAlign: TextAlign.center,
+                      style: context.general.textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    Padding(
+                      padding: context.padding.verticalNormal,
+                      child: Text(
+                        'downloadSuccessSubtitle'.tr,
+                        style: context.general.textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.w500, fontSize: 18),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: ColorConstants.primaryColor,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                      ),
+                      onPressed: () => Get.back(),
+                      child: Text('close'.tr),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+      barrierDismissible: false,
+    );
+  }
 }

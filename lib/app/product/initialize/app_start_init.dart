@@ -17,16 +17,7 @@ class AppStartInit {
   const AppStartInit._();
 
   static Future<void> getNotification() async {
-    // print token
-    await FirebaseMessaging.instance.getToken().then((value) {
-      print('Token: $value');
-    });
-
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      print('onMessage: ${message.notification}');
-      print('onMessage: ${message.data}');
-      print('onMessage: ${message.notification!.title}');
-      print('onMessage: ${message.notification!.body}');
       FCMConfig().sendNotification(body: message.notification!.body!, title: message.notification!.title!);
     });
   }

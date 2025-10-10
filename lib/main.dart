@@ -28,10 +28,6 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      print('onMessage: ${message.notification}');
-      print('onMessage: ${message.data}');
-      print('onMessage: ${message.notification!.title}');
-      print('onMessage: ${message.notification!.body}');
       FCMConfig().sendNotification(body: message.notification!.body!, title: message.notification!.title!);
     });
     AppStartInit.getNotification();

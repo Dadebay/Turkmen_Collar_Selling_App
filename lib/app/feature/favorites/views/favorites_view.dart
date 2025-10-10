@@ -66,9 +66,6 @@ class _FavoritesViewState extends State<FavoritesView> {
           ),
           itemBuilder: (BuildContext context, int index) {
             final product = controller.favoriteCollars[index];
-            print('Collar favorites: ${controller.favoriteCollars[index].id}');
-            print('Collar favorites: ${controller.favoriteCollars[index].name}');
-            print(product.downloadable);
             return ProductCard(product: product);
           },
         );

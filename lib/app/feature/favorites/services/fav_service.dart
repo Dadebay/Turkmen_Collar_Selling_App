@@ -43,8 +43,6 @@ class FavService {
         HttpHeaders.authorizationHeader: 'Bearer $token',
       },
     );
-    print('__________________________________________________________________________________________________________');
-    print(response.body);
     if (response.statusCode == 200) {
       if (token == null) {
         return favListCollar;

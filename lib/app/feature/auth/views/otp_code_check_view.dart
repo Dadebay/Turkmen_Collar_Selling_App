@@ -25,16 +25,8 @@ class _OTPCodeCheckViewState extends State<OTPCodeCheckView> with CodeAutoFill {
   void initState() {
     super.initState();
     listenForCode();
-    function();
   }
 
-  dynamic function() async {
-    final String signature = await SmsAutoFill().getAppSignature;
-    print('Signature: $signature');
-    print('Signature: $signature');
-    print('Signature: $signature');
-    print('Signature: $signature');
-  }
 
   @override
   void codeUpdated() {

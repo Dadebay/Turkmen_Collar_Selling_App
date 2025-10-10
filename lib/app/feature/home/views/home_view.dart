@@ -2,6 +2,7 @@
 //
 import 'package:get/get.dart';
 import 'package:yaka2/app/feature/home/controllers/home_controller.dart';
+import 'package:yaka2/app/feature/home/models/product_model.dart';
 import 'package:yaka2/app/feature/home/views/components/banners_view.dart';
 import 'package:yaka2/app/feature/home/views/components/category_view.dart';
 import 'package:yaka2/app/feature/home/views/components/listviews/listview_clothes_view.dart';
@@ -42,10 +43,24 @@ class _HomeViewState extends State<HomeView> {
         children: [
           BannersView(),
           CategoryView(),
-          ListviewCollarsView(),
-          ListviewClothesView(),
-          ListViewGoods(),
-          ListviewMachinesView(),
+          Obx(() {
+            return Column(
+              children: [
+                // if (homeController.collarController.collarList.isNotEmpty) ListviewCollarsView(),
+                if (homeController.clothesController.clothesList.isNotEmpty) ListviewClothesView(),
+                if (homeController.goodsController.goodsList.isNotEmpty) ListViewGoods(),
+              ],
+            );
+          }),
+          FutureBuilder<List<ProductModel>>(
+            future: homeController.getMachines,
+            builder: (context, snapshot) {
+              if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+                return ListviewMachinesView();
+              }
+              return SizedBox.shrink();
+            },
+          ),
         ],
       ),
     );

@@ -41,7 +41,6 @@ class MachineService {
         HttpHeaders.authorizationHeader: 'Bearer $token',
       },
     );
-    log(response.body.toString());
     if (response.statusCode == 200) {
       final responseJson = json.decode(response.body);
       return ProductModel.fromJson(responseJson);

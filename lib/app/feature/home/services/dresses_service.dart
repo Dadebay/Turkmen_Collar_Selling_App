@@ -22,8 +22,6 @@ class DressesService {
         HttpHeaders.authorizationHeader: 'Bearer $token',
       },
     );
-    print('${Auth.serverURL}/api/v1/products');
-    print(response.body);
     if (response.statusCode == 200) {
       clothesController.clothesLoading.value = 2;
       final responseJson = json.decode(response.body);
@@ -72,7 +70,6 @@ class DressesService {
         HttpHeaders.authorizationHeader: 'Bearer $token',
       },
     );
-    log('Get Dresses By ID Response: ${response.body}');
     if (response.statusCode == 200) {
       final responseJson = json.decode(response.body);
       return ProductModel.fromJson(responseJson);

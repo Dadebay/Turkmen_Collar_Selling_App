@@ -41,9 +41,6 @@ class UserProfilController extends GetxController {
     required String sender,
     required String amount,
   }) async {
-    print(sender);
-    print(amount);
-    print('${Auth.serverURL}/api/v1/online-transactions');
     final response = await http.post(
       Uri.parse('${Auth.serverURL}/api/v1/online-transactions'),
       headers: <String, String>{
@@ -55,8 +52,6 @@ class UserProfilController extends GetxController {
         'token': 'BYAhDQAAAIOyop/ximLMMwI=',
       }),
     );
-    print(response.statusCode);
-    print(response.body);
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       return data['formUrl']; // burayı döndürüyoruz

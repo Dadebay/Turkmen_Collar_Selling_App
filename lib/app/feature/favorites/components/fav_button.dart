@@ -49,7 +49,6 @@ class _FavButtonState extends State<FavButton> {
     } else {
       currentlyFavorite = favoritesController.favProductListIds.any((element) => element['id'] == widget.id);
     }
-    log('FavButton (id=${widget.id}) Toggling. Currently favorite: $currentlyFavorite');
 
     try {
       if (currentlyFavorite) {
@@ -63,7 +62,6 @@ class _FavButtonState extends State<FavButton> {
         );
       }
     } catch (e) {
-      log('FavButton (id=${widget.id}) Error toggling favorite: $e');
       showSnackBar('error'.tr, 'operationFailed'.tr, ColorConstants.redColor);
     }
   }
@@ -84,7 +82,6 @@ class _FavButtonState extends State<FavButton> {
       }
 
       final logListContent = checkedList.take(10).toList();
-      log('FavButton build: id=${widget.id}, type=$type, isFavoriteResult=$isFavorite, checkedListLength=${checkedList.length}, listContentSample=$logListContent');
 
       final bool usePrimaryBackground = widget.changeBackColor == true;
       final Color backgroundColor = usePrimaryBackground ? ColorConstants.primaryColor : ColorConstants.whiteColor;

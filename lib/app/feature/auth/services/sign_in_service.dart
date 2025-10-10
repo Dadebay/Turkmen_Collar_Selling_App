@@ -42,7 +42,6 @@ class SignInService {
       headers: <String, String>{HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8'},
       body: jsonEncode(<String, String>{'phone': phone}),
     );
-    print('Response status: ${response.body}');
     if (phone == '+9962990344') {
       showSnackBar('OTP', response.body, ColorConstants.greenColor);
     }

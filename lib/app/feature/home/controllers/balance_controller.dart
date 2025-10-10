@@ -37,7 +37,6 @@ class BalanceController extends GetxController {
       await AboutUsService().getuserData().then((value) {
         balance.value = '${value.balance! / 100}';
       });
-      log('Checking user balance -----------------------${balance.value}');
 
       controller.userLogin.value = true;
     }

@@ -51,16 +51,8 @@ class ListConstants {
         // const downloadsPath = '/storage/emulated/0/Download';
         final bool success = await openDownloadFolder();
         if (success) {
-          print('Download folder opened successfully.');
         } else {
-          print('Failed to open download folder.');
         }
-        // final uri = Uri.parse(downloadsPath);
-        // if (await canLaunchUrl(uri)) {
-        //   await launchUrl(uri);
-        // } else {
-        //   print('Fickeds');
-        // }
       },
     },
     {

@@ -58,15 +58,18 @@ class UserMeModel {
 class GetFilterElements {
   final int? id;
   final String? name;
+  final String? image;
   GetFilterElements({
     this.id,
     this.name,
+    this.image,
   });
 
   factory GetFilterElements.fromJson(Map<dynamic, dynamic> json) {
     return GetFilterElements(
       id: json['id'] as int,
       name: json['name'] as String,
+      image: json['image'] as String?,
     );
   }
 }

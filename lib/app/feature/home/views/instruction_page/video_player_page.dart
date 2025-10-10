@@ -28,9 +28,6 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 
     _videoPlayerController.initialize().then((_) {
       setState(() {
-        print(_videoPlayerController.value.aspectRatio);
-        print(_videoPlayerController.value.aspectRatio);
-        print(_videoPlayerController.value.aspectRatio);
         _chewieController = ChewieController(
           videoPlayerController: _videoPlayerController,
           autoPlay: true,

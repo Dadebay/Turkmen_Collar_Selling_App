@@ -46,7 +46,6 @@ class DownloadsService {
     );
 
     final responseJson = json.decode(response.body);
-    print(responseJson['data']['files']);
     return responseJson['data']['files'];
   }
 

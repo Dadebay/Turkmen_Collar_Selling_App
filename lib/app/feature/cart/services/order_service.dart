@@ -26,14 +26,8 @@ class OrderService {
       'province': province,
     });
     request.headers.addAll(headers);
-    print(request.fields);
-    print(token);
     final http.StreamedResponse response = await request.send();
 
-    // Response body'i al
-    final responseBody = await response.stream.bytesToString();
-    print(responseBody); // Response body'yi yayınla
-    print(response.statusCode);
 
     if (response.statusCode == 201) {
       return true;

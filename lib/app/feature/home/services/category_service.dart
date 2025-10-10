@@ -41,8 +41,6 @@ class CategoryService {
     final token = await Auth().getToken();
     final uri = Uri.parse('${Auth.serverURL}/api/v1/categories/$id').replace(queryParameters: parameters);
 
-    log(uri.toString());
-    log(parameters.toString());
     final response = await http.get(
       uri,
       headers: {
@@ -86,7 +84,6 @@ class CategoryService {
 
     final decodedBody = utf8.decode(response.bodyBytes);
     final Map<String, dynamic> responseJson = json.decode(decodedBody);
-    log(responseJson.toString());
 
     final List<ProductModel> categoryList = (responseJson['data'] as List)
         .map(

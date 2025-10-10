@@ -96,12 +96,6 @@ class _BottomNavBarState extends State<BottomNavBar> with WidgetsBindingObserver
   Future<void> _maybeShowTutorial() async {
     final box = GetStorage();
     final hasSeen = box.read('seen_fab_tutorial') ?? false;
-    print(hasSeen);
-    print(hasSeen);
-    print(hasSeen);
-    print(hasSeen);
-    print(hasSeen);
-    print(hasSeen);
     if (!hasSeen) {
       await Future.delayed(const Duration(milliseconds: 500)); // render sonrası
       _createTutorialTargets();
@@ -115,7 +109,6 @@ class _BottomNavBarState extends State<BottomNavBar> with WidgetsBindingObserver
       targets: targets,
       colorShadow: Colors.black,
       textSkip: 'Geç',
-      onFinish: () => print('Tutorial tamamlandı'),
       onSkip: () => true,
     ).show(context: context);
   }
@@ -123,7 +116,6 @@ class _BottomNavBarState extends State<BottomNavBar> with WidgetsBindingObserver
   void _startBalanceTimer() {
     balanceTimer?.cancel(); // varsa önce iptal et
     balanceTimer = Timer.periodic(const Duration(seconds: 20), (_) {
-      log('user money updated ${balanceController.balance.value}');
       balanceController.userMoney();
     });
   }

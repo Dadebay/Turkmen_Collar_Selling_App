@@ -102,7 +102,7 @@ class _DownloadYakaPageState extends State<DownloadYakaPage> {
     productProfilController.sany.value = 0;
     productProfilController.totalSum.value = 0;
 
-    final double balance = double.parse(homeController.balance.toString().split('.')[0]);
+    final double balance = double.parse(homeController.balance.toString());
     final Random rand = Random();
 
     final String machineName = machineNameList[index].machineName!.toUpperCase();
@@ -111,7 +111,7 @@ class _DownloadYakaPageState extends State<DownloadYakaPage> {
     Get.back();
     DialogUtils.downloadDialog(context);
 
-    if (!machineNameList[index].purchased! && balance <= machineNameList[index].price! / 100) {
+    if (!machineNameList[index].purchased! && balance < machineNameList[index].price! / 100) {
       Get.back();
       showSnackBar('noMoney', 'noMoneySubtitle', ColorConstants.redColor);
       return;

@@ -32,8 +32,6 @@ class ListviewClothesView extends GetView {
               header: const MaterialClassicHeader(color: ColorConstants.primaryColor),
               child: Obx(
                 () {
-                  print(clothesController.clothesLoading.value);
-                  print(clothesController.clothesList.length);
                   if (clothesController.clothesLoading.value == 0) {
                     return CardsLoading(loaderType: LoaderType.collar);
                   } else if (clothesController.clothesLoading.value == 1) {
@@ -41,8 +39,6 @@ class ListviewClothesView extends GetView {
                   } else if (clothesController.clothesLoading.value == 2) {
                     return EmptyState(name: 'noProductFound', type: EmptyStateType.text);
                   }
-                  print(clothesController.clothesLoading.value);
-                  print(clothesController.clothesList.length);
                   return ListView.builder(
                     itemCount: clothesController.clothesList.length,
                     physics: const BouncingScrollPhysics(),

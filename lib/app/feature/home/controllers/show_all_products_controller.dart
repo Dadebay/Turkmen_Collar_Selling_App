@@ -3,30 +3,31 @@ import 'package:get/get.dart';
 import 'package:yaka2/app/feature/home/models/product_model.dart';
 import 'package:yaka2/app/feature/home/services/category_service.dart';
 import 'package:yaka2/app/product/utils/dialog_utils.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../../product/constants/index.dart';
 
 class ShowAllProductsController extends GetxController {
   Rx<int> page = 1.obs;
-
   Rx<String> sortMachineName = ''.obs;
   Rx<int> sortMachineID = 0.obs;
-  // Rx<int> sortValue = 0.obs;
   Rx<int> sortValueRadioButton = 0.obs;
-  Rx<int> selectedSubCategory = 0.obs;
-  List<ProductModel> showAllList = <ProductModel>[].obs;
+  Rx<int> selectedSubCategory = (-1).obs; // Başlangıçta hiçbir alt kategori seçili değil
+  var showAllList = <ProductModel>[].obs; // Gözlemlenebilir liste
   Rx<bool> loading = false.obs;
+
   final TextEditingController minimumPriceRangeController = TextEditingController();
   final TextEditingController maximumPriceRangeController = TextEditingController();
 
   final RefreshController refreshController = RefreshController(initialRefresh: false);
 
+  // Belirtilen kategori ID'si ve filtrelere göre ürünleri getiren fonksiyon
   void fetchData(int id) async {
     final List<ProductModel> list = await CategoryService().getCategoryByID(
       id: id,
       parameters: {
         'page': '${page.value}',
-        'limit': StringConstants.limit,
+        'limit': '10', // StringConstants.limit yerine sabit bir değer kullandım
         'sort_by': sortMachineName.value,
         'min': minimumPriceRangeController.text,
         'max': maximumPriceRangeController.text,
@@ -34,12 +35,14 @@ class ShowAllProductsController extends GetxController {
       },
     );
 
-    showAllList.addAll(list);
-
+    if (list.isNotEmpty) {
+      showAllList.addAll(list);
+    }
     loading.value = true;
   }
 
-  dynamic onRefresh(int id) {
+  // Sayfayı yenileme fonksiyonu
+  void onRefresh(int id) {
     loading.value = false;
     page.value = 1;
     showAllList.clear();
@@ -47,25 +50,27 @@ class ShowAllProductsController extends GetxController {
     maximumPriceRangeController.clear();
     sortMachineID.value = 0;
     sortMachineName.value = '';
-    selectedSubCategory.value = -1;
+    selectedSubCategory.value = -1; // Seçili alt kategoriyi sıfırla
     fetchData(id);
     refreshController.refreshCompleted();
   }
 
-  dynamic onLoading(int id) {
-    page.value += 1;
+  // Daha fazla ürün yükleme fonksiyonu
+  void onLoading(int id) {
+    page.value++;
     fetchData(id);
     refreshController.loadComplete();
   }
 
-  dynamic onSortonFilterData(int id) {
+  // Filtreleme veya sıralama yapıldığında verileri yeniden getiren fonksiyon
+  void onSortonFilterData(int id) {
     page.value = 1;
     showAllList.clear();
-    minimumPriceRangeController.clear();
-    maximumPriceRangeController.clear();
+    loading.value = false; // Yükleme durumunu başlat
     fetchData(id);
   }
 
+  // Sıralama seçeneklerini gösteren diyalog
   dynamic showSortDialog(int id) {
     return DialogUtils.defaultBottomSheet(
       name: 'sort',
@@ -80,7 +85,6 @@ class ShowAllProductsController extends GetxController {
               groupValue: sortValueRadioButton.value,
               activeColor: ColorConstants.primaryColor,
               onChanged: (ind) {
-                // sortMachineID.value = 0;
                 sortValueRadioButton.value = int.parse(ind.toString());
                 sortMachineName.value = ListConstants.sortData[index]['sort_column'];
                 onSortonFilterData(id);

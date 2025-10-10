@@ -41,7 +41,6 @@ class _ProductProfilViewState extends State<ProductProfilView> {
   }
 
   Widget _carouselImages(List images) {
-    print(images);
     final bool hasVideo = widget.product.videoURL != null && widget.product.videoURL!.isNotEmpty;
 
     return CarouselSlider.builder(

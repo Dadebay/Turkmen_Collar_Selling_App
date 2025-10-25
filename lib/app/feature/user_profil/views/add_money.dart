@@ -7,6 +7,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'package:yaka2/app/feature/cart/services/downloads_service.dart';
 import 'package:yaka2/app/feature/home/controllers/balance_controller.dart';
 import 'package:yaka2/app/feature/user_profil/controllers/user_profil_controller.dart';
+import 'package:yaka2/app/feature/user_profil/views/add_money_phone.dart';
 import 'package:yaka2/app/product/constants/index.dart';
 
 import '../../auth/models/auth_model.dart';
@@ -74,73 +75,32 @@ class _AddCashState extends State<AddCash> {
             padding: context.padding.verticalMedium,
             child: Text(
               'addMoneyTitle'.tr,
-              style: context.general.textTheme.titleLarge!.copyWith(color: ColorConstants.blackColor, fontSize: 18),
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              style: context.general.textTheme.titleLarge!.copyWith(color: ColorConstants.blackColor, fontSize: 25, fontWeight: FontWeight.bold),
             ),
           ),
-          Text(
-            'addMoneySubTitle'.tr,
-            style: context.general.textTheme.bodyLarge!.copyWith(color: ColorConstants.redColor, fontSize: 18),
-          ),
-          Padding(
-            padding: context.padding.verticalNormal,
-            child: ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                return RadioListTile(
-                  value: index,
-                  activeColor: ColorConstants.primaryColor,
-                  groupValue: value,
-                  onChanged: (int? ind) => setState(() => value = ind!),
-                  title: Text(
-                    '${moneyList[index]} TMT',
-                    style: const TextStyle(
-                      color: ColorConstants.blackColor, //fontFamily: normProBold,
-                      fontSize: 18,
-                    ),
-                  ),
-                );
-              },
-              itemCount: 5,
-            ),
-          ),
-          AgreeButton(
-            text: 'payment'.tr,
-            onTap: () async {
-              Get.defaultDialog(
-                title: 'attention'.tr,
-                middleText: 'paymentWarning'.tr,
-                textCancel: 'no'.tr,
-                textConfirm: 'ok'.tr,
-              
-                confirmTextColor: ColorConstants.whiteColor,
-                buttonColor: ColorConstants.primaryColor,
-                
-                onConfirm: () async {
-                  Get.back();
-                  final token = await Auth().getToken();
-                  if (token == null || token == '') {
-                    showSnackBar('loginError', 'loginErrorSubtitle1', ColorConstants.redColor);
-                    await Get.to(() => UserLoginView());
-                  } else {
-                    await DownloadsService().getAvailabePhoneNumber().then((element) async {
-                      final String phoneNumber = element['data'][0];
-                      if (Platform.isAndroid) {
-                        final uri = 'sms:0804?body=$phoneNumber   ${moneyList[value]} ';
-                        await launchUrlString(uri);
-                      } else if (Platform.isIOS) {
-                        final uri = 'sms:0804&body=$phoneNumber   ${moneyList[value]} ';
-                        await launchUrlString(uri);
-                      }
-                    });
-                  }
-                },
-              );
+          GestureDetector(
+            onTap: () {
+              Get.to(() => AddMoneyPhone());
             },
+            child: AnimatedContainer(
+              decoration: BoxDecoration(borderRadius: CustomBorderRadius.normalBorderRadius, color: ColorConstants.primaryColor),
+              padding: EdgeInsets.symmetric(horizontal: 8),
+              width: Get.size.width,
+              duration: const Duration(milliseconds: 1000),
+              height: WidgetSizes.size80.value,
+              alignment: Alignment.center,
+              child: Text(
+                'payment'.tr,
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                style: context.general.textTheme.titleLarge!.copyWith(color: ColorConstants.whiteColor, fontWeight: FontWeight.w800),
+              ),
+            ),
           ),
           SizedBox(height: 10),
-          AgreeButton(
-            text: 'onlinePayment'.tr,
+          GestureDetector(
             onTap: () async {
               final token = await Auth().getToken();
               if (token == null || token == '') {
@@ -164,6 +124,20 @@ class _AddCashState extends State<AddCash> {
                 }
               }
             },
+            child: AnimatedContainer(
+              decoration: BoxDecoration(borderRadius: CustomBorderRadius.normalBorderRadius, color: ColorConstants.primaryColor),
+              padding: EdgeInsets.symmetric(horizontal: 8),
+              width: Get.size.width,
+              duration: const Duration(milliseconds: 1000),
+              height: WidgetSizes.size80.value,
+              alignment: Alignment.center,
+              child: Text(
+                'onlinePayment'.tr,
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                style: context.general.textTheme.titleLarge!.copyWith(color: ColorConstants.whiteColor, fontWeight: FontWeight.w800),
+              ),
+            ),
           ),
         ],
       ),

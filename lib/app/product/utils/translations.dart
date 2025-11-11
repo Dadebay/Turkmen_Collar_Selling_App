@@ -147,7 +147,7 @@ class MyTranslations extends Translations {
           'sendMoney': 'Pul geçir',
           'downloadedYakalar': 'Ýakalar ýüklenýär garaşyň...',
           'errorTitle': 'Ýalňyşlyk ýüze çykdy',
-          'addMoneyTitle': 'Töleg görnüşini saýläň !',
+          'addMoneyTitle': 'Tölegiñ görnüşini saýlaň !',
           'addMoneyTitle1': 'ÜNS BER !!!\n 20 manatdan az töleg geçirmek bolanok. 20 manatdan az geçiren tölegiňiz hasabyňyza geçmeýär',
           'addMoneySubTitle': 'Töleg mukdarynyň iň az möçberi 10 manat.\nÜns ber 10 manat-dan az mukdarda geçirmeli däldigini Size ýatlatýarys. ',
           'downloadedYAKA': 'Ýüklendi',
@@ -175,7 +175,7 @@ class MyTranslations extends Translations {
           'downloadSuccessSubtitle': 'Ỳaka ỳüklendi. Tikip başlamakañyz ýakany açyp barlap görüñ, kemçilik ýüze çyksa biziñ bilen habarlaşyñ.',
           'close': 'Ýap',
           'attention': 'Üns ber !!!',
-          'paymentWarning': '10 manatdan az töleg geçirmek bolanok. 10 manatdan az geçiren tölegiñiz hasabyñyza geçmeýär.',
+          'paymentWarning': '20 manatdan az töleg geçirmek bolanok. 20 manatdan az geçiren tölegiñiz hasabyñyza geçmeýär.',
           'ok': 'Bolýa',
         },
         'ru': {

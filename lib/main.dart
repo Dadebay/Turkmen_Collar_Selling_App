@@ -6,7 +6,6 @@ import 'package:yaka2/app/feature/auth/views/connection_check_view.dart';
 import 'package:yaka2/app/product/constants/string_constants.dart';
 import 'package:yaka2/app/product/constants/theme_contants.dart';
 import 'package:yaka2/app/product/initialize/app_start_init.dart';
-import 'package:yaka2/app/product/initialize/notification_service.dart';
 
 import 'app/product/utils/translations.dart';
 
@@ -24,14 +23,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final storage = GetStorage();
-  @override
-  void initState() {
-    super.initState();
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      FCMConfig().sendNotification(body: message.notification!.body!, title: message.notification!.title!);
-    });
-    AppStartInit.getNotification();
-  }
 
   @override
   Widget build(BuildContext context) {

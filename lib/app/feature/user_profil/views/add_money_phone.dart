@@ -90,10 +90,10 @@ class _AddMoneyPhoneState extends State<AddMoneyPhone> {
               ),
               children: [
                 TextSpan(
-                  text: 'Näme üçin 20 manatdan az töleg geçirmek bolanok - ',
+                  text: 'whyLessThan20Title'.tr,
                 ),
                 TextSpan(
-                  text: 'doly bilmek üçin basyň',
+                  text: 'whyLessThan20Subtitle'.tr,
                   style: TextStyle(
                     color: Colors.blue, // Burada Tap me kısmını mavi yapabilirsiniz
                     decoration: TextDecoration.underline, // Altı çizili yapmak isterseniz
@@ -102,8 +102,7 @@ class _AddMoneyPhoneState extends State<AddMoneyPhone> {
                     ..onTap = () {
                       Get.defaultDialog(
                         title: 'attention'.tr,
-                        middleText:
-                            'Gündelik kabul edilýän tölegleriñ sanynda çäklendirme barlygy sebäpli 20 manatdan az töleg geçirmek bolanok. Hasabyñyza 20 manat geçireniñizden soñ, 2 manatlyk zat satyn alsañyz  20-2=18    2 manadyñyz kemelýär, galan 18 manadyñyz siziñ hasabyñyzda durýar. Programmany pozup ýa-da telefony çalyşan ýagdaýyñyzda hem puluñyz ýitmeýär. Agza bolan telefon belgiñizi täzeden ýazyp girseñiz puluñyz programmañ içinde durýar.',
+                        middleText: 'whyLessThan20Info'.tr,
                         textConfirm: 'ok'.tr,
                         confirmTextColor: ColorConstants.whiteColor,
                         buttonColor: ColorConstants.primaryColor,
@@ -137,10 +136,10 @@ class _AddMoneyPhoneState extends State<AddMoneyPhone> {
                       ),
                       children: [
                         TextSpan(
-                          text: 'Bankomatdan-terminaldan töleg geçirmek ',
+                          text: 'paymentFromATM'.tr,
                         ),
                         TextSpan(
-                          text: 'bolanok XXXX',
+                          text: 'notPossible'.tr,
                           style: TextStyle(
                             color: Colors.red, // Burada Tap me kısmını mavi yapabilirsiniz
                             fontWeight: FontWeight.bold,
@@ -172,10 +171,10 @@ class _AddMoneyPhoneState extends State<AddMoneyPhone> {
                     ),
                     children: [
                       TextSpan(
-                        text: 'Töleg programmasyndan töleg geçirmek ',
+                        text: 'paymentFromApp'.tr,
                       ),
                       TextSpan(
-                        text: 'bolanok XXXX',
+                        text: 'notPossible'.tr,
                         style: TextStyle(
                           color: Colors.red, // Burada Tap me kısmını mavi yapabilirsiniz
                           fontWeight: FontWeight.bold,
@@ -199,10 +198,10 @@ class _AddMoneyPhoneState extends State<AddMoneyPhone> {
                 ),
                 children: [
                   TextSpan(
-                    text: 'Töleg geçirýän telefon belgiňize jaň etmek sms ýazmak ',
+                    text: 'callOrSmsNotPossible'.tr,
                   ),
                   TextSpan(
-                    text: 'bolanok XXXX',
+                    text: 'notPossible'.tr,
                     style: TextStyle(
                       color: Colors.red, // Burada Tap me kısmını mavi yapabilirsiniz
                       fontWeight: FontWeight.bold,
@@ -227,7 +226,7 @@ class _AddMoneyPhoneState extends State<AddMoneyPhone> {
                     ),
                     children: [
                       TextSpan(
-                        text: 'Habarlaşmak üçin  ',
+                        text: 'forContact'.tr,
                       ),
                       TextSpan(
                         text: userProfilController.phoneNumber.value,
@@ -242,7 +241,7 @@ class _AddMoneyPhoneState extends State<AddMoneyPhone> {
                         ),
                       ),
                       TextSpan(
-                        text: ' belgä jaň ediň ýada sms ýazyň.\nIş wagty ',
+                        text: 'callOrSmsToNumber'.tr,
                         style: TextStyle(
                           color: Colors.black, // Burada Tap me kısmını mavi yapabilirsiniz
                         ),
@@ -255,7 +254,7 @@ class _AddMoneyPhoneState extends State<AddMoneyPhone> {
                         ),
                       ),
                       TextSpan(
-                        text: ' aralyk',
+                        text: 'workingHoursInterval'.tr,
                         style: TextStyle(
                           color: Colors.black, // Burada Tap me kısmını mavi yapabilirsiniz
                         ),
@@ -268,38 +267,35 @@ class _AddMoneyPhoneState extends State<AddMoneyPhone> {
           ),
           Padding(
             padding: context.padding.verticalNormal,
-            child: SizedBox(
-              height: 50.0, // Yüksekliği ihtiyacınıza göre ayarlayabilirsiniz
-
-              child: ListView.builder(
-                shrinkWrap: true,
-                padding: EdgeInsets.zero,
-                scrollDirection: Axis.horizontal,
-                itemCount: moneyList.length,
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: () => setState(() => value = index),
-                    child: Row(
-                      children: [
-                        Radio<int>(
-                          value: index,
-                          groupValue: value,
-                          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          activeColor: ColorConstants.primaryColor,
-                          onChanged: (int? ind) => setState(() => value = ind!),
+            child: Wrap(
+              spacing: 8.0, // Yatay boşluk
+              runSpacing: 8.0, // Dikey boşluk (satırlar arası)
+              alignment: WrapAlignment.center,
+              children: List.generate(
+                moneyList.length,
+                (index) => InkWell(
+                  onTap: () => setState(() => value = index),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Radio<int>(
+                        value: index,
+                        groupValue: value,
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        activeColor: ColorConstants.primaryColor,
+                        onChanged: (int? ind) => setState(() => value = ind!),
+                      ),
+                      Text(
+                        '${moneyList[index]} TMT',
+                        style: const TextStyle(
+                          color: ColorConstants.blackColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
                         ),
-                        Text(
-                          '${moneyList[index]} TMT',
-                          style: const TextStyle(
-                            color: ColorConstants.blackColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ),
@@ -308,7 +304,7 @@ class _AddMoneyPhoneState extends State<AddMoneyPhone> {
             onTap: () async {
               Get.defaultDialog(
                 title: 'attention'.tr,
-                middleText: 'paymentWarning'.tr + '\n\n${number} belgiden töleg geçirmeli, basşga belgiden töleg geçirmek bolanok.',
+                middleText: 'paymentWarning'.tr + '\n\n' + 'paymentWarningExtra'.trParams({'number': number}),
                 textCancel: 'no'.tr,
                 textConfirm: 'ok'.tr,
                 confirmTextColor: ColorConstants.whiteColor,

@@ -7,6 +7,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'package:yaka2/app/feature/cart/services/downloads_service.dart';
 import 'package:yaka2/app/feature/home/controllers/balance_controller.dart';
 import 'package:yaka2/app/feature/user_profil/controllers/user_profil_controller.dart';
+import 'package:yaka2/app/feature/user_profil/views/add_money_card.dart';
 import 'package:yaka2/app/feature/user_profil/views/add_money_phone.dart';
 import 'package:yaka2/app/product/constants/index.dart';
 
@@ -102,27 +103,7 @@ class _AddCashState extends State<AddCash> {
           SizedBox(height: 10),
           GestureDetector(
             onTap: () async {
-              final token = await Auth().getToken();
-              if (token == null || token == '') {
-                showSnackBar('loginError', 'loginErrorSubtitle1', ColorConstants.redColor);
-                await Get.to(() => UserLoginView());
-              } else {
-                final formUrl = await userProfilController.sendTransactionSMS(
-                  sender: number,
-                  amount: moneyList[value].toString(),
-                );
-
-                if (formUrl != null) {
-                  await Get.to(
-                    () => OnlineAddMoneyToWallet(
-                      url: formUrl,
-                      amount: moneyList[value].toString(),
-                    ),
-                  );
-                } else {
-                  showSnackBar('Error', 'Unable to initiate payment', ColorConstants.redColor);
-                }
-              }
+              Get.to(() => AddMoneyCard());
             },
             child: AnimatedContainer(
               decoration: BoxDecoration(borderRadius: CustomBorderRadius.normalBorderRadius, color: ColorConstants.primaryColor),
@@ -168,6 +149,20 @@ class _OnlineAddMoneyToWalletState extends State<OnlineAddMoneyToWallet> {
 
     _controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setBackgroundColor(Colors.white)
+      ..setNavigationDelegate(
+        NavigationDelegate(
+          onPageFinished: (String url) {
+            // Viewport ayarlarını JavaScript ile ekle
+            _controller.runJavaScript('''
+              var meta = document.createElement('meta');
+              meta.name = 'viewport';
+              meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+              document.getElementsByTagName('head')[0].appendChild(meta);
+            ''');
+          },
+        ),
+      )
       ..loadRequest(Uri.parse(widget.url));
   }
 

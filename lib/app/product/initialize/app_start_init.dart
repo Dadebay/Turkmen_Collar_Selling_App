@@ -1,26 +1,18 @@
+import 'dart:developer';
+
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:yaka2/app/product/initialize/notification_service.dart';
+import 'package:yaka2/app/product/initialize/firebase_messaging_service.dart';
+import 'package:yaka2/app/product/initialize/local_notifications_service.dart';
 import 'package:yaka2/firebase_options.dart';
-
-Future<void> backgroundNotificationHandler(RemoteMessage message) async {
-  await FCMConfig().sendNotification(body: message.notification!.body!, title: message.notification!.title!);
-  return;
-}
 
 @immutable
 class AppStartInit {
   const AppStartInit._();
-
-  static Future<void> getNotification() async {
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      FCMConfig().sendNotification(body: message.notification!.body!, title: message.notification!.title!);
-    });
-  }
 
   static Future<void> init() async {
     WidgetsFlutterBinding.ensureInitialized();
@@ -28,8 +20,14 @@ class AppStartInit {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    await FCMConfig().requestPermission();
-    await FCMConfig().initAwesomeNotification();
+    log('[MAIN LOG] 4/9 - Firebase başarıyla başlatıldı.', name: 'AkbulutApp');
+
+    final localNotificationsService = LocalNotificationsService.instance();
+    await localNotificationsService.init();
+
+    final firebaseMessagingService = FirebaseMessagingService.instance();
+    await firebaseMessagingService.init(localNotificationsService: localNotificationsService);
+
     await FirebaseMessaging.instance.subscribeToTopic('EVENT');
     final FirebaseAnalytics analytics = FirebaseAnalytics.instance;
     await analytics.logEvent(
@@ -39,7 +37,6 @@ class AppStartInit {
         'timestamp': DateTime.now().toIso8601String(),
       },
     );
-    FirebaseMessaging.onBackgroundMessage(backgroundNotificationHandler);
     await SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,

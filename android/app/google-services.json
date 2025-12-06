@@ -12,20 +12,7 @@
           "package_name": "com.bilermennesil.yaka"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "670434597472-tctpm7l76a9k75pr16al8d70ecvf1irq.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.bilermennesil.yaka",
-            "certificate_hash": "6d0d738f468c3d6cfa97ad5d010940a63ac36575"
-          }
-        },
-        {
-          "client_id": "670434597472-2ujc41eiuq5erm080kt4g9nk5a0gknch.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyAi8Zbah0KcKl9t3oBJQd4tATW30myze4A"
@@ -33,15 +20,10 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "670434597472-2ujc41eiuq5erm080kt4g9nk5a0gknch.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
   ],
   "configuration_version": "1"
-} 
+}

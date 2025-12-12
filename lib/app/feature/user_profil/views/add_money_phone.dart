@@ -331,6 +331,7 @@ class _AddMoneyPhoneState extends State<AddMoneyPhone> {
               );
             },
           ),
+          SizedBox(height: 100),
         ],
       ),
     );

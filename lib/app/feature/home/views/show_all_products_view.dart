@@ -82,7 +82,7 @@ class _ShowAllProductsViewState extends State<ShowAllProductsView> {
           return Container(
             height: 70,
             child: ListView.builder(
-              physics: BouncingScrollPhysics(),
+              physics: ClampingScrollPhysics(),
               itemCount: snapshot.data!.length,
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               scrollDirection: Axis.horizontal,
@@ -156,7 +156,7 @@ class _ShowAllProductsViewState extends State<ShowAllProductsView> {
   Widget _buildGridView(List<ProductModel> list) {
     return GridView.builder(
       shrinkWrap: true,
-      physics: BouncingScrollPhysics(),
+      physics: AlwaysScrollableScrollPhysics(),
       itemCount: list.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,

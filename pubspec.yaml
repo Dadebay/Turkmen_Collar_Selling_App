@@ -29,7 +29,6 @@ dependencies:
   flutter_sms_inbox: ^1.0.3
   webview_flutter: ^4.0.0
 
-
   # Video_player
   chewie: ^1.7.0
   sms_autofill: ^2.4.0
@@ -50,7 +49,7 @@ dependencies:
 
   # Utils
   flutter_iconly:
-  kartal: ^4.1.0
+  kartal: ^4.0.0
   cupertino_icons:
   shimmer: ^3.0.0
 

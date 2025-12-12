@@ -245,9 +245,7 @@ class _BottomNavBarState extends State<BottomNavBar> with WidgetsBindingObserver
       messages = UpgraderMessagesRU();
     }
     return UpgradeAlert(
-      upgrader: Upgrader(
-        messages: messages,
-      ),
+      upgrader: Upgrader(messages: messages),
       dialogStyle: Platform.isAndroid ? UpgradeDialogStyle.material : UpgradeDialogStyle.cupertino,
       child: SafeArea(
         top: false,

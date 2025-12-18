@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:yaka2/app/feature/cart/services/downloads_service.dart';
 import 'package:yaka2/app/feature/home/controllers/balance_controller.dart';
+import 'package:yaka2/app/feature/payment/controllers/payment_status_controller.dart';
 import 'package:yaka2/app/feature/user_profil/controllers/user_profil_controller.dart';
 import 'package:yaka2/app/feature/user_profil/views/add_money_card.dart';
 import 'package:yaka2/app/feature/user_profil/views/add_money_phone.dart';
@@ -36,6 +37,7 @@ class _AddCashState extends State<AddCash> {
 
   List moneyList = [10, 20, 30, 40, 50];
   final UserProfilController userProfilController = Get.find();
+  final PaymentStatusController paymentStatusController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -81,45 +83,68 @@ class _AddCashState extends State<AddCash> {
               style: context.general.textTheme.titleLarge!.copyWith(color: ColorConstants.blackColor, fontSize: 25, fontWeight: FontWeight.bold),
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              Get.to(() => AddMoneyPhone());
-            },
-            child: AnimatedContainer(
-              decoration: BoxDecoration(borderRadius: CustomBorderRadius.normalBorderRadius, color: ColorConstants.primaryColor),
-              padding: EdgeInsets.symmetric(horizontal: 8),
-              width: Get.size.width,
-              duration: const Duration(milliseconds: 1000),
-              height: WidgetSizes.size80.value,
-              alignment: Alignment.center,
-              child: Text(
-                'payment'.tr,
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                style: context.general.textTheme.titleLarge!.copyWith(color: ColorConstants.whiteColor, fontWeight: FontWeight.w800),
-              ),
-            ),
-          ),
-          SizedBox(height: 10),
-          GestureDetector(
-            onTap: () async {
-              Get.to(() => AddMoneyCard());
-            },
-            child: AnimatedContainer(
-              decoration: BoxDecoration(borderRadius: CustomBorderRadius.normalBorderRadius, color: ColorConstants.primaryColor),
-              padding: EdgeInsets.symmetric(horizontal: 8),
-              width: Get.size.width,
-              duration: const Duration(milliseconds: 1000),
-              height: WidgetSizes.size80.value,
-              alignment: Alignment.center,
-              child: Text(
-                'onlinePayment'.tr,
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                style: context.general.textTheme.titleLarge!.copyWith(color: ColorConstants.whiteColor, fontWeight: FontWeight.w800),
-              ),
-            ),
-          ),
+          // Payment buttons - hidden if payment is disabled
+          Obx(() {
+            if (paymentStatusController.isPaymentDisabled.value) {
+              // Payment disabled - show message
+              return Padding(
+                padding: context.padding.normal,
+                child: Text(
+                  'Ödeme özellikleri şu anda devre dışı.',
+                  textAlign: TextAlign.center,
+                  style: context.general.textTheme.titleMedium!.copyWith(
+                    color: ColorConstants.greyColor,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              );
+            }
+
+            // Payment enabled - show buttons
+            return Column(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Get.to(() => AddMoneyPhone());
+                  },
+                  child: AnimatedContainer(
+                    decoration: BoxDecoration(borderRadius: CustomBorderRadius.normalBorderRadius, color: ColorConstants.primaryColor),
+                    padding: EdgeInsets.symmetric(horizontal: 8),
+                    width: Get.size.width,
+                    duration: const Duration(milliseconds: 1000),
+                    height: WidgetSizes.size80.value,
+                    alignment: Alignment.center,
+                    child: Text(
+                      'payment'.tr,
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
+                      style: context.general.textTheme.titleLarge!.copyWith(color: ColorConstants.whiteColor, fontWeight: FontWeight.w800),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10),
+                GestureDetector(
+                  onTap: () async {
+                    Get.to(() => AddMoneyCard());
+                  },
+                  child: AnimatedContainer(
+                    decoration: BoxDecoration(borderRadius: CustomBorderRadius.normalBorderRadius, color: ColorConstants.primaryColor),
+                    padding: EdgeInsets.symmetric(horizontal: 8),
+                    width: Get.size.width,
+                    duration: const Duration(milliseconds: 1000),
+                    height: WidgetSizes.size80.value,
+                    alignment: Alignment.center,
+                    child: Text(
+                      'onlinePayment'.tr,
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
+                      style: context.general.textTheme.titleLarge!.copyWith(color: ColorConstants.whiteColor, fontWeight: FontWeight.w800),
+                    ),
+                  ),
+                ),
+              ],
+            );
+          }),
         ],
       ),
     );

@@ -12,6 +12,7 @@ import 'package:yaka2/app/feature/cart/services/downloads_service.dart';
 import 'package:yaka2/app/feature/home/controllers/balance_controller.dart';
 import 'package:yaka2/app/feature/home/models/collar_model.dart';
 import 'package:yaka2/app/feature/home/services/collars_service.dart';
+import 'package:yaka2/app/feature/payment/controllers/payment_status_controller.dart';
 import 'package:yaka2/app/feature/product_profil/controllers/product_profil_controller.dart';
 import 'package:yaka2/app/feature/product_profil/views/photo_view.dart';
 import 'package:yaka2/app/product/constants/index.dart';
@@ -35,6 +36,7 @@ class DownloadYakaPage extends StatefulWidget {
 class _DownloadYakaPageState extends State<DownloadYakaPage> {
   final BalanceController homeController = Get.find();
   final ProductProfilController productProfilController = Get.put(ProductProfilController());
+  final PaymentStatusController paymentStatusController = Get.find();
   List<FilesModel> machineNameList = [];
 
   @override
@@ -173,11 +175,26 @@ class _DownloadYakaPageState extends State<DownloadYakaPage> {
     Get.back();
     DialogUtils.downloadDialog(context);
 
-    if (!machineNameList[index].purchased! && balance < machineNameList[index].price! / 100) {
-      print('❌ [DOWNLOAD] Insufficient balance');
-      Get.back();
-      showSnackBar('noMoney', 'noMoneySubtitle', ColorConstants.redColor);
-      return;
+    // Check payment status - if disabled, skip balance check and purchase flow
+    final bool isPaymentDisabled = paymentStatusController.isPaymentDisabled.value;
+
+    if (!isPaymentDisabled) {
+      // Payment enabled - check balance for unpurchased items
+      if (!machineNameList[index].purchased! && balance < machineNameList[index].price! / 100) {
+        print('❌ [DOWNLOAD] Insufficient balance');
+        Get.back();
+        showSnackBar('noMoney', 'noMoneySubtitle', ColorConstants.redColor);
+        return;
+      }
+    } else {
+      // Payment disabled - only allow downloading purchased items
+      if (!machineNameList[index].purchased!) {
+        print('❌ [DOWNLOAD] Payment disabled - only purchased items can be downloaded');
+        Get.back();
+        showSnackBar('errorTitle'.tr, 'Bu özellik şu anda kullanılamıyor.', ColorConstants.redColor);
+        return;
+      }
+      print('✅ [DOWNLOAD] Payment disabled but item is already purchased - allowing download');
     }
 
     print('🔵 [DOWNLOAD] Fetching download URLs from server...');
@@ -347,17 +364,21 @@ class _DownloadYakaPageState extends State<DownloadYakaPage> {
                 ),
               ),
             ),
-            machineNameList[index].purchased!
-                ? SizedBox.shrink()
-                : Expanded(
-                    flex: 3,
-                    child: CustomWidgets.showProductsPrice(
-                      context: context,
-                      color: machineNameList[index].purchased! ? ColorConstants.greenColor : ColorConstants.blackColor,
-                      makeBigger: false,
-                      price: machineNameList[index].price.toString(),
-                    ),
-                  ),
+            // Hide price if payment is disabled
+            Obx(() {
+              if (paymentStatusController.isPaymentDisabled.value || machineNameList[index].purchased!) {
+                return SizedBox.shrink();
+              }
+              return Expanded(
+                flex: 3,
+                child: CustomWidgets.showProductsPrice(
+                  context: context,
+                  color: ColorConstants.blackColor,
+                  makeBigger: false,
+                  price: machineNameList[index].price.toString(),
+                ),
+              );
+            }),
             _downloadButton(index, context),
           ],
         );

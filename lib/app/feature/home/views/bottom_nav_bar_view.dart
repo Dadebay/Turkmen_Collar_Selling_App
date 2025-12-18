@@ -12,6 +12,7 @@ import 'package:yaka2/app/feature/auth/models/auth_model.dart';
 import 'package:yaka2/app/feature/favorites/controllers/favorites_controller.dart';
 import 'package:yaka2/app/feature/home/controllers/balance_controller.dart';
 import 'package:yaka2/app/feature/home/views/instruction_page/instruction_page.dart';
+import 'package:yaka2/app/feature/payment/controllers/payment_status_controller.dart';
 import 'package:yaka2/app/feature/user_profil/controllers/user_profil_controller.dart';
 import 'package:yaka2/app/product/constants/index.dart';
 import 'package:yaka2/app/product/utils/custom_bottom_nav_extension.dart';
@@ -33,6 +34,7 @@ class _BottomNavBarState extends State<BottomNavBar> with WidgetsBindingObserver
   int selectedIndex = 0;
   List<TargetFocus> targets = [];
   final UserProfilController userProfilController = Get.put(UserProfilController());
+  final PaymentStatusController paymentStatusController = Get.put(PaymentStatusController());
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {

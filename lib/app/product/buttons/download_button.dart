@@ -2,7 +2,9 @@ import 'package:get/get.dart';
 import 'package:yaka2/app/feature/auth/services/auth_service.dart';
 import 'package:yaka2/app/feature/auth/views/user_login_view.dart';
 import 'package:yaka2/app/feature/home/models/product_model.dart';
+import 'package:yaka2/app/feature/payment/controllers/payment_status_controller.dart';
 import 'package:yaka2/app/feature/product_profil/views/download_yaka.dart';
+import 'package:yaka2/app/product/buttons/add_cart_button.dart';
 import 'package:yaka2/app/product/constants/index.dart';
 
 class DownloadButton extends StatelessWidget {
@@ -12,6 +14,18 @@ class DownloadButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Check payment status - if disabled, show AddCartButton instead
+    final paymentStatusController = Get.find<PaymentStatusController>();
+
+    if (paymentStatusController.isPaymentDisabled.value) {
+      // Payment disabled - show cart button (for Apple Store compliance)
+      return AddCartButton(
+        productModel: productModel,
+        productProfilDesign: makeBigger,
+      );
+    }
+
+    // Payment enabled - show download button
     return GestureDetector(
       onTap: () async {
         final token = await Auth().getToken();

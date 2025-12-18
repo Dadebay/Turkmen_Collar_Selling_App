@@ -29,80 +29,86 @@ class _OrderPageState extends State<OrderPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(title: 'orderProducts'.tr, showBackButton: true),
-      body: Form(
-        key: orderPage,
-        child: ListView(
-          padding: context.padding.normal,
-          children: [
-            textpart('userName', true),
-            CustomTextField(
-              labelName: 'userName',
-              controller: userNameController,
-              focusNode: orderUserName,
-              requestfocusNode: orderPhoneNumber,
-              isNumber: false,
-              maxline: 1,
-            ),
-            textpart('phoneNumber', false),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 15),
-              child: PhoneNumberTextField(
-                mineFocus: orderPhoneNumber,
-                controller: phoneController,
-                requestFocus: orderAdressFocusNode,
+    return SafeArea(
+      bottom: true,
+      top: false,
+      child: Scaffold(
+        appBar: CustomAppBar(title: 'orderProducts'.tr, showBackButton: true),
+        body: Form(
+          key: orderPage,
+          child: ListView(
+            padding: context.padding.normal,
+            children: [
+              textpart('userName', true),
+              CustomTextField(
+                labelName: 'userName',
+                controller: userNameController,
+                focusNode: orderUserName,
+                requestfocusNode: orderPhoneNumber,
+                isNumber: false,
+                maxline: 1,
               ),
-            ),
-            textpart('selectCityTitle', true),
-            selectCity(context),
-            textpart('orderAdress', false),
-            CustomTextField(
-              labelName: 'orderAdress',
-              controller: addressController,
-              focusNode: orderAdressFocusNode,
-              requestfocusNode: orderNote,
-              isNumber: false,
-              maxline: 4,
-            ),
-            textpart('note', false),
-            CustomTextField(
-              labelName: 'note',
-              controller: noteController,
-              focusNode: orderNote,
-              requestfocusNode: orderUserName,
-              isNumber: false,
-              maxline: 4,
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            Center(
-              child: AgreeButton(
-                onTap: () {
-                  final List list = [];
-                  if (orderPage.currentState!.validate()) {
-                    for (var element in cartController.cartList) {
-                      list.add({'id': element.id, 'quantity': element.quantity});
-                    }
-                    signInPageController.agreeButton.value = !signInPageController.agreeButton.value;
-                    OrderService().createOrder(products: list, note: noteController.text, customerName: userNameController.text, address: addressController.text, province: name, phone: phoneController.text).then((value) {
-                      if (value == true) {
-                        showSnackBar('copySucces', 'orderSubtitle', ColorConstants.greenColor);
-                        cartController.clearCart();
-                        Get.to(() => BottomNavBar());
-                      } else {
-                        showSnackBar('noConnection3', 'error', ColorConstants.redColor);
+              textpart('phoneNumber', false),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 15),
+                child: PhoneNumberTextField(
+                  mineFocus: orderPhoneNumber,
+                  controller: phoneController,
+                  requestFocus: orderAdressFocusNode,
+                ),
+              ),
+              textpart('selectCityTitle', true),
+              selectCity(context),
+              textpart('orderAdress', false),
+              CustomTextField(
+                labelName: 'orderAdress',
+                controller: addressController,
+                focusNode: orderAdressFocusNode,
+                requestfocusNode: orderNote,
+                isNumber: false,
+                maxline: 4,
+              ),
+              textpart('note', false),
+              CustomTextField(
+                labelName: 'note',
+                controller: noteController,
+                focusNode: orderNote,
+                requestfocusNode: orderUserName,
+                isNumber: false,
+                maxline: 4,
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              Center(
+                child: AgreeButton(
+                  onTap: () {
+                    final List list = [];
+                    if (orderPage.currentState!.validate()) {
+                      for (var element in cartController.cartList) {
+                        list.add({'id': element.id, 'quantity': element.quantity});
                       }
                       signInPageController.agreeButton.value = !signInPageController.agreeButton.value;
-                    });
-                  } else {
-                    showSnackBar('noConnection3', 'errorEmpty', ColorConstants.redColor);
-                  }
-                },
+                      OrderService()
+                          .createOrder(products: list, note: noteController.text, customerName: userNameController.text, address: addressController.text, province: name, phone: phoneController.text)
+                          .then((value) {
+                        if (value == true) {
+                          showSnackBar('copySucces', 'orderSubtitle', ColorConstants.greenColor);
+                          cartController.clearCart();
+                          Get.to(() => BottomNavBar());
+                        } else {
+                          showSnackBar('noConnection3', 'error', ColorConstants.redColor);
+                        }
+                        signInPageController.agreeButton.value = !signInPageController.agreeButton.value;
+                      });
+                    } else {
+                      showSnackBar('noConnection3', 'errorEmpty', ColorConstants.redColor);
+                    }
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

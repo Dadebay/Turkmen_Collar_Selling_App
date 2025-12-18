@@ -1,57 +1,66 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yaka2/app/feature/home/views/instruction_page/video_player_page.dart';
+import 'package:yaka2/app/feature/payment/controllers/payment_status_controller.dart';
 import 'package:yaka2/app/feature/product_profil/views/photo_view.dart';
 import 'package:yaka2/app/product/constants/index.dart';
 
 class InstructionPage extends StatelessWidget {
-  const InstructionPage({Key? key}) : super(key: key);
-  final List<Map<String, String>> videos = const [
+  InstructionPage({Key? key}) : super(key: key);
+  final List<Map<String, String>> videos1 = const [
     {'title': 'videoTitle1', 'path': 'assets/videos/1.mp4'},
     {'title': 'videoTitle2', 'path': 'assets/videos/2.mp4'},
     {'title': 'videoTitle4', 'path': 'assets/videos/3.mp4'},
     {'title': 'videoTitle3', 'path': 'assets/videos/4.mp4'},
   ];
-
+  final PaymentStatusController paymentStatusController = Get.find();
+  final List<Map<String, String>> videos2 = const [
+    {'title': 'videoTitle1', 'path': 'assets/videos/1.mp4'},
+    // {'title': 'videoTitle2', 'path': 'assets/videos/2.mp4'},
+    // {'title': 'videoTitle4', 'path': 'assets/videos/3.mp4'},
+    // {'title': 'videoTitle3', 'path': 'assets/videos/4.mp4'},
+  ];
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: CustomAppBar(title: 'insPage', showBackButton: true),
-        body: Column(
-          children: [
-            Container(
-              color: ColorConstants.primaryColor,
-              child: TabBar(
-                labelColor: ColorConstants.whiteColor,
-                indicatorColor: ColorConstants.whiteColor,
-                labelStyle: context.general.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold, fontSize: 20),
-                unselectedLabelStyle: context.general.textTheme.titleMedium!.copyWith(fontSize: 18),
-                dividerColor: ColorConstants.whiteColor,
-                unselectedLabelColor: ColorConstants.whiteColor.withOpacity(.8),
-                isScrollable: false,
-                tabs: [
-                  Tab(text: 'video_tabbar'.tr),
-                  Tab(text: 'image_tabbar'.tr),
-                ],
-              ),
-            ),
-            Expanded(
-              child: TabBarView(
+        body: paymentStatusController.isPaymentDisabled.value == true
+            ? _tabbarPage2(videos2)
+            : Column(
                 children: [
-                  _tabbarPage2(),
-                  _tabbarPage1(),
+                  Container(
+                    color: ColorConstants.primaryColor,
+                    child: TabBar(
+                      labelColor: ColorConstants.whiteColor,
+                      indicatorColor: ColorConstants.whiteColor,
+                      labelStyle: context.general.textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold, fontSize: 20),
+                      unselectedLabelStyle: context.general.textTheme.titleMedium!.copyWith(fontSize: 18),
+                      dividerColor: ColorConstants.whiteColor,
+                      unselectedLabelColor: ColorConstants.whiteColor.withOpacity(.8),
+                      isScrollable: false,
+                      tabs: [
+                        Tab(text: 'video_tabbar'.tr),
+                        Tab(text: 'image_tabbar'.tr),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: TabBarView(
+                      children: [
+                        _tabbarPage2(videos1),
+                        _tabbarPage1(),
+                      ],
+                    ),
+                  ),
                 ],
               ),
-            ),
-          ],
-        ),
       ),
     );
   }
 
-  ListView _tabbarPage2() {
+  ListView _tabbarPage2(List<Map<String, String>> videos) {
     return ListView.separated(
       itemCount: videos.length,
       itemBuilder: (context, index) {

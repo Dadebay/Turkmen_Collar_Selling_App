@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:yaka2/app/feature/home/controllers/balance_controller.dart';
+import 'package:yaka2/app/feature/payment/controllers/payment_status_controller.dart';
 import 'package:yaka2/app/feature/user_profil/views/add_money.dart';
 
 import '../constants/index.dart';
@@ -12,11 +13,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool? showWallet;
   final Widget? actionButton;
   final Widget? leadingButton;
+  final PaymentStatusController paymentStatusController = Get.put(PaymentStatusController());
 
   CustomAppBar({required this.title, required this.showBackButton, this.showWallet, this.leadingButton, this.actionButton});
   final BalanceController balanceController = Get.find();
   @override
   Widget build(BuildContext context) {
+    final bool isPaymentDisabled = paymentStatusController.isPaymentDisabled.value;
+
     return AppBar(
       automaticallyImplyLeading: false,
       backgroundColor: ColorConstants.primaryColor,
@@ -39,7 +43,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         style: context.general.textTheme.headlineMedium!.copyWith(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
       ),
       actions: [
-        showWallet == true ? _walletIcon(context) : SizedBox.shrink(),
+        showWallet == true
+            ? isPaymentDisabled == true
+                ? SizedBox.shrink()
+                : _walletIcon(context)
+            : SizedBox.shrink(),
         actionButton ?? const SizedBox.shrink(),
       ],
     );

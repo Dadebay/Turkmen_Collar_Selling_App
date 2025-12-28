@@ -34,11 +34,22 @@ class BalanceController extends GetxController {
       balance.value = '0';
       controller.userLogin.value = false;
     } else {
-      await AboutUsService().getuserData().then((value) {
-        balance.value = '${value.balance! / 100}';
-      });
-
-      controller.userLogin.value = true;
+      try {
+        await AboutUsService().getuserData().then((value) {
+          // Check if balance is not null before dividing
+          if (value.balance != null) {
+            balance.value = '${value.balance! / 100}';
+          } else {
+            balance.value = '0';
+          }
+        });
+        controller.userLogin.value = true;
+      } catch (e) {
+        // If there's any error, set balance to 0 and user as not logged in
+        balance.value = '0';
+        controller.userLogin.value = false;
+        print('Error getting user data: $e');
+      }
     }
   }
 }

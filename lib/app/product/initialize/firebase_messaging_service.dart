@@ -1,5 +1,7 @@
+import 'dart:convert';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:yaka2/app/product/initialize/local_notifications_service.dart';
+import 'package:yaka2/app/product/services/notification_deep_link_service.dart';
 
 class FirebaseMessagingService {
   // Private constructor for singleton pattern
@@ -78,25 +80,35 @@ class FirebaseMessagingService {
 
   /// Handles messages received while the app is in the foreground
   void _onForegroundMessage(RemoteMessage message) {
+    // Print detailed notification info
+    NotificationDeepLinkService.printNotificationDetails(
+      message.data,
+      title: message.notification?.title,
+      body: message.notification?.body,
+    );
+
     print('📱 FOREGROUND - Uygulama açıkken bildirim geldi');
-    print('Title: ${message.notification?.title}');
-    print('Body: ${message.notification?.body}');
-    print('Data: ${message.data.toString()}');
     final notificationData = message.notification;
     if (notificationData != null) {
       // Display a local notification using the service
-      _localNotificationsService?.showNotification(notificationData.title, notificationData.body, message.data.toString());
+      _localNotificationsService?.showNotification(notificationData.title, notificationData.body, json.encode(message.data));
       print('✅ Local notification gösterildi');
     }
   }
 
   /// Handles notification taps when app is opened from the background or terminated state
   void _onMessageOpenedApp(RemoteMessage message) {
+    // Print detailed notification info
+    NotificationDeepLinkService.printNotificationDetails(
+      message.data,
+      title: message.notification?.title,
+      body: message.notification?.body,
+    );
+
     print('👆 BİLDİRİME TIKLANDI - Uygulama bildirimden açıldı');
-    print('Title: ${message.notification?.title}');
-    print('Body: ${message.notification?.body}');
-    print('Data: ${message.data.toString()}');
-    // TODO: Add navigation or specific handling based on message data
+
+    // Handle deep links
+    NotificationDeepLinkService.handleNotificationData(message.data);
   }
 }
 
@@ -104,10 +116,14 @@ class FirebaseMessagingService {
 /// Handles messages when the app is fully terminated
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  // Print detailed notification info
+  NotificationDeepLinkService.printNotificationDetails(
+    message.data,
+    title: message.notification?.title,
+    body: message.notification?.body,
+  );
+
   print('🔔 BACKGROUND/TERMINATED - Uygulama kapalı/arka planda bildirim geldi');
-  print('Title: ${message.notification?.title}');
-  print('Body: ${message.notification?.body}');
-  print('Data: ${message.data.toString()}');
 
   // Initialize local notifications service to show notification
   final localNotificationsService = LocalNotificationsService.instance();
@@ -119,8 +135,11 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
     await localNotificationsService.showNotification(
       notificationData.title,
       notificationData.body,
-      message.data.toString(),
+      json.encode(message.data),
     );
     print('✅ Local notification gösterildi (background/terminated)');
   }
+
+  // Note: Deep link handling will be done when user taps the notification
+  // and the app opens via onMessageOpenedApp or getInitialMessage
 }

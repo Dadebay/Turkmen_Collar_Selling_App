@@ -78,10 +78,25 @@ class AboutUsService {
       },
     );
     if (response.statusCode == 200) {
-      final decoded = utf8.decode(response.bodyBytes);
-      final responseJson = json.decode(decoded);
-      return UserMeModel.fromJson(responseJson);
+      try {
+        final decoded = utf8.decode(response.bodyBytes);
+
+        // Check if response starts with HTML
+        if (decoded.trim().startsWith('<!DOCTYPE') || decoded.trim().startsWith('<html')) {
+          log('Error: API returned HTML instead of JSON. Response: ${decoded.substring(0, 100)}...');
+          return UserMeModel();
+        }
+
+        final responseJson = json.decode(decoded);
+        return UserMeModel.fromJson(responseJson);
+      } catch (e) {
+        log('Error parsing JSON in getuserData: $e');
+        log('Response body: ${response.body}');
+        return UserMeModel();
+      }
     } else {
+      log('API call failed with status code: ${response.statusCode}');
+      log('Response body: ${response.body}');
       return UserMeModel();
     }
   }

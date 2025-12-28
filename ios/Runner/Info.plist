@@ -56,5 +56,31 @@
 	<true/>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
+	
+	<!-- URL AÇMA İZİNLERİ - BU KISIM YENİ EKLENEN -->
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<!-- Web tarayıcıları için -->
+		<string>http</string>
+		<string>https</string>
+		
+		<!-- YouTube için -->
+		<string>youtube</string>
+		<string>vnd.youtube</string>
+		
+		<!-- Diğer popüler uygulamalar (ihtiyacınıza göre) -->
+		<string>googlechrome</string>
+		<string>firefox</string>
+		<string>safari</string>
+		
+		<!-- App Store -->
+		<string>itms-apps</string>
+		
+		<!-- Sosyal medya (gerekirse) -->
+		<string>instagram</string>
+		<string>fb</string>
+		<string>twitter</string>
+		<string>tiktok</string>
+	</array>
 </dict>
 </plist>

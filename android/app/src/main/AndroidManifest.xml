@@ -7,6 +7,26 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28"/>
+     <queries>
+        <!-- Browser intent -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="http" />
+        </intent>
+        
+        <!-- YouTube için özel -->
+        <package android:name="com.google.android.youtube" />
+        
+        <!-- Diğer yaygın tarayıcılar -->
+        <package android:name="com.android.chrome" />
+        <package android:name="com.android.browser" />
+    </queries>
     
     <application
         android:label="Ýaka"
@@ -14,7 +34,8 @@
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true"
         android:icon="@mipmap/ic_launcher"
-        android:networkSecurityConfig="@xml/network_security_config">
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:enableOnBackInvokedCallback="true">
                  <meta-data
             android:name="io.flutter.embedding.android.EnableImpeller"
             android:value="false" />

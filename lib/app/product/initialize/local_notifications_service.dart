@@ -1,4 +1,7 @@
+import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:yaka2/app/product/services/notification_deep_link_service.dart';
 
 class LocalNotificationsService {
   // Private constructor for singleton pattern
@@ -54,16 +57,38 @@ class LocalNotificationsService {
     );
 
     // Initialize plugin with settings and callback for notification taps
-    await _flutterLocalNotificationsPlugin.initialize(initializationSettings, onDidReceiveNotificationResponse: (NotificationResponse response) {
-      // Handle notification tap in foreground
-      print('Foreground notification has been tapped: ${response.payload}');
-    });
+    await _flutterLocalNotificationsPlugin.initialize(
+      initializationSettings,
+      onDidReceiveNotificationResponse: _onNotificationTapped,
+    );
 
     // Create Android notification channel
     await _flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()?.createNotificationChannel(_androidChannel);
 
     // Mark initialization as complete
     _isFlutterLocalNotificationInitialized = true;
+  }
+
+  /// Handle notification tap events
+  void _onNotificationTapped(NotificationResponse response) {
+    try {
+      log('🔔 Local notification tapped with payload: ${response.payload}');
+
+      if (response.payload != null && response.payload!.isNotEmpty) {
+        // Try to parse the payload as JSON
+        try {
+          final Map<String, dynamic> data = json.decode(response.payload!);
+
+          // Handle deep links from local notification tap
+          NotificationDeepLinkService.handleNotificationData(data);
+        } catch (e) {
+          log('❌ Error parsing notification payload as JSON: $e');
+          log('Raw payload: ${response.payload}');
+        }
+      }
+    } catch (e) {
+      log('❌ Error handling local notification tap: $e');
+    }
   }
 
   /// Show a local notification with the given title, body, and payload.

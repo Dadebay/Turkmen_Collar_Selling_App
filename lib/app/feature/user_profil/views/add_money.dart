@@ -84,67 +84,49 @@ class _AddCashState extends State<AddCash> {
             ),
           ),
           // Payment buttons - hidden if payment is disabled
-          Obx(() {
-            if (paymentStatusController.isPaymentDisabled.value) {
-              // Payment disabled - show message
-              return Padding(
-                padding: context.padding.normal,
-                child: Text(
-                  'Ödeme özellikleri şu anda devre dışı.',
-                  textAlign: TextAlign.center,
-                  style: context.general.textTheme.titleMedium!.copyWith(
-                    color: ColorConstants.greyColor,
-                    fontStyle: FontStyle.italic,
+          Column(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => AddMoneyPhone());
+                },
+                child: AnimatedContainer(
+                  decoration: BoxDecoration(borderRadius: CustomBorderRadius.normalBorderRadius, color: ColorConstants.primaryColor),
+                  padding: EdgeInsets.symmetric(horizontal: 8),
+                  width: Get.size.width,
+                  duration: const Duration(milliseconds: 1000),
+                  height: WidgetSizes.size80.value,
+                  alignment: Alignment.center,
+                  child: Text(
+                    'payment'.tr,
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                    style: context.general.textTheme.titleLarge!.copyWith(color: ColorConstants.whiteColor, fontWeight: FontWeight.w800),
                   ),
                 ),
-              );
-            }
-
-            // Payment enabled - show buttons
-            return Column(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Get.to(() => AddMoneyPhone());
-                  },
-                  child: AnimatedContainer(
-                    decoration: BoxDecoration(borderRadius: CustomBorderRadius.normalBorderRadius, color: ColorConstants.primaryColor),
-                    padding: EdgeInsets.symmetric(horizontal: 8),
-                    width: Get.size.width,
-                    duration: const Duration(milliseconds: 1000),
-                    height: WidgetSizes.size80.value,
-                    alignment: Alignment.center,
-                    child: Text(
-                      'payment'.tr,
-                      textAlign: TextAlign.center,
-                      overflow: TextOverflow.ellipsis,
-                      style: context.general.textTheme.titleLarge!.copyWith(color: ColorConstants.whiteColor, fontWeight: FontWeight.w800),
-                    ),
+              ),
+              SizedBox(height: 10),
+              GestureDetector(
+                onTap: () async {
+                  Get.to(() => AddMoneyCard());
+                },
+                child: AnimatedContainer(
+                  decoration: BoxDecoration(borderRadius: CustomBorderRadius.normalBorderRadius, color: ColorConstants.primaryColor),
+                  padding: EdgeInsets.symmetric(horizontal: 8),
+                  width: Get.size.width,
+                  duration: const Duration(milliseconds: 1000),
+                  height: WidgetSizes.size80.value,
+                  alignment: Alignment.center,
+                  child: Text(
+                    'onlinePayment'.tr,
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                    style: context.general.textTheme.titleLarge!.copyWith(color: ColorConstants.whiteColor, fontWeight: FontWeight.w800),
                   ),
                 ),
-                SizedBox(height: 10),
-                GestureDetector(
-                  onTap: () async {
-                    Get.to(() => AddMoneyCard());
-                  },
-                  child: AnimatedContainer(
-                    decoration: BoxDecoration(borderRadius: CustomBorderRadius.normalBorderRadius, color: ColorConstants.primaryColor),
-                    padding: EdgeInsets.symmetric(horizontal: 8),
-                    width: Get.size.width,
-                    duration: const Duration(milliseconds: 1000),
-                    height: WidgetSizes.size80.value,
-                    alignment: Alignment.center,
-                    child: Text(
-                      'onlinePayment'.tr,
-                      textAlign: TextAlign.center,
-                      overflow: TextOverflow.ellipsis,
-                      style: context.general.textTheme.titleLarge!.copyWith(color: ColorConstants.whiteColor, fontWeight: FontWeight.w800),
-                    ),
-                  ),
-                ),
-              ],
-            );
-          }),
+              ),
+            ],
+          )
         ],
       ),
     );
@@ -175,6 +157,7 @@ class _OnlineAddMoneyToWalletState extends State<OnlineAddMoneyToWallet> {
     _controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setBackgroundColor(Colors.white)
+      ..enableZoom(true)
       ..setNavigationDelegate(
         NavigationDelegate(
           onPageFinished: (String url) {
@@ -182,7 +165,7 @@ class _OnlineAddMoneyToWalletState extends State<OnlineAddMoneyToWallet> {
             _controller.runJavaScript('''
               var meta = document.createElement('meta');
               meta.name = 'viewport';
-              meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+              meta.content = 'width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=5.0, user-scalable=yes';
               document.getElementsByTagName('head')[0].appendChild(meta);
             ''');
           },

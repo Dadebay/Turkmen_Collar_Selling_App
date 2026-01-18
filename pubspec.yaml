@@ -27,7 +27,7 @@ dependencies:
   downloadsfolder: ^1.1.0
   vibration:
   flutter_sms_inbox: ^1.0.3
-  webview_flutter: ^4.0.0
+  webview_flutter: ^4.10.0
 
   # Video_player
   chewie: ^1.7.0

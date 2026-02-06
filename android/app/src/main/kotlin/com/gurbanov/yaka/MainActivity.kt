@@ -1,4 +1,4 @@
-package com.bilermennesil.yaka
+package com.gurbanov.yaka
 
 import android.os.Bundle
 import android.content.Context

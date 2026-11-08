@@ -12,8 +12,8 @@ class GlobalSafeAreaWrapper extends StatelessWidget {
   final bool right;
 
   const GlobalSafeAreaWrapper({
-    super.key,
     required this.child,
+    super.key,
     this.top = false,
     this.bottom = true,
     this.left = true,
@@ -35,13 +35,16 @@ class GlobalSafeAreaWrapper extends StatelessWidget {
   }
 
   SystemUiOverlayStyle _getSystemUiOverlayStyle(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.dark,
-      statusBarBrightness: Brightness.light,
-      systemNavigationBarColor: Colors.white,
-      systemNavigationBarIconBrightness: Brightness.dark,
-      systemNavigationBarContrastEnforced: false,
+      statusBarIconBrightness: isDark ? Brightness.light : Brightness.dark,
+      statusBarBrightness: isDark ? Brightness.dark : Brightness.light,
+      systemNavigationBarColor: Theme.of(context).scaffoldBackgroundColor,
+      systemNavigationBarIconBrightness: isDark
+          ? Brightness.light
+          : Brightness.dark,
+      systemNavigationBarContrastEnforced: true,
     );
   }
 }

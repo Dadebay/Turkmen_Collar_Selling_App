@@ -1,87 +1,89 @@
 name: yaka2
-version: 1.2.1+21
+version: 4.0.4+61
 publish_to: none
-description: A new Flutter project.
+description: YAKA marketplace for Turkmen embroidery patterns and sewing products.
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ">=3.13.0 <4.0.0"
 
 dependencies:
+  audioplayers: ^6.0.0
+  badges:
+  bloc: ^9.0.0
+  cached_network_image: ^4.0.4
+  carousel_slider: ^5.0.0
+  chewie: ^1.7.0
+  cupertino_icons:
+  dio: ^5.7.0
+  equatable: ^3.0.0
+  firebase_analytics: ^13.0.0
+  firebase_core: ^5.0.0
+  firebase_messaging: ^17.0.0
   flutter:
     sdk: flutter
-
-  # firebase - UPDATED
-  firebase_core: ^4.2.1
-  firebase_analytics: ^12.0.4
-  firebase_core_platform_interface: ^6.0.0
-  firebase_messaging: ^16.0.4
-  flutter_local_notifications: ^19.0.0
-  # Core
-  get: ^4.7.2
-  flutter_file_downloader: ^2.1.0
-  get_storage: ^2.1.1
-  path_provider: ^2.1.0
-  permission_handler: ^12.0.0+1
-  tutorial_coach_mark: ^1.3.0
-  # restart_app:
-  url_launcher:
-  downloadsfolder: ^1.1.0
-  vibration:
-  flutter_sms_inbox: ^1.0.3
-  webview_flutter: ^4.10.0
-  change_app_package_name: ^1.5.0
-
-  # Video_player
-  chewie: ^1.7.0
-  sms_autofill: ^2.4.0
-  video_player: ^2.7.2
-  upgrader: ^11.3.2
-
-  # UI - Animation
-  badges:
-  cached_network_image: ^3.2.3
-  carousel_slider: ^5.0.0
-  lottie:
-  photo_view:
-  pull_to_refresh:
-
-  # Networking
-  dio:
+  flutter_bloc: ^9.0.0
+  flutter_cache_manager: ^3.4.1
+  flutter_local_notifications: ^22.3.2
+  get_it: ^9.3.0
+  go_router: ^18.1.0
+  hive_flutter: ^1.1.0
   http:
-
-  # Utils
-  flutter_iconly:
-  kartal: ^4.0.0
-  cupertino_icons:
-  shimmer: ^3.0.0
+  hugeicons: ^1.2.0
+  image_picker: ^1.2.0
+  lottie:
+  media_kit: ^1.1.11
+  # iOS-only native decoders (Opus/OGG/WebM) for voice-message playback.
+  # Android keeps using audioplayers, so no Android media_kit libs are added.
+  media_kit_libs_ios_audio: ^1.1.4
+  package_info_plus: ^10.2.2
+  path_provider: ^2.1.0
+  permission_handler: ^13.0.2
+  photo_view:
+  pin_input_text_field: ^4.5.3
+  pull_to_refresh:
+  share_plus: ^13.3.1
+  shimmer: ^4.0.0
+  sms_autofill: ^2.4.0
+  socket_io_client: ^3.1.4
+  tutorial_coach_mark: ^1.3.0
+  upgrader: ^13.7.0
+  url_launcher:
+  video_player: ^2.7.2
+  video_thumbnail_plus: ^0.0.2
+  webview_flutter: ^4.10.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-#Lints
-very_good_analysis: ^7.0.0
-flutter_lints: ^4.0.0
+
+dependency_overrides:
+  firebase_analytics:
+    path: third_party/flutterfire/firebase_analytics
+  firebase_core:
+    path: third_party/flutterfire/firebase_core
+  video_thumbnail_plus:
+    path: third_party/video_thumbnail_plus
 
 flutter:
   assets:
-    - assets/fonts/
     - assets/icons/
     - assets/lottie/
     - assets/image/
-    - assets/videos/
-    - assets/image/instruction/
+    - assets/audio/
 
   fonts:
-    - family: PlusJakartaSans
+    - family: Gilroy
       fonts:
-        - asset: assets/fonts/PlusJakartaSans-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/PlusJakartaSans-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/PlusJakartaSans-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/PlusJakartaSans-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/PlusJakartaSans-Light.ttf
+        - asset: assets/fonts/Gilroy-Light.ttf
           weight: 300
+        - asset: assets/fonts/Gilroy-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Gilroy-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Gilroy-Semibold.ttf
+          weight: 600
+        - asset: assets/fonts/Gilroy-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Gilroy-Extrabold.ttf
+          weight: 800
 
   uses-material-design: true

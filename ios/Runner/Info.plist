@@ -26,8 +26,14 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<!-- App uses only standard HTTPS/TLS (exempt encryption) — avoids the
+	     manual export-compliance prompt on every TestFlight upload. -->
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Evinizin resimlerini eklemek için fotoğraf galerinize erişim gereklidir.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Search by image needs camera access to take a collar photo.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>

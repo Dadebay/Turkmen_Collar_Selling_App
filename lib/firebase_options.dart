@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAi8Zbah0KcKl9t3oBJQd4tATW30myze4A',
-    appId: '1:670434597472:android:e6802e0861a43be9c6c105',
+    appId: '1:670434597472:android:010b331776cc5229c6c105',
     messagingSenderId: '670434597472',
     projectId: 'yaka-42c8f',
     storageBucket: 'yaka-42c8f.firebasestorage.app',
@@ -65,5 +65,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'yaka-42c8f.firebasestorage.app',
     iosBundleId: 'com.bilermennesil.yaka',
   );
-
 }

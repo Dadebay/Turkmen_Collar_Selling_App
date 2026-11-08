@@ -12,7 +12,12 @@
           "package_name": "com.bilermennesil.yaka"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "670434597472-03fpj1d44qc2kh14lv6ajhuip8j8jc70.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAi8Zbah0KcKl9t3oBJQd4tATW30myze4A"
@@ -20,7 +25,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "670434597472-03fpj1d44qc2kh14lv6ajhuip8j8jc70.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     },
@@ -31,7 +41,12 @@
           "package_name": "com.gurbanov.yaka"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "670434597472-03fpj1d44qc2kh14lv6ajhuip8j8jc70.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAi8Zbah0KcKl9t3oBJQd4tATW30myze4A"
@@ -39,7 +54,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "670434597472-03fpj1d44qc2kh14lv6ajhuip8j8jc70.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

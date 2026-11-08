@@ -6,12 +6,25 @@ import FirebaseMessaging
 
 @main
 @objc class AppDelegate: FlutterAppDelegate {
+  // Strong reference — the bridge owns the USB MethodChannel handler and must
+  // outlive didFinishLaunching.
+  private var usbStorageBridge: UsbStorageBridge?
+
   override func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
       // Firebase'i yapılandır
       FirebaseApp.configure()
+
+      // USB / external-folder transfer bridge (com.example.usb_storage).
+      if let controller = window?.rootViewController as? FlutterViewController {
+          let usbChannel = FlutterMethodChannel(
+              name: "com.example.usb_storage",
+              binaryMessenger: controller.binaryMessenger)
+          usbStorageBridge = UsbStorageBridge(
+              channel: usbChannel, controller: controller)
+      }
       
       // Local notifications için callback
       FlutterLocalNotificationsPlugin.setPluginRegistrantCallback { (registry) in
